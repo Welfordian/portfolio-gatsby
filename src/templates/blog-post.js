@@ -3,15 +3,16 @@ import {Bounce} from "react-activity";
 import "react-activity/dist/Bounce.css";
 import axios from "axios";
 import Layout from "../components/Layout";
-import NotFoundPage from "../pages/404";
 import NotFound from "../components/NotFound";
+
+const isBrowser = typeof window !== "undefined"
 
 export default class BlogPostFull extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            slug: window.location.pathname.replace('/blog/',''),
+            slug: isBrowser ? window.location.pathname.replace('/blog/','') : null,
             post: false,
             gotError: false,
         }
