@@ -1,9 +1,7 @@
 import * as React from "react"
-import loadable from '@loadable/component'
-
-const Layout = loadable(() => import('../components/Layout'));
-const CaseStudies = loadable(() => import('../components/Home/CaseStudies'));
-const PersonalProjects = loadable(() => import('../components/Home/PersonalProjects'));
+import CaseStudies from "../components/Home/CaseStudies";
+import PersonalProjects from "../components/Home/PersonalProjects";
+import Layout from "../components/Layout";
 
 const IndexPage = () => (
     <Layout>
