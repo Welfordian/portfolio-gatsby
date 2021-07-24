@@ -8,18 +8,6 @@ import {connect} from "react-redux";
 
 const isBrowser = typeof window !== "undefined"
 
-const renderPost = (setState, posts) => {
-    const post = posts.filter(post => {
-        return post.slug === this.state.slug;
-    })[0] || {};
-
-    if (! post) {
-        setState({ post, gotError: true });
-    } else {
-        setState({ post });
-    }
-}
-
 class BlogPostFull extends React.Component {
     constructor(props) {
         super(props);
