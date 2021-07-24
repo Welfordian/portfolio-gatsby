@@ -19,7 +19,7 @@ export default class BlogPostFull extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://jwelford.test/api/v1/posts/' + this.state.slug).then(r => {
+        axios.get('http://api.welford.me/v1/posts/' + this.state.slug).then(r => {
 
             this.setState({ post: r.data });
         }).catch(() => {
