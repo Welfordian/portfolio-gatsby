@@ -4,20 +4,22 @@ import BlogPosts from "../components/Blog/BlogPosts";
 import "react-activity/dist/Bounce.css";
 import {Bounce} from "react-activity";
 import Layout from "../components/Layout";
+import {connect} from "react-redux";
 
-export default class Blog extends React.Component {
+class Blog extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            posts: []
-        }
     }
 
     componentDidMount() {
-        axios.get('https://api.welford.me/v1/posts').then(r => {
-            this.setState({ posts: r.data });
-        })
+        const {posts} = this.props;
+        const {blogPostsLoaded} = this.props;
+
+        if (! posts.length) {
+            axios.get('https://api.welford.me/v1/posts').then(r => {
+                blogPostsLoaded(r.data)
+            })
+        }
     }
 
     render () {
@@ -26,8 +28,8 @@ export default class Blog extends React.Component {
                 <p className="text-4xl mt-24">Blog Posts</p>
 
                 {
-                    this.state.posts.length
-                        ? <BlogPosts posts={this.state.posts} />
+                    this.props.posts.length
+                        ? <BlogPosts posts={this.props.posts} />
                         : <div className="flex justify-center mt-16">
                             <Bounce
                                 size={50}
@@ -38,3 +40,12 @@ export default class Blog extends React.Component {
         );
     }
 }
+
+const mapStateToProps = ({posts}) => {
+    return { posts }
+}
+const mapDispatchToProps = dispatch => {
+    return { blogPostsLoaded: (posts) => dispatch({ type: `BLOG_POSTS_LOADED`, posts }) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

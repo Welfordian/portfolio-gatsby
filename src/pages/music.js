@@ -4,20 +4,22 @@ import { Levels } from "react-activity";
 import "react-activity/dist/Levels.css";
 import Tracks from "../components/Music/Tracks";
 import Layout from "../components/Layout";
+import {connect} from "react-redux";
 
-export default class Music extends React.Component {
+class Music extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            tracks: []
-        }
     }
 
     componentDidMount() {
-        axios.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=welfordian&api_key=cd1a599104643eed3f309d8376b4740d&format=json&limit=23').then((r) => {
-            this.setState({ tracks: r.data.recenttracks.track});
-        })
+        const {tracks} = this.props;
+        const {lastFmTracksLoaded} = this.props;
+
+        if (! tracks.length) {
+            axios.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=welfordian&api_key=cd1a599104643eed3f309d8376b4740d&format=json&limit=23').then((r) => {
+                lastFmTracksLoaded(r.data.recenttracks.track);
+            });
+        }
     }
 
     render () {
@@ -26,8 +28,8 @@ export default class Music extends React.Component {
                 <p className="text-4xl mt-24">Recently Played</p>
 
                 {
-                    this.state.tracks.length
-                        ? <Tracks tracks={this.state.tracks} />
+                    this.props.tracks.length
+                        ? <Tracks tracks={this.props.tracks} />
                         : <div className="flex justify-center mt-16">
                             <Levels
                                 size={50}
@@ -38,3 +40,12 @@ export default class Music extends React.Component {
         );
     }
 }
+
+const mapStateToProps = ({tracks}) => {
+    return { tracks }
+}
+const mapDispatchToProps = dispatch => {
+    return { lastFmTracksLoaded: (tracks) => dispatch({ type: `LASTFM_TRACKS_LOADED`, tracks }) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Music);
