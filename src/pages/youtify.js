@@ -36,7 +36,7 @@ class Youtify extends React.Component {
                     // Display the login page
                     <div className="flex justify-center mt-12">
                         <SpotifyAuth
-                            redirectUri='https://welford.me/youtify/'
+                            redirectUri='http://localhost:8000/youtify'
                             clientID='6d08c3a931c74f95813b4f181ef0ad50'
                             scopes={[Scopes.userReadPrivate, 'user-read-email']}
                             title={"Connect to Spotify"}
