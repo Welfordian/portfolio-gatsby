@@ -48,10 +48,10 @@ class BlogPostFull extends React.Component {
 
             const post = posts.filter(post => {
                 return post.slug === this.state.slug;
-            })[0] || {};
+            })[0] || false;
 
             if (!post) {
-                this.setState({post, gotError: true});
+                this.setState({post: {}, gotError: true});
             } else {
                 this.setState({post});
             }
