@@ -31,9 +31,7 @@ class Music extends React.Component {
                     this.props.tracks.length
                         ? <Tracks tracks={this.props.tracks} />
                         : <div className="flex justify-center mt-16">
-                            <Levels
-                                size={50}
-                                speed={0.5}/>
+                            <Levels size={50} speed={0.5}/>
                         </div>
                 }
             </Layout>
