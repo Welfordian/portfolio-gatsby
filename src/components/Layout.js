@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import Tagline from "./Tagline";
 import Seo from "./seo";
+import SocialLinks from "./SocialLinks";
 
 export default class Layout extends React.Component {
     render() {
@@ -13,7 +14,7 @@ export default class Layout extends React.Component {
                     <Header />
 
                     <div className="flex flex-col justify-center mt-16">
-                        <Tagline />
+                        <SocialLinks />
 
                         <div className="m-4 p-4">
                             {this.props.children}

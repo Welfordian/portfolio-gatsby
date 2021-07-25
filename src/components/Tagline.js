@@ -29,13 +29,7 @@ export default class Tagline extends React.Component {
 
     render () {
         return (
-            <div className="flex flex-col items-center justify-center">
-                <h1 className="text-4xl">Joshua Welford</h1>
-                <p className="mt-4">Lead Technical Engineer at EMR4DW</p>
-                <div className="flex justify-center font-bold mt-8">
-                    <p className="skills-ticker text-3xl"><span className="dud">^</span>HP</p>
-                </div>
-            </div>
+            <p className="text-center mt-6 skills-ticker text-3xl"><span className="dud">^</span>HP</p>
         );
     }
 }
