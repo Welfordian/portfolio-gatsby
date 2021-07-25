@@ -8,15 +8,19 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-pre {
+.blog-content pre {
     padding: 1em;
     background-color: black;
     color: white;
     margin: 1em 0 1em 0;
 }
 
-code {
+.blog-content code {
     padding: .5em;
     background-color: black;
     color: white;
+}
+
+.blog-content p {
+    margin: 15px 0 15px 0;
 }

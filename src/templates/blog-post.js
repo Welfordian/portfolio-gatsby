@@ -24,8 +24,8 @@ class BlogPostFull extends React.Component {
         const {blogPostsLoaded} = this.props;
 
         if (! posts.length) {
-            axios.get('https://api.welford.me/v1/posts').then(r => {
-                blogPostsLoaded(r.data);
+            axios.get('https://wp.welford.me/wp-json/wp/v2/posts').then(r => {
+                blogPostsLoaded(r.data)
             })
         }
 
@@ -64,9 +64,9 @@ class BlogPostFull extends React.Component {
                 {
                     this.state.post
                         ? this.state.gotError ? <NotFound /> : <div>
-                                <p className="text-4xl mt-12">{ this.state.post.title }</p>
+                                <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: this.state.post.title.rendered }}></p>
 
-                                <div className="mt-12" dangerouslySetInnerHTML={{ __html: this.state.post.content }}></div>
+                                <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }}></div>
                             </div>
                         : <Bounce
                             size={50}

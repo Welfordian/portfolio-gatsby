@@ -16,7 +16,7 @@ class Blog extends React.Component {
         const {blogPostsLoaded} = this.props;
 
         if (! posts.length) {
-            axios.get('https://api.welford.me/v1/posts').then(r => {
+            axios.get('https://wp.welford.me/wp-json/wp/v2/posts').then(r => {
                 blogPostsLoaded(r.data)
             })
         }
