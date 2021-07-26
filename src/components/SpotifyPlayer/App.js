@@ -25,13 +25,7 @@ class App extends React.Component {
                             position: this.state.playerState.position + 300,
                         }
                     });
-
-                    console.log(this.state.playerState.position)
-                } else {
-                    console.log('Player paused')
                 }
-            } else {
-                console.log('No player')
             }
         }, 300);
     }
@@ -83,6 +77,9 @@ class App extends React.Component {
                     value={this.state.playerState.position}
                     onChange={this.updateSeekPosition.bind(this)}
                     className={`mt-8`}
+                    trackStyle={{backgroundColor: '#57B560'}}
+                    railStyle={{backgroundColor: 'gray'}}
+                    handleStyle={{backgroundColor: 'white', border: 'none'}}
                 />
 
                 <div className={`flex justify-center mt-8`}>
