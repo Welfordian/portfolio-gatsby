@@ -18,7 +18,7 @@ class BlogPostFull extends React.Component {
     render() {
         const postBySlug = graphql`
             query SinglePost {
-              wpPost(slug: {eq: "why-fetch-the-same-data-twice"}) {
+              wpPost(slug: {eq: "${this.state.slug}"}) {
                 title
                 content
               }
