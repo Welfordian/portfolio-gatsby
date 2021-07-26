@@ -25,8 +25,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-    console.log(result);
-
     const { allWpPost } = result.data
 
     allWpPost.edges.forEach(edge => {

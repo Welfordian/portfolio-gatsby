@@ -40,6 +40,14 @@ module.exports = {
          */
         url: `https://wp.welford.me/graphql`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        matomoUrl: 'https://matomo.welford.me',
+        siteUrl: 'https://welford.me'
+      }
     }
   ],
 }
