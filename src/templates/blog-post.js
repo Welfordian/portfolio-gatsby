@@ -2,38 +2,20 @@ import React from "react";
 import "react-activity/dist/Bounce.css";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
-import {graphql, StaticQuery} from "gatsby";
-
-const isBrowser = typeof window !== "undefined"
+import {graphql} from "gatsby";
+import PropTypes from "prop-types"
 
 class BlogPostFull extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            slug: isBrowser ? window.location.pathname.replace('/blog/','') : null,
-        }
-    }
-
     render() {
-        const postBySlug = graphql`
-            query SinglePost {
-              wpPost(slug: {eq: "${this.state.slug}"}) {
-                title
-                content
-              }
-            }
-        `
+        const post = this.props.data.wpPost
 
         return (
             <Layout>
-                <StaticQuery query={postBySlug} render={data => (
-                    <div>
-                        <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: data.wpPost.title }}></p>
+                <div>
+                    <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: post.title }}></p>
 
-                        <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: data.wpPost.content }}></div>
-                    </div>
-                )} />
+                    <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+                </div>
             </Layout>
         );
     }
@@ -49,4 +31,18 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+BlogPostFull.propTypes = {
+    data: PropTypes.object.isRequired,
+    edges: PropTypes.array,
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(BlogPostFull);
+
+export const postQuery = graphql`
+  query($id: String!) {
+    wpPost(id: { eq: $id }) {
+      title
+      content
+    }
+  }
+`
