@@ -83,7 +83,7 @@ class App extends React.Component {
                 />
 
                 <div className={`flex justify-center mt-8`}>
-                    <PlayerControls player={this.state.player} playerState={this.state.playerState} />
+                    <PlayerControls token={this.props.token} player={this.state.player} playerState={this.state.playerState} />
                 </div>
 
                 <Helmet>

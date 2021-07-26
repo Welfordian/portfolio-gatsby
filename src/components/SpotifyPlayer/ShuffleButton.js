@@ -1,10 +1,15 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRandom} from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 class ShuffleButton extends React.Component {
     toggleShuffle() {
-        // Do something
+        axios.put(`https://api.spotify.com/v1/me/player/shuffle?state=${!this.props.playerState.shuffle}`, {}, {
+            headers: {
+                Authorization: `Bearer ${this.props.token}`
+            }
+        })
     }
 
     render() {

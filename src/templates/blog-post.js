@@ -1,10 +1,8 @@
 import React from "react";
-import {Bounce} from "react-activity";
 import "react-activity/dist/Bounce.css";
-import axios from "axios";
 import Layout from "../components/Layout";
-import NotFound from "../components/NotFound";
 import {connect} from "react-redux";
+import {graphql, StaticQuery} from "gatsby";
 
 const isBrowser = typeof window !== "undefined"
 
@@ -14,65 +12,28 @@ class BlogPostFull extends React.Component {
 
         this.state = {
             slug: isBrowser ? window.location.pathname.replace('/blog/','') : null,
-            post: false,
-            gotError: false,
-        }
-    }
-
-    componentDidMount() {
-        let {posts} = this.props;
-        const {blogPostsLoaded} = this.props;
-
-        if (! posts.length) {
-            axios.get('https://wp.welford.me/wp-json/wp/v2/posts').then(r => {
-                blogPostsLoaded(r.data)
-            })
-        }
-
-        if (posts.length) {
-            const post = posts.filter(post => {
-                return post.slug === this.state.slug;
-            })[0] || {};
-
-            if (!post) {
-                this.setState({post, gotError: true});
-            } else {
-                this.setState({post});
-            }
-        }
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.posts.length === 0 && this.props.posts.length) {
-            const {posts} = this.props;
-
-            const post = posts.filter(post => {
-                return post.slug === this.state.slug;
-            })[0] || false;
-
-            if (!post) {
-                this.setState({post: {}, gotError: true});
-            } else {
-                this.setState({post});
-            }
         }
     }
 
     render() {
+        const postBySlug = graphql`
+            query SinglePost {
+              wpPost(slug: {eq: "why-fetch-the-same-data-twice"}) {
+                title
+                content
+              }
+            }
+        `
+
         return (
             <Layout>
-                {
-                    this.state.post
-                        ? this.state.gotError ? <NotFound /> : <div>
-                                <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: this.state.post.title.rendered }}></p>
+                <StaticQuery query={postBySlug} render={data => (
+                    <div>
+                        <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: data.wpPost.title }}></p>
 
-                                <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: this.state.post.content.rendered }}></div>
-                            </div>
-                        : <Bounce
-                            size={50}
-                            speed={0.5}/>
-
-                }
+                        <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: data.wpPost.content }}></div>
+                    </div>
+                )} />
             </Layout>
         );
     }

@@ -2,6 +2,11 @@ import React from "react";
 import BlogPostPreview from "./BlogPostPreview";
 
 export default class BlogPosts extends React.Component {
+    constructor(props) {
+        super(props);
+
+
+    }
     render () {
         return (
             <div>
@@ -10,8 +15,8 @@ export default class BlogPosts extends React.Component {
                         this.props.posts.map((post) => {
                             return (
                                 <BlogPostPreview
-                                    title={post.title.rendered}
-                                    intro={post.excerpt.rendered}
+                                    title={post.title}
+                                    intro={post.excerpt}
                                     slug={post.slug} />
                             );
                         })

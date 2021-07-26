@@ -9,8 +9,8 @@ class Player extends React.Component {
 
         this.state = {
             processedIndex: 0,
-            tracks: [],
-            videos: [],
+            tracks: this.props.tracks,
+            videos: this.props.videos,
             currentVideoIndex: 0,
             youtubeKey: 'AIzaSyC4WjANdTIMGi66InEakZ8r4_peB-VFJis'
         }

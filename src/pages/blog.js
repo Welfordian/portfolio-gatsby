@@ -1,41 +1,43 @@
 import React from "react";
-import axios from "axios";
 import BlogPosts from "../components/Blog/BlogPosts";
 import "react-activity/dist/Bounce.css";
-import {Bounce} from "react-activity";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
+import {graphql} from "gatsby";
+import {StaticQuery} from "gatsby";
 
 class Blog extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount() {
-        const {posts} = this.props;
+    render () {
         const {blogPostsLoaded} = this.props;
 
-        if (! posts.length) {
-            axios.get('https://wp.welford.me/wp-json/wp/v2/posts').then(r => {
-                blogPostsLoaded(r.data)
-            })
-        }
-    }
+        const allPostsQuery = graphql`
+            query AllPosts {
+              allWpPost {
+                nodes {
+                  content
+                  excerpt
+                  slug
+                  title
+                }
+              }
+            }
+        `
 
-    render () {
         return (
             <Layout>
                 <p className="text-4xl mt-24">Blog Posts</p>
 
-                {
-                    this.props.posts.length
-                        ? <BlogPosts posts={this.props.posts} />
-                        : <div className="flex justify-center mt-16">
-                            <Bounce
-                                size={50}
-                                speed={0.5}/>
-                        </div>
-                }
+                <StaticQuery query={allPostsQuery} render={data => {
+                    blogPostsLoaded(data.allWpPost.nodes)
+
+                    return (
+                        <BlogPosts posts={data.allWpPost.nodes} />
+                    )
+                }} />
             </Layout>
         );
     }

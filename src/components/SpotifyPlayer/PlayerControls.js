@@ -12,11 +12,11 @@ class PlayerControls extends React.Component {
     render () {
         return (
             <div>
-                <ShuffleButton player={this.props.player} playerState={this.props.playerState} />
+                <ShuffleButton token={this.props.token} player={this.props.player} playerState={this.props.playerState} />
                 <PreviousButton player={this.props.player} playerState={this.props.playerState} />
                 <PlayButton player={this.props.player} playerState={this.props.playerState} />
                 <NextButton player={this.props.player} playerState={this.props.playerState} />
-                <RepeatButton player={this.props.player} playerState={this.props.playerState} />
+                <RepeatButton token={this.props.token} player={this.props.player} playerState={this.props.playerState} />
                 <VolumeSlider player={this.props.player} playerState={this.props.playerState} />
             </div>
         )
