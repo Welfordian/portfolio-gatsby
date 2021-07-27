@@ -13,7 +13,7 @@ class SavePlaylist extends React.Component {
     }
 
     savePlaylist() {
-        axios.post('http://welford-api.test/v1/playlists', {
+        axios.post('https://api.welford.me/v1/playlists', {
             videos: this.props.videos,
             tracks: this.props.tracks
         }).then(r => {

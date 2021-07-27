@@ -37,7 +37,7 @@ class Player extends React.Component {
 
     determineSavedPlaylist() {
         if (this.props.slug.length > 0) {
-            axios.get(`http://welford-api.test/v1/playlists/${this.props.slug}`).then(r => {
+            axios.get(`https://api.welford.me/v1/playlists/${this.props.slug}`).then(r => {
                 this.setState({
                     tracks: r.data.tracks,
                     videos: r.data.videos,
