@@ -31,7 +31,7 @@ class Playlist extends React.Component {
                                             }
                                         </td>
                                         <td>
-                                            <div class={`flex flex-col`}>
+                                            <div className={`flex flex-col`}>
                                                 <p dangerouslySetInnerHTML={{ __html: track.track.name }}></p>
                                                 <p dangerouslySetInnerHTML={{ __html: track.track.name }}></p>
                                             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import YouTube from 'react-youtube';
 import Playlist from "./playlist";
+import SavePlaylist from "./SavePlaylist";
 
 class Player extends React.Component {
     constructor(props) {
@@ -12,22 +13,37 @@ class Player extends React.Component {
             tracks: this.props.tracks,
             videos: this.props.videos,
             currentVideoIndex: 0,
-            youtubeKey: 'AIzaSyC4WjANdTIMGi66InEakZ8r4_peB-VFJis'
+            youtubeKey: 'AIzaSyBk9VuTg7Ie4xIRwHonbV5oAzLu-lQFoD4'
         }
     }
 
     componentDidMount() {
-        axios.get(`https://api.spotify.com/v1/playlists/${this.props.playlist}`, {
-            headers: {
-                Authorization: 'Bearer ' + this.props.token
-            }
-        }).then(response => {
-            this.setState({
-                tracks: response.data.tracks.items
-            });
+        if (this.props.slug.length) {
+            this.determineSavedPlaylist()
+        } else {
+            axios.get(`https://api.spotify.com/v1/playlists/${this.props.playlist}`, {
+                headers: {
+                    Authorization: 'Bearer ' + this.props.token
+                }
+            }).then(response => {
+                this.setState({
+                    tracks: response.data.tracks.items
+                });
 
-            this.startProcessing();
-        });
+                this.startProcessing();
+            });
+        }
+    }
+
+    determineSavedPlaylist() {
+        if (this.props.slug.length > 0) {
+            axios.get(`http://welford-api.test/v1/playlists/${this.props.slug}`).then(r => {
+                this.setState({
+                    tracks: r.data.tracks,
+                    videos: r.data.videos,
+                });
+            })
+        }
     }
 
     startProcessing() {
@@ -89,6 +105,7 @@ class Player extends React.Component {
                                 <YouTube className={`w-full`} containerClassName={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
                                 <div className="flex justify-between mt-4">
                                     <button className={this.hasPreviousVideo() ? 'text-black' : 'text-gray-300'} onClick={this.previousVideo.bind(this)}>Previous</button>
+                                    <SavePlaylist videos={this.state.videos} tracks={this.state.tracks} isPlaylist={this.props.slug.length} />
                                     <button className={this.hasNextVideo() ? 'text-black' : 'text-gray-300'} onClick={this.nextVideo.bind(this)}>Next</button>
                                 </div>
                             </div>

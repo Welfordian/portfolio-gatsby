@@ -15,19 +15,6 @@ class App extends React.Component {
             tracks: [],
             videos: [],
         }
-
-        this.determineSavedPlaylist()
-    }
-
-    determineSavedPlaylist() {
-        if (this.state.slug.length > 0) {
-            axios.get(`http://welford-api.test/v1/playlists/${this.state.slug}`).then(r => {
-                this.setState({
-                    tracks: r.data.tracks,
-                    videos: r.data.videos,
-                })
-            })
-        }
     }
 
     render () {
@@ -35,7 +22,7 @@ class App extends React.Component {
             <div className={`mt-12`}>
                 {
                     this.state.playlist ?
-                        <Player playlist={this.state.playlist} tracks={this.state.tracks} videos={this.state.videos} token={this.props.token} preloaded={this.state.slug.length} /> :
+                        <Player playlist={this.state.playlist} tracks={this.state.tracks} videos={this.state.videos} token={this.props.token} slug={this.state.slug} /> :
                         <Search
                             onPlaylist={(playlist) => {this.setState({playlist})}}
                             playlist={this.state.playlist} />

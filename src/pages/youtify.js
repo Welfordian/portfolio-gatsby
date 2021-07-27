@@ -14,6 +14,7 @@ class Youtify extends React.Component {
 
         this.state = {
             token: Cookies.get('spotifyAuthToken'),
+            playlist: isBrowser ? (window.location.pathname.replace('/youtify/','').length > 0 ? window.location.pathname.replace('/youtify/','') : null) : null,
         }
     }
 
@@ -28,7 +29,7 @@ class Youtify extends React.Component {
     render () {
         return (
             <Layout>
-                {this.state.token ? (
+                {this.state.token || this.state.playlist ? (
                     <SpotifyApiContext.Provider value={this.state.token}>
                         <App token={this.state.token} />
                     </SpotifyApiContext.Provider>
