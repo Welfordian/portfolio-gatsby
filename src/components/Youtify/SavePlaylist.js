@@ -17,7 +17,9 @@ class SavePlaylist extends React.Component {
             videos: this.props.videos,
             tracks: this.props.tracks
         }).then(r => {
-            isBrowser ? window.history.pushState({}, "", `https://welford.me/youtify/${r.data.slug}`) : false
+            if (isBrowser) {
+                window.history.pushState({}, "", `https://welford.me/youtify/${r.data.slug}`)
+            }
 
             this.setState({
                 isPlaylist: true
