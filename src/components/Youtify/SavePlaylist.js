@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+const isBrowser = typeof window !== "undefined"
+
 class SavePlaylist extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ class SavePlaylist extends React.Component {
             videos: this.props.videos,
             tracks: this.props.tracks
         }).then(r => {
-            window.history.pushState({}, "", `https://welford.me/youtify/${r.data.slug}`);
+            isBrowser ? window.history.pushState({}, "", `https://welford.me/youtify/${r.data.slug}`) : false
 
             this.setState({
                 isPlaylist: true
