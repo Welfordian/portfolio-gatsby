@@ -13,7 +13,7 @@ class Player extends React.Component {
             tracks: this.props.tracks,
             videos: this.props.videos,
             currentVideoIndex: 0,
-            youtubeKey: 'AIzaSyBk9VuTg7Ie4xIRwHonbV5oAzLu-lQFoD4'
+            youtubeKey: 'AIzaSyBMDzO5UCJyXyo1FD1a4ShFeTY0M0UFnbA'
         }
     }
 
