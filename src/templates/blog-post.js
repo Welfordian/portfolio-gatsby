@@ -9,6 +9,8 @@ class BlogPostFull extends React.Component {
     render() {
         const post = this.props.data.wpPost
 
+        console.log(post);
+
         return (
             <Layout>
                 <div>
@@ -43,6 +45,11 @@ export const postQuery = graphql`
     wpPost(id: { eq: $id }) {
       title
       content
+      featuredImage {
+        node {
+            sourceUrl
+          }
+        }
     }
   }
 `

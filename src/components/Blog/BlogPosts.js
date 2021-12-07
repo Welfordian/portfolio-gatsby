@@ -7,7 +7,6 @@ export default class BlogPosts extends React.Component {
     }
 
     render () {
-        console.log(this.props.posts);
         return (
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 auto-rows-max mt-12">
@@ -17,7 +16,8 @@ export default class BlogPosts extends React.Component {
                                 <BlogPostPreview
                                     title={post.node.title}
                                     intro={post.node.excerpt}
-                                    slug={post.node.slug} />
+                                    slug={post.node.slug}
+                                    introImage={post.node.featuredImage.node.sourceUrl}/>
                             );
                         })
                     }

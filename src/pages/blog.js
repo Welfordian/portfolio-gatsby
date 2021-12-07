@@ -36,6 +36,11 @@ export const pageQuery = graphql`
           title
           excerpt
           slug
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
         }
       }
     }

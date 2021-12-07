@@ -6,6 +6,7 @@ export default class BlogPostPreview extends React.Component {
         return (
             <div className="flex flex-col justify-between bg-black text-white p-8">
                 <div>
+                    <img class={`mb-8`} src={this.props.introImage} />
                     <p className="font-bold text-xl mb-8" dangerouslySetInnerHTML={{ __html: this.props.title }}></p>
                     <p className="mt-2 text-justify" dangerouslySetInnerHTML={{ __html: this.props.intro }}></p>
                 </div>

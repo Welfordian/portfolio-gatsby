@@ -7,10 +7,6 @@ import Layout from "../components/Layout";
 import {connect} from "react-redux";
 
 class Music extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         const {tracks} = this.props;
         const {lastFmTracksLoaded} = this.props;
