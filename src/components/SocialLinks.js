@@ -9,6 +9,9 @@ class SocialLinks extends React.Component {
         return (
             <div className="flex flex-col justify-center mx-4 px-4">
                 <div className={`flex flex-col items-center justify-center`}>
+                    <a href="https://www.bbc.com/news/world-europe-60504334" target="_blank" rel="noopener">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/2560px-Flag_of_Ukraine.svg.png" className="w-36 mb-4" />
+                    </a>
                     <h1 className="text-4xl">Joshua Welford</h1>
                     <p className="mt-4">Lead Technical Engineer at EMR4DW</p>
                 </div>

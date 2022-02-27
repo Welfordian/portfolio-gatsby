@@ -5,7 +5,7 @@ export default class Header extends React.Component {
     render () {
         return (
             <nav className="flex items-center justify-center justify-between flex-wrap p-3 px-8 mt-8">
-                <div className="flex items-center justify-center mr-6 w-full md:w-auto">
+                <div className="flex flex-col items-center justify-center mr-6 w-full md:w-auto">
                     <p className="text-xl tracking-tight text-center">Josh Welford</p>
                 </div>
                 <div className="w-full block flex-grow flex items-center justify-center md:justify-none lg:w-auto">
