@@ -45,6 +45,7 @@
     "react-spotify-auth": "^1.3.4",
     "react-spotify-web-playback": "^0.8.2",
     "react-youtube": "^7.13.1",
+    "repeating": "^4.0.0",
     "rsuite": "^4.10.2",
     "tailwindcss": "^2.2.7"
   },
