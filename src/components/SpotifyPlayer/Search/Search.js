@@ -22,7 +22,7 @@ class Search extends React.Component {
                 <input value={this.state.searchText} type="text" className="bg-black text-white p-2 outline-none w-full pr-9" placeholder="Search..." onChange={e => this.setState({searchText: (e.target.value)})} onKeyUp={(e) => this.performSearch(e)} />
                 <FontAwesomeIcon icon={faSearch} className="absolute right-0 text-white mt-3 mr-3" />
                 
-                <div className={`absolute bg-gray-800 w-full px-2 py-3 text-white ${this.state.results.length ? '' : 'hidden'}`}>
+                <div className={`absolute bg-gray-900 w-full px-2 py-3 text-white ${this.state.results.length ? '' : 'hidden'}`}>
                     {
                         this.state.results.map((result, index) => {
                             return (
