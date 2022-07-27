@@ -14,6 +14,7 @@ export default class BlogPosts extends React.Component {
                         this.props.posts.map((post) => {
                             return (
                                 <BlogPostPreview
+                                    tags={post.node.tags.nodes}
                                     title={post.node.title}
                                     intro={post.node.excerpt}
                                     slug={post.node.slug}

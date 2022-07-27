@@ -14,6 +14,14 @@ const reducer = (state, action) => {
             tracks: action.tracks,
         }
     }
+    
+    if (action.type === "BLOG_TAGS_LOADED") {
+        console.log(action);
+        return {
+            ...state,
+            tags: action.tags
+        }
+    }
 
     return state
 }

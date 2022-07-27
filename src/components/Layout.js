@@ -11,10 +11,10 @@ export default class Layout extends React.Component {
                 <Seo title="Joshua Welford" />
 
                 <div className="container h-full mb-12">
-                    <Header />
+                    {this.props.hideHeader ? '' : <Header />}
 
                     <div className="flex flex-col justify-center mt-16">
-                        <SocialLinks />
+                        <SocialLinks hideSocial={this.props.hideSocial} />
 
                         <div className="m-4 p-4">
                             {this.props.children}

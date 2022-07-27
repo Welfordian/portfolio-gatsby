@@ -5,6 +5,8 @@ import "react-activity/dist/Levels.css";
 import Tracks from "../components/Music/Tracks";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
+import {faShare} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class Music extends React.Component {
     componentDidMount() {
