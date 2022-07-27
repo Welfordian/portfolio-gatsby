@@ -66,7 +66,10 @@ class App extends React.Component {
 
     render() {
         return (
-            'track_window' in this.state.playerState ? <div className={`flex items-center`}>
+            'track_window' in this.state.playerState ? <div className={`flex items-end flex-col`}>
+                <div className="px-3 py-2 bg-black text-white">
+                    <a href="https://github.com/Welfordian/portfolio-gatsby/tree/main/src/components/SpotifyPlayer" target="_blank" rel="noopener">Source</a>
+                </div>
                 <div className={`inline-flex flex-col justify-center bg-black p-8`}>
                     <PlayerImage player={this.state.player} playerState={this.state.playerState}/>
 
