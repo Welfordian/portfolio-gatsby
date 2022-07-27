@@ -17,10 +17,10 @@ export default class PersonalProjects extends React.Component {
                     ></PersonalProject>
 
                     <PersonalProject
-                        title="Excavator"
-                        description="Excavator is a CMS written in PHP using the Laravel framework. It allows for Laravel components to be created using a UI. Models, Middleware, etc... can all be controlled using the excavator UI. This is still extremely unstable but I work on it occasionally in my own time."
-                        tag="Laravel"
-                        to="https://github.com/welfordian/excavator"
+                        title="Spotify Player"
+                        description="Spotify Player was built using React & the Spotify Web SDK. It utilizes the Spotify Connect functionality to enable playback directly through the web whilst also allowing control through the mobile & desktop app."
+                        tag="React"
+                        to="https://welford.me/spotify-player"
                     ></PersonalProject>
 
                     <PersonalProject
