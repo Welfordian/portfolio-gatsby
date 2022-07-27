@@ -14,7 +14,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        globPatterns: ['*.html']
+        workboxConfig: {
+          globPatterns: ['*.html']
+        }
       }
     },
     {
