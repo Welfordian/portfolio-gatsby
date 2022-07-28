@@ -12,6 +12,8 @@ export default class NotFound extends React.Component {
                           className="border-2 px-8 py-3 border-black hover:bg-black hover:text-white mr-3">Home</Link>
                     <Link to="/music"
                           className="border-2 px-8 py-3 border-black hover:bg-black hover:text-white mr-3">Music</Link>
+                    <Link to="/resources"
+                          className="border-2 px-8 py-3 border-black hover:bg-black hover:text-white mr-3">Resources</Link>
                     <Link to="/blog"
                           className="border-2 px-8 py-3 border-black hover:bg-black hover:text-white mr-3">Blog</Link>
                 </div>

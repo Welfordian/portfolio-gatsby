@@ -14,6 +14,13 @@ const reducer = (state, action) => {
             tracks: action.tracks,
         }
     }
+
+    if (action.type === "BOOKMARKS_LOADED") {
+        return {
+            ...state,
+            bookmarks: action.bookmarks,
+        }
+    }
     
     if (action.type === "BLOG_TAGS_LOADED") {
         console.log(action);
@@ -26,7 +33,7 @@ const reducer = (state, action) => {
     return state
 }
 
-const initialState = { posts: [], tracks: [] }
+const initialState = { posts: [], tracks: [], bookmarks: {} }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
