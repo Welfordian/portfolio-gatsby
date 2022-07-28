@@ -24,3 +24,7 @@
 .blog-content p {
     margin: 15px 0 15px 0;
 }
+
+.marquee-container {
+    gap: 25px;
+}
