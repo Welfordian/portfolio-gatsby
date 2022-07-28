@@ -8,18 +8,19 @@ export default class Track extends React.Component {
         
         this.state = {
             isOverflowed: false,
+            playMarquee: true,
         }
     }
     
     render () {
         return (
-            <a target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: true})} onMouseLeave={() => this.setState({playMarquee: false})}>
+            <a target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
                 <div className="flex flex-col justify-between bg-black text-white p-8">
                     <div className="flex flex-col">
                             {
                                 this.state.isOverflowed
                                 ?
-                                    <Marquee className="font-bold text-xl mb-8 bg-black" gradient={false} speed={50}>{this.props.track.name}</Marquee>
+                                    <Marquee className="font-bold text-xl mb-8 bg-black" gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
                                 :
                                     <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
                                         <p className="font-bold text-xl mb-8 bg-black">{this.props.track.name}</p>
