@@ -17,8 +17,6 @@ export default class Track extends React.Component {
     }
     
     render () {
-        console.log(this.props.track);
-        
         return (
             <a className="relative w-full h-[450px] md:w-[450px] mb-5" target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
                 <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.image[3]['#text']}) no-repeat center center`, backgroundSize: "cover"}}>
