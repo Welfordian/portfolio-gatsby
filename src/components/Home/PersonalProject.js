@@ -1,4 +1,6 @@
 import React from "react";
+import {faLink} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default class PersonalProject extends React.Component {
     render () {
@@ -9,7 +11,7 @@ export default class PersonalProject extends React.Component {
                         <p className="font-bold text-2xl mb-8 flex justify-between">
                             <span>{this.props.title}</span>
                             <span>
-                                <img alt="link icon" loading="lazy" src="https://img.icons8.com/ios-glyphs/30/000000/link--v1.png" />
+                                <FontAwesomeIcon icon={faLink} />
                             </span>
                         </p>
                         <p className="mt-2 text-justify">

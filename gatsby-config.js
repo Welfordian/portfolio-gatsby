@@ -86,6 +86,14 @@ module.exports = {
         matomoUrl: 'https://matomo.welford.me',
         siteUrl: 'https://welford.me'
       }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /src\/images/
+        }
+      }
     }
   ],
 }
