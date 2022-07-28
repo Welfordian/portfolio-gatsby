@@ -1,6 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from 'react-detectable-overflow';
+import moment from "moment";
 
 export default class Track extends React.Component {
     constructor() {
@@ -13,34 +14,31 @@ export default class Track extends React.Component {
     }
     
     render () {
+        console.log(this.props.track);
+        
         return (
-            <a target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
-                <div className="flex flex-col justify-between bg-black text-white p-8">
-                    <div className="flex flex-col">
+            <a className="relative w-full h-[450px] md:w-[450px] mb-5" target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
+                <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.image[3]['#text']}) no-repeat center center`, backgroundSize: "cover"}}>
+                    <div className="font-bold text-xl px-4 py-6 text-center bg-black/[0.6]">
                             {
                                 this.state.isOverflowed
                                 ?
-                                    <Marquee className="font-bold text-xl mb-8 bg-black" gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
+                                    <Marquee gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
                                 :
                                     <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
-                                        <p className="font-bold text-xl mb-8 bg-black">{this.props.track.name}</p>
+                                        <p>{this.props.track.name}</p>
                                     </DetectableOverflow>
                             }
-                        
-                        <div className="flex justify-center">
-                            <img alt={this.props.track.name}
-                                 src={this.props.track.image[3]['#text']}
-                                 loading="lazy"
-                                 width="300"
-                                 height="300" />
-                        </div>
                     </div>
-                    <p className="mt-3 font-semibold text-gray-500">{this.props.track.artist['#text']}</p>
-                    {
-                        '@attr' in this.props.track
-                            ? <p className="mt-3 font-semibold text-gray-500">Listening Now</p>
-                            : <p className="mt-3 font-semibold text-gray-500">{this.props.track.date['#text']}</p>
-                    }
+                    
+                    <div className="flex flex-col px-4 py-6 bg-black/[0.6]">
+                        <p className="font-semibold">{this.props.track.artist['#text']}</p>
+                        {
+                            '@attr' in this.props.track
+                                ? <p className="mt-3 font-semibold">Listening Now</p>
+                                : <p className="mt-3 font-semibold">{moment.unix(this.props.track.date['uts']).fromNow(true)} ago</p>
+                        }
+                    </div>
                 </div>
             </a>
         );

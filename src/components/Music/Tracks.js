@@ -4,7 +4,7 @@ import Track from "./Track";
 export default class Tracks extends React.Component {
     render () {
         return (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 auto-rows-max mt-12">
+            <div className="flex flex-wrap justify-around pt-5">
                 {
                     this.props.tracks.map((track) => {
                         return (
