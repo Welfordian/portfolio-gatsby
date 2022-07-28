@@ -2,6 +2,9 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from 'react-detectable-overflow';
 import moment from "moment";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClock, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
+import {Levels} from "react-activity";
 
 export default class Track extends React.Component {
     constructor() {
@@ -32,11 +35,20 @@ export default class Track extends React.Component {
                     </div>
                     
                     <div className="flex flex-col px-4 py-6 bg-black/[0.6]">
-                        <p className="font-semibold">{this.props.track.artist['#text']}</p>
+                        <p className="font-semibold">
+                            <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
+                            {this.props.track.artist['#text']}
+                        </p>
                         {
                             '@attr' in this.props.track
-                                ? <p className="mt-3 font-semibold">Listening Now</p>
-                                : <p className="mt-3 font-semibold">{moment.unix(this.props.track.date['uts']).fromNow(true)} ago</p>
+                                ? <p className="mt-3 font-semibold flex items-end">
+                                    <Levels className="mr-4" />
+                                    Listening Now
+                                  </p>
+                                : <p className="mt-3 font-semibold">
+                                    <FontAwesomeIcon className="mr-4" icon={faClock} />
+                                    {moment.unix(this.props.track.date['uts']).fromNow(true)} ago
+                                  </p>
                         }
                     </div>
                 </div>
