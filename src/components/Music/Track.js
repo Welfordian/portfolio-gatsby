@@ -1,12 +1,31 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
+import DetectableOverflow from 'react-detectable-overflow';
 
 export default class Track extends React.Component {
+    constructor() {
+        super();
+        
+        this.state = {
+            isOverflowed: false,
+        }
+    }
+    
     render () {
         return (
-            <a target="_blank" rel="noopener" href={this.props.track.url}>
+            <a target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: true})} onMouseLeave={() => this.setState({playMarquee: false})}>
                 <div className="flex flex-col justify-between bg-black text-white p-8">
                     <div className="flex flex-col">
-                        <p className="font-bold text-xl mb-8">{this.props.track.name}</p>
+                            {
+                                this.state.isOverflowed
+                                ?
+                                    <Marquee className="font-bold text-xl mb-8 bg-black" gradient={false} speed={50}>{this.props.track.name}</Marquee>
+                                :
+                                    <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
+                                        <p className="font-bold text-xl mb-8 bg-black">{this.props.track.name}</p>
+                                    </DetectableOverflow>
+                            }
+                        
                         <div className="flex justify-center">
                             <img alt={this.props.track.name}
                                  src={this.props.track.image[3]['#text']}
