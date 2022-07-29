@@ -5,6 +5,7 @@ import "react-activity/dist/Levels.css";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
 import ResourcesContainer from "../components/Resources/ResourcesContainer";
+import {Helmet} from "react-helmet";
 
 class Resources extends React.Component {
     componentDidMount() {

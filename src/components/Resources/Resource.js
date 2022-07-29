@@ -12,8 +12,8 @@ export default class Resource extends React.Component {
         return (
             <a className="w-[524px] max-w-full cursor-pointer font-[Helvetica] block" target="_blank" rel="noopener" href={this.props.resource.url}>
                 <div className="w-[524px] max-w-full cursor-pointer font-[Helvetica]">
-                    <div className="h-[274px] border-[1px] border-b-0 border-[#dadde1] bg-cover bg-center bg-no-repeat"
-                         style={{backgroundImage: `url("${this.props.resource.openGraph.image ?? 'https://via.placeholder.com/525x275.png?text=NO%20IMAGE'}")`}}></div>
+                    <div className="h-[274px] border-[1px] border-b-0 border-[#dadde1] bg-cover bg-center bg-no-repeat lazy"
+                         data-bg={`${this.props.resource.openGraph.image ?? 'https://via.placeholder.com/525x275.png?text=NO%20IMAGE'}`}></div>
                     <div className="break-words border-[2px] border-gray-700 bg-black px-[12px] py-[10px] antialiased">
                         <div className="overflow-hidden truncate whitespace-nowrap text-[12px] uppercase leading-[11px] text-gray-500">
                             {this.getHostname(this.props.resource.url)}
