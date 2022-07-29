@@ -80,14 +80,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: '1',
-        matomoUrl: 'https://matomo.welford.me',
-        siteUrl: 'https://welford.me'
-      }
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
