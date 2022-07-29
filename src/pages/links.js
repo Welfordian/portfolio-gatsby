@@ -17,7 +17,7 @@ const LinksPage = () => (
             {/* GitHub */}
             <div className="w-full xl:w-1/3 flex flex-col mt-12">
                 <Link
-                    to="https://github.com/welfordian"
+                    to="https://link.welford.me/github"
                     icon={<GitHub />}
                 >
                     GitHub
@@ -25,7 +25,7 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://linkedin.com/in/welfordian"
+                    to="https://link.welford.me/linkedin"
                     icon={<LinkedIn />}
                 >
                     LinkedIn
@@ -33,7 +33,7 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://twitter.com/welfordian"
+                    to="https://link.welford.me/twitter"
                     icon={<Twitter />}
                 >
                     Twitter
@@ -41,7 +41,7 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://instagram.com/welfordian"
+                    to="https://link.welford.me/instagram"
                     icon={<Instagram />}
                 >
                     Instagram
@@ -49,7 +49,7 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://open.spotify.com/user/joshgbizit?si=8bf4915c2d3746d2"
+                    to="https://link.welford.me/spotify"
                     icon={<Spotify />}
                 >
                     Spotify
@@ -57,7 +57,7 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://last.fm/user/welfordian"
+                    to="https://link.welford.me/lastfm"
                     icon={<LastFM />}
                 >
                     LastFM
