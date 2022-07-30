@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from "./Header";
-import Tagline from "./Tagline";
 import Seo from "./seo";
 import SocialLinks from "./SocialLinks";
 

@@ -20,9 +20,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             slug
             featuredImage {
-                node {
+              node {
                 sourceUrl
-                }
+              }
             }
           }
         }

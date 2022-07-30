@@ -11,25 +11,25 @@ export default class Header extends React.Component {
                 <div className="w-full block flex-grow flex items-center justify-center md:justify-none lg:w-auto">
                     <div className="text-sm lg:flex-grow">
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex flex-wrap justify-center items-center">
                         <Link to="/"
-                              className="block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold">
                             Home
                         </Link>
                         <Link to="/music"
-                              className="ml-8 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
                             Music
                         </Link>
                         <Link to="/resources"
-                              className="ml-8 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
                             Resources
                         </Link>
                         <Link target="_blank" rel="noopener" to="https://resources.josh.workers.dev/resume"
-                              className="ml-8 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
                             Resume
                         </Link>
                         <Link to="/blog"
-                              className="ml-8 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                              className="block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Blog
                         </Link>
                     </div>
