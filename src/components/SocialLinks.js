@@ -14,7 +14,7 @@ class SocialLinks extends React.Component {
                 </div>
                 <Tagline />
                 {this.props.hideSocial ? '' : <div className="flex justify-center font-bold mt-8">
-                    <a href={`https://twitter.com/welfordian`} target={`_blank`} rel={`noopener`}>
+                    <a href={`https://link.welford.me/twitter`} target={`_blank`} rel={`noopener`}>
                         <div className={`border-4 border-black p-2 relative`}>
                             <div className={`absolute top-0 right-0 -mt-2 -mr-2 px-1 bg-white flex justify-center items-center`}>
                                 <FontAwesomeIcon className={`text-1xl`} icon={faShare} />
@@ -22,7 +22,7 @@ class SocialLinks extends React.Component {
                             <FontAwesomeIcon className={`text-3xl`} icon={faTwitter} />
                         </div>
                     </a>
-                    <a href={`https://github.com/welfordian`} target={`_blank`} rel={`noopener`}>
+                    <a href={`https://link.welford.me/github`} target={`_blank`} rel={`noopener`}>
                         <div className={`border-4 border-black p-2 ml-8 relative`}>
                             <div className={`absolute top-0 right-0 -mt-2 -mr-2 px-1 bg-white flex justify-center items-center`}>
                                 <FontAwesomeIcon className={`text-1xl`} icon={faShare} />
@@ -31,7 +31,7 @@ class SocialLinks extends React.Component {
                         </div>
                     </a>
 
-                    <a href={`https://linkedin.com/in/welfordian`} target={`_blank`} rel={`noopener`}>
+                    <a href={`https://link.welford.me/linkedin`} target={`_blank`} rel={`noopener`}>
                         <div className={`border-4 border-black p-2 ml-8 relative`}>
                             <div className={`absolute top-0 right-0 -mt-2 -mr-2 px-1 bg-white flex justify-center items-center`}>
                                 <FontAwesomeIcon className={`text-1xl`} icon={faShare} />
