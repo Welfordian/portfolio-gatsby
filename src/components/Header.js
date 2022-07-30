@@ -13,19 +13,19 @@ export default class Header extends React.Component {
                     </div>
                     <div className="flex flex-wrap justify-center items-center">
                         <Link to="/"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold">
                             Home
                         </Link>
                         <Link to="/music"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Music
                         </Link>
                         <Link to="/resources"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Resources
                         </Link>
                         <Link target="_blank" rel="noopener" to="https://resources.josh.workers.dev/resume"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black mr-4 font-bold relative">
+                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Resume
                         </Link>
                         <Link to="/blog"
