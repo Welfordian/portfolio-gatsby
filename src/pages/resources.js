@@ -13,8 +13,8 @@ class Resources extends React.Component {
         const {bookmarksLoaded} = this.props;
 
         if (! bookmarks.length) {
-            axios.get('https://api.welford.me/v1/bookmarks').then((r) => {
-                bookmarksLoaded(r.data.bookmarks);
+            axios.get('https://resources.josh.workers.dev/').then((r) => {
+                bookmarksLoaded(r.data);
             });
         }
     }

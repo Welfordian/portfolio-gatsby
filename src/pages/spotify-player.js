@@ -1,7 +1,6 @@
 import React from 'react'
 import { SpotifyApiContext } from 'react-spotify-api'
 import Cookies from 'js-cookie'
-
 import { SpotifyAuth, Scopes } from 'react-spotify-auth'
 import Layout from "../components/Layout";
 import App from "../components/SpotifyPlayer/App";

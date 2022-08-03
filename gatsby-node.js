@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
     const { allWpPost } = result.data
-
+    
     allWpPost.edges.forEach(edge => {
         createPage({
             path: `/blog/${edge.node.slug}/`,

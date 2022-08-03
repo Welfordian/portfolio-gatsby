@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   flags: {
     DEV_SSR: false
@@ -77,6 +81,10 @@ module.exports = {
          * Example : 'https://www.example-site.com/graphql'
          */
         url: `https://wp.welford.me/graphql`,
+        auth: {
+          jwt_user: process.env.JWT_USER,
+          jwt_pass: process.env.JWT_PASSWORD,
+        }
       },
     },
     {

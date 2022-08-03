@@ -15,9 +15,9 @@ export default class CaseStudies extends React.Component {
                     
                     <CaseStudy
                         inverted
-                        name="EMR4DW"
-                        description="EMR4DW (Electronic Medical Records for the Developing World) approached me for a complete rebuild of their patient medical records system. Using Laravel, I rebuilt this from scratch and it is now used in clinics in numerous countries and integrates directly into any Ministry/Department of Health that uses DHIS2."
-                        length="Jan 2019 - Jan 2022"
+                        name="[Removed]"
+                        description="[Removed]"
+                        length="[Removed]"
                     ></CaseStudy>
 
                     <CaseStudy
