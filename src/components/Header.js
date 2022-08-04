@@ -24,10 +24,10 @@ export default class Header extends React.Component {
                               className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Resources
                         </Link>
-                        <Link target="_blank" rel="noopener" to="https://resources.josh.workers.dev/resume"
+                        <a target="_blank" rel="noopener" href="https://resources.josh.workers.dev/resume"
                               className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Resume
-                        </Link>
+                        </a>
                         <Link to="/blog"
                               className="block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Blog
