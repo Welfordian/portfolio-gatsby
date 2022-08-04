@@ -8,11 +8,12 @@ class SocialLinks extends React.Component {
     render() {
         return (
             <div className="flex flex-col justify-center mx-4 px-4">
-                <div className={`flex flex-col items-center justify-center`}>
+                {this.props.hideTagline ? '' : <div className={`flex flex-col items-center justify-center`}>
                     <h1 className="text-4xl">Joshua Welford</h1>
-                    <p className="mt-4">Lead Technical Engineer at EMR4DW</p>
-                </div>
-                <Tagline />
+                    <p className="mt-4">Software Engineer</p>
+
+                    <Tagline />
+                </div>}
                 {this.props.hideSocial ? '' : <div className="flex justify-center font-bold mt-8">
                     <a href={`https://link.welford.me/twitter`} target={`_blank`} rel={`noopener`}>
                         <div className={`border-4 border-black p-2 relative`}>
