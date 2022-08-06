@@ -7,7 +7,7 @@ export const getUser = () =>
         ? JSON.parse(window.localStorage.getItem("gatsbyUser"))
         : {}
 
-const setUser = user => window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
+const setUser = user => isBrowser() ? window.localStorage.setItem("gatsbyUser", JSON.stringify(user)) : null
 
 export const handleLogin = ({ username, password }) => {
     return new Promise(async (resolve, reject) => {
