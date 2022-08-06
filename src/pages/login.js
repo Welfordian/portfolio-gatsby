@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { handleLogin, isLoggedIn } from "../services/auth"
+import {handleLogin, isBrowser, isLoggedIn} from "../services/auth"
 import Layout from "../components/Layout";
 import Notification from "../components/Notification";
 
@@ -26,7 +26,7 @@ class Login extends React.Component {
         event.preventDefault()
 
         handleLogin(this.state).then(r => {
-            navigate(`/dashboard/`)
+            isBrowser() && navigate(`/dashboard/`)
         }).catch(r => {
             this.setState({
                 username: '',
@@ -38,7 +38,7 @@ class Login extends React.Component {
     }
     render() {
         if (isLoggedIn()) {
-            navigate(`/dashboard/`)
+            isBrowser && navigate(`/dashboard/`)
         }
 
         return (

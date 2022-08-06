@@ -1,5 +1,5 @@
 import React from 'react';
-import { isLoggedIn } from "../../services/auth";
+import {isBrowser, isLoggedIn} from "../../services/auth";
 import { navigate } from "gatsby"
 import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/Dashboard/Layout";
@@ -13,7 +13,7 @@ class DashboardIndex extends React.Component {
         }
         
         if (! this.state.isLoggedIn) {
-            navigate('/login');
+            isBrowser && navigate('/login');
         }
     }
 

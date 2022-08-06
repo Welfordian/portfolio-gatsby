@@ -2,6 +2,7 @@ import * as React from "react"
 import { navigate } from 'gatsby';
 import Layout from "../components/Layout";
 import Modal from "../components/Modal";
+import {isBrowser} from "../services/auth";
 
 class WatchTogether extends React.Component {
     constructor() {
@@ -24,7 +25,7 @@ class WatchTogether extends React.Component {
     }
     
     createRoom() {
-        navigate(`/watch-together/${this.uuidv4()}`);
+        isBrowser && navigate(`/watch-together/${this.uuidv4()}`);
     }
     
     render() {
