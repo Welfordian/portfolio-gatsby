@@ -35,7 +35,7 @@ export default class BlogTags extends React.Component {
                 {
                     this.props.tags.length
                     ? 
-                    <div className={`flex mt-12 gap-4`}>
+                    <div className={`flex mt-12 gap-4 flex-wrap`}>
                         {
                             this.props.tags.map((tag) => {
                                 let tagClass = 'bg-gray-500';

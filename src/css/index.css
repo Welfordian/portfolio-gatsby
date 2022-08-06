@@ -28,3 +28,11 @@
 .marquee-container {
     gap: 25px;
 }
+
+html.watch-together, html.watch-together body, html.watch-together #___gatsby, html.watch-together #___gatsby #gatsby-focus-wrapper {
+    height: 100%;
+}
+
+html.dashboard-layout, html.dashboard-layout body, html.dashboard-layout #___gatsby, html.dashboard-layout #___gatsby #gatsby-focus-wrapper {
+    height: 100%;
+}

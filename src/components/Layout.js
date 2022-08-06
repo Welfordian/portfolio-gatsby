@@ -9,13 +9,13 @@ export default class Layout extends React.Component {
             <div className="flex justify-center h-full">
                 <Seo title="Joshua Welford" />
 
-                <div className="container h-full mb-12">
+                <div className="container h-full mb-12 flex flex-col">
                     {this.props.hideHeader ? '' : <Header />}
 
-                    <div className="flex flex-col justify-center mt-16">
+                    <div className="flex flex-col mt-16 grow">
                         <SocialLinks hideTagline={this.props.hideTagline} hideSocial={this.props.hideSocial} />
 
-                        <div className="m-4 p-4">
+                        <div className="m-4 p-4 grow flex flex-col">
                             {this.props.children}
                         </div>
                     </div>

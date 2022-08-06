@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "gatsby";
+import { isLoggedIn, logout } from "../services/auth";
 
 export default class Header extends React.Component {
     render () {
@@ -32,6 +33,23 @@ export default class Header extends React.Component {
                               className="block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
                             Blog
                         </Link>
+                        {
+                            isLoggedIn()
+                            ?
+                                <>
+                                    <Link to="/dashboard/"
+                                       className="cursor-pointer ml-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                                        Dashboard
+                                    </Link>
+
+                                    <a onClick={() => { logout() }}
+                                       className="cursor-pointer ml-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                                        Logout
+                                    </a>
+                                </>
+                            :
+                                <></>
+                        }
                     </div>
                 </div>
             </nav>
