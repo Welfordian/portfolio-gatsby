@@ -26,7 +26,7 @@ class Login extends React.Component {
         event.preventDefault()
 
         handleLogin(this.state).then(r => {
-            isBrowser() && navigate(`/dashboard/`)
+            isBrowser() && (window.location.href = '/dashboard/')
         }).catch(r => {
             this.setState({
                 username: '',
@@ -38,7 +38,7 @@ class Login extends React.Component {
     }
     render() {
         if (isLoggedIn()) {
-            isBrowser && navigate(`/dashboard/`)
+            isBrowser && (window.location.href = '/dashboard/')
         }
 
         return (

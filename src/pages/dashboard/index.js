@@ -13,7 +13,7 @@ class DashboardIndex extends React.Component {
         }
         
         if (! this.state.isLoggedIn) {
-            isBrowser && navigate('/login');
+            isBrowser && (window.location.hrfe = '/login')
         }
     }
 

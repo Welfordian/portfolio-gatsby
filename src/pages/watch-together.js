@@ -12,7 +12,7 @@ class WatchTogether extends React.Component {
             roomId: "",
             modalOpen: false,
             modalButtons: [
-                <button className="bg-black text-white px-3 py-4 w-36" onClick={() => navigate(`/watch-together/${this.state.roomId}`)}>Join Room</button>,
+                <button className="bg-black text-white px-3 py-4 w-36" onClick={() => isBrowser() && (window.location.href =`/watch-together/${this.state.roomId}`)}>Join Room</button>,
                 <button className="bg-black text-white px-3 py-4 w-36" onClick={() => this.setState({modalOpen: false})}>Cancel</button>
             ]
         }
@@ -25,7 +25,7 @@ class WatchTogether extends React.Component {
     }
     
     createRoom() {
-        isBrowser && navigate(`/watch-together/${this.uuidv4()}`);
+        isBrowser && (window.location.href = `/watch-together/${this.uuidv4()}`);
     }
     
     render() {

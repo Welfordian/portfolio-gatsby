@@ -1,4 +1,4 @@
-import { navigate } from "gatsby"
+import React from 'react';
 
 export const isBrowser = () => typeof window !== "undefined"
 
@@ -38,5 +38,5 @@ export const isLoggedIn = () => {
 
 export const logout = callback => {
     setUser({})
-    isBrowser && navigate('/login');
+    isBrowser && (window.location.href = '/login');
 }
