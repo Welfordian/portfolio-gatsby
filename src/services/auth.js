@@ -38,5 +38,5 @@ export const isLoggedIn = () => {
 
 export const logout = callback => {
     setUser({})
-    isBrowser && (window.location.href = '/login');
+    isBrowser() && (window.location.href = '/login');
 }

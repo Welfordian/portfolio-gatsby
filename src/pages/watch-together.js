@@ -25,7 +25,7 @@ class WatchTogether extends React.Component {
     }
     
     createRoom() {
-        isBrowser && (window.location.href = `/watch-together/${this.uuidv4()}`);
+        isBrowser() && (window.location.href = `/watch-together/${this.uuidv4()}`);
     }
     
     render() {

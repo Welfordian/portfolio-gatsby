@@ -38,7 +38,7 @@ class Login extends React.Component {
     }
     render() {
         if (isLoggedIn()) {
-            isBrowser && (window.location.href = '/dashboard/')
+            isBrowser() && (window.location.href = '/dashboard/')
         }
 
         return (
