@@ -14,7 +14,7 @@ export default class Layout extends React.Component {
                     {this.props.hideHeader ? '' : <Header />}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 px-8 lg:grid-cols-4 grow flex mt-8 pb-12">
-                        <div className="grow-0 space-x-1 text-white">
+                        <div className="grow-0 space-x-1 text-white w-full col-span-3 lg:col-span-1">
                             <Navigation>
                                 <h1 className={`p-6 text-2xl bg-black`}>Dashboard</h1>
                             </Navigation>

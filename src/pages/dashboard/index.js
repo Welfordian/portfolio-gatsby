@@ -1,7 +1,5 @@
 import React from 'react';
 import {isBrowser, isLoggedIn} from "../../services/auth";
-import { navigate } from "gatsby"
-import Layout from "../../components/Layout";
 import DashboardLayout from "../../components/Dashboard/Layout";
 
 class DashboardIndex extends React.Component {
@@ -17,17 +15,7 @@ class DashboardIndex extends React.Component {
         }
     }
 
-    render () {
-        if (! this.state.isLoggedIn) {
-            return (
-                <Layout hideSocial hideTagline>
-                    <div className={`text-center text-3xl`}>
-                        Unauthorized
-                    </div>
-                </Layout>
-            );
-        }
-        
+    render () {        
         return (
             <DashboardLayout>
                 <p>HELLO</p>
