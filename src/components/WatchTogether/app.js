@@ -15,25 +15,12 @@ class App extends React.Component {
         super(props);
         
         this.state = {
-            modalOpen: false,
+            modalOpen: true,
             name: "Josh",
             connected: false,
             socketId: null,
             socket: null,
         }
-    }
-
-    componentDidMount() {
-        const socket = io(`${process.env.SOCKET_URL ?? 'https://watch-together.welford.me'}`, {
-            query: {
-                roomid: isBrowser ? window.location.pathname.replace('/watch-together/','') : null,
-                name: this.state.name
-            }
-        });
-
-        new EventHandler(this, socket);
-
-        this.setState({ socket, eventEmitter: new EventEmitter(this, socket) });
     }
 
     joinRoom() {
