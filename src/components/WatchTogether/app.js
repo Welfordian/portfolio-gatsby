@@ -16,7 +16,7 @@ class App extends React.Component {
         
         this.state = {
             modalOpen: true,
-            name: "Josh",
+            name: "",
             connected: false,
             socketId: null,
             socket: null,
