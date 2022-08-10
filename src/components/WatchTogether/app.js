@@ -8,7 +8,7 @@ import {Helmet} from "react-helmet";
 import Chat from "./Chat";
 import WatchArea from "./WatchArea";
 
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== "undefined";
 
 class App extends React.Component {
     constructor(props) {
