@@ -1,3 +1,5 @@
+import EventBus from "./EventBus";
+
 export default class EventHandler {
     constructor(app, socket) {
         this.app = app;
@@ -25,19 +27,40 @@ export default class EventHandler {
         });
     }
     
-    initial_response({time, owner, socketId, videoId, users}) {
-        if (owner === socketId) {
-            this.app.startUpdateInterval();
-        }
-        
-        this.app.setState({ startTime: time, videoId, online: Object.keys(users).length })
+    set_video_id({id}) {
+        EventBus.emit('set_video_id', {id});
     }
     
-    presence_update_join({owner, socketId, videoId, users}) {        
-        this.app.setState({ online: Object.keys(users).length })
+    cmd_clear_chat() {
+        EventBus.emit('cmd_clear_chat');
+    }
+    
+    initial_response({time, owner, socketId, videoId, users}) {
+        let isOwner = owner === socketId;
+        EventBus.emit('initial_response', {isOwner, time, owner, socketId, videoId, users});
+    }
+    
+    system_message(chat) {
+        EventBus.emit('receive_chat', {isSystemMessage: true, ...chat});
+    }
+    
+    chat_message(chat) {
+        EventBus.emit('receive_chat', chat);
+    }
+    
+    disconnect_reason({reason}) {
+        alert(reason);
+    }
+    
+    set_video_time(time) {
+        EventBus.emit('set_video_time', time);
+    }
+    
+    presence_update_join({owner, socketId, videoId, users}) {
+        EventBus.emit('presence_update', { online: Object.keys(users).length });
     }
     
     presence_update_leave({videoId, users}) {
-        this.app.setState({ online: Object.keys(users).length })
+        EventBus.emit('presence_update', { online: Object.keys(users).length });
     }
 }

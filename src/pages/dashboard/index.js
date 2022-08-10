@@ -18,25 +18,7 @@ class DashboardIndex extends React.Component {
     render () {        
         return (
             <DashboardLayout>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
-                <p>HELLO</p>
+                
             </DashboardLayout>
         )
     }
