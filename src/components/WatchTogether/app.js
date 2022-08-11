@@ -32,7 +32,7 @@ class App extends React.Component {
             return;
         }
         
-        const socket = io('http://localhost:3000', {
+        const socket = io(`${process.env.SOCKET_URL ?? 'https://watch-together.welford.me'}`, {
             query: {
                 roomid: isBrowser ? window.location.pathname.replace('/watch-together/','') : null,
                 name: this.state.name
