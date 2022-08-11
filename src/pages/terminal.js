@@ -113,7 +113,7 @@ class Terminal extends React.Component {
     }
     
     componentDidMount() {
-        this.terminalInput.current.focus();
+        this.focusInput();
     }
 
     focusInput() {
