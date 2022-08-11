@@ -216,7 +216,7 @@ class Terminal extends React.Component {
                             </div>
 
                             <div className="mx-auto select-none">
-                                <p className="text-center text-gray-300 text-sm">josh@welford.me: ~</p>
+                                <p className="text-center text-gray-300 text-sm">josh@welford.me: {this.state.directory}</p>
                             </div>
                             
                             <div>
