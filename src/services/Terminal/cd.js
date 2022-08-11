@@ -21,7 +21,7 @@ class cd extends React.Component {
             return { output: '' }
         }
         
-        if (dir === '..' || dir === '...' || dir === '~' || dir === '/') {
+        if (dir === '..' || dir === '...' || dir === '~' || dir === '/' || dir === undefined || dir.trim().length === 0) {
             return {
                 output: '',
                 setDirectory: '~'
