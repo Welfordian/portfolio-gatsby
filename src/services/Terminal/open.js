@@ -20,7 +20,7 @@ class open extends React.Component {
         
         if (foundItem !== undefined) {
             if (isBrowser) {
-                let prefix = app.state.directory === '~' ? '/' : `${app.state.directory}/`
+                let prefix = app.state.directory === '~' ? '/' : `/${app.state.directory}/`
                 if (args[1] === 'home.lnk') args[1] = '';
                 
                 if (('link' in foundItem)) {
