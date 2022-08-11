@@ -5,7 +5,7 @@ class ls extends React.Component{
         super(props);
         
         this.signature = 'ls';
-        this.aliases = [];
+        this.aliases = ['l'];
     }
 
     handle(args, app) {

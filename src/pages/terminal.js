@@ -45,7 +45,7 @@ class Terminal extends React.Component {
                 {
                     name: 'blog',
                     children: this.props.data.allWpPost.edges.map(post => {
-                        return {name: post.node.slug}
+                        return {name: `${post.node.slug}.lnk`}
                     })
                 },
                 {
