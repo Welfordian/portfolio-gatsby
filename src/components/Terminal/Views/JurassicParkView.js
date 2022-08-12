@@ -18,11 +18,7 @@ class JurassicParkView extends React.Component {
         this.state = {
             showGif: false,
             
-            output: [...this.props.output, {
-                directory: this.props.directory,
-                input: 'access main security grid',
-                output: [`access: PERMISSION DENIED....and...`],
-            }],
+            output: [...this.props.output],
         }
     }
     

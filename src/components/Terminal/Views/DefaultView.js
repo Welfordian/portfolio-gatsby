@@ -1,11 +1,14 @@
 import React from 'react';
 import moment from "moment";
+import { isBrowser } from "../../../services/auth";
 
 class DefaultView extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
+            currentInput: '',
+            inputDisabled: false,
             output: [
                 {
                     isSystem: true,
@@ -30,6 +33,41 @@ class DefaultView extends React.Component {
 
     componentDidMount() {
         this.focusInput();
+        
+        if (isBrowser()) {
+            let search = window.location.search;
+            
+            if (search.startsWith('?command=')) {
+                this.setState({ inputDisabled: true })
+                this.autoTypeCommand(search.replace('?command=', ''))
+
+                isBrowser() && window.history.pushState({}, '', '/terminal')
+            }
+        }
+    }
+    
+    autoTypeCommand(command = "") {
+        command = decodeURIComponent(command);
+        
+        let typingInterval = setInterval.prototype;
+        let typingIndex = 0;
+        
+        typingInterval = setInterval(() => {
+            if (typingIndex >= command.length) {
+                clearInterval(typingInterval);
+                this.setState({ inputDisabled: false })
+                this.handleKeyDown({ code: 'Enter' })
+                
+                return;
+            }
+            
+            this.setState({
+                currentInput: `${this.state.currentInput}${command[typingIndex]}`
+            })
+            
+            typingIndex++;
+            
+        }, 150);
     }
 
     focusInput() {
@@ -111,10 +149,6 @@ class DefaultView extends React.Component {
         if ('setTitle' in commandOutput) {
             this.props.onSetTitle(commandOutput.setTitle)
         }
-        
-        if ('setView' in commandOutput) {
-            this.props.onSetView(commandOutput.setView);
-        }
 
         if ('setFile' in commandOutput) {
             this.props.onSetFile(commandOutput.setFile);
@@ -131,10 +165,14 @@ class DefaultView extends React.Component {
         if (! ('preventDefault' in commandOutput)) {
             this.setState({
                 output: [...this.state.output, output]
+            }, () => {
+                this.props.onOutput(this.state.output);
+                
+                if ('setView' in commandOutput) {
+                    this.props.onSetView(commandOutput.setView);
+                }
             })
         }
-        
-        this.props.onOutput(this.state.output);
 
         this.resetInput();
     }
@@ -178,7 +216,7 @@ class DefaultView extends React.Component {
                                     <span className={`text-blue-400`}>{this.props.directory}</span>
                                 </span>
                     <input
-                        disabled={this.props.disconnected}
+                        disabled={(this.props.disconnected || this.state.inputDisabled)}
                         ref={this.terminalInput}
                         value={this.state.currentInput}
                         onChange={e => this.setState({ currentInput: e.target.value })}
