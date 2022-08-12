@@ -129,6 +129,14 @@ class Terminal extends React.Component {
                 JurassicPark,
             ]
         }
+
+        this.terminal = React.createRef();
+    }
+    
+    handleOutput(output) {
+        this.setState({ output })
+        
+        this.terminal.current.scrollTo(0, this.terminal.current.scrollHeight);
     }
 
     render() {
@@ -137,7 +145,7 @@ class Terminal extends React.Component {
         let defaultView = <DefaultView
             output={this.state.output}
             onHistory={history => this.setState({ history: [...this.state.history, history]})}
-            onOutput={output => this.setState({ output })}
+            onOutput={output => this.handleOutput(output)}
             onSetFile={file => this.setState({ currentFile: file })}
             onSetView={view => this.setState({ currentView: view })}
             onSetTitle={title => this.setState({ terminalTitle: title })}
@@ -165,7 +173,7 @@ class Terminal extends React.Component {
         ></JurassicParkView>
         
         let pingView = <PingView
-            onOutput={output => this.setState({ output })}
+            onOutput={output => this.handleOutput(output)}
             onSetView={view => this.setState({ currentView: view })}
             directory={this.state.directory}
             file={this.state.currentFile}
@@ -223,7 +231,7 @@ class Terminal extends React.Component {
                                 ></FontAwesomeIcon>
                             </div>
                         </div>
-                        <div className={`relative grow flex flex-col bg-black text-white overflow-y-scroll rounded-b-lg px-2 py-1`}>
+                        <div ref={this.terminal} className={`relative grow flex flex-col bg-black text-white overflow-y-scroll rounded-b-lg px-2 py-1`}>
                             {
                                 view
                             }
