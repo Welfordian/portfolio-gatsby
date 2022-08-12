@@ -15,7 +15,9 @@ export default class CaseStudies extends React.Component {
                     
                     <CaseStudy
                         inverted
-                        redacted
+                        name="[Redacted]"
+                        description="[Company] approached me for a complete rebuild of their patient medical records system. I rebuilt this system from scratch (using Laravel)."
+                        length="Jan 2019 - Jan 2022"
                     ></CaseStudy>
 
                     <CaseStudy
