@@ -132,6 +132,7 @@ class NanoView extends React.Component {
                             onKeyDown={e => this.handleKeyDown(e)}
                             onKeyUp={e => this.handleKeyUp()}
                             className={`text-[#999999] outline-none grow caret-transparent`}
+                            spellCheck={false}
                         >{
                             this.state.content.split('').map(char => {
                                 return (<span className={`relative`}>{char}</span>)
