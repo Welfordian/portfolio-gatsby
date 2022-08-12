@@ -65,7 +65,7 @@ class JurassicParkView extends React.Component {
                 <div className={`flex grow items-center justify-center`}>
                     <img src={`/jurassic-park.gif`} />
 
-                    <audio autoPlay={true} loop={true} preload={true}>
+                    <audio autoPlay={true} loop={true} preload={`auto`}>
                         <source src="/jurassic-park.wav" type="audio/wav" />
                     </audio>
                 </div>
