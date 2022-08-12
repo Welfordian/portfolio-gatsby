@@ -14,7 +14,7 @@ export default class PersonalProject extends React.Component {
                                 <FontAwesomeIcon icon={faLink} />
                             </span>
                         </p>
-                        <p className="mt-2 text-justify">
+                        <p className="mt-2">
                             {this.props.description}
                         </p>
                     </div>
