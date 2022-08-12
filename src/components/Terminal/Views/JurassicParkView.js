@@ -1,4 +1,5 @@
 import React from 'react';
+import {isBrowser} from "../../../services/auth";
 
 class JurassicParkView extends React.Component {
     constructor(props) {
@@ -57,6 +58,10 @@ class JurassicParkView extends React.Component {
 
     render () {
         if (this.state.showGif) {
+            setTimeout(() => {
+                isBrowser() && document.querySelector('audio').play()
+            }, 500)
+            
             return (
                 <div className={`flex grow items-center justify-center`}>
                     <img src={`/jurassic-park.gif`} />
