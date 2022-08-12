@@ -13,7 +13,6 @@ export const wrapRootElement = wrapWithProvider
 
 export const onServiceWorkerUpdateReady = () => {
     document.getElementById('___gatsby').setAttribute('data-update-available', 'true');
-    console.info('PWA update available.');
 };
 
 export const registerServiceWorker = () => true
