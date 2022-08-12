@@ -10,7 +10,9 @@ import whoami from '../services/Terminal/whoami';
 import ping from '../services/Terminal/ping';
 import echo from '../services/Terminal/echo';
 import nano from '../services/Terminal/nano';
+import date from '../services/Terminal/date';
 import sudo from '../services/Terminal/sudo';
+import history from '../services/Terminal/history';
 import JurassicPark from '../services/Terminal/JurassicPark';
 import {graphql} from "gatsby";
 import {connect} from "react-redux";
@@ -33,6 +35,7 @@ class Terminal extends React.Component {
             disconnected: false,
             directory: '~',
             currentFile: null,
+            history: [],
             output: [
                 {
                     isSystem: true,
@@ -120,7 +123,9 @@ class Terminal extends React.Component {
                 exit,
                 nano,
                 ping,
+                date,
                 echo,
+                history,
                 JurassicPark,
             ]
         }
@@ -131,6 +136,7 @@ class Terminal extends React.Component {
         
         let defaultView = <DefaultView
             output={this.state.output}
+            onHistory={history => this.setState({ history: [...this.state.history, history]})}
             onOutput={output => this.setState({ output })}
             onSetFile={file => this.setState({ currentFile: file })}
             onSetView={view => this.setState({ currentView: view })}
@@ -139,6 +145,7 @@ class Terminal extends React.Component {
             onDisconnect={disconnected => this.setState({ disconnected })}
             directory={this.state.directory}
             commands={this.state.commands}
+            history={this.state.history}
             dirListing={this.state.dirListing}
             disconnected={this.state.disconnected}
         ></DefaultView>;

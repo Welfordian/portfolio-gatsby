@@ -104,7 +104,7 @@ class DefaultView extends React.Component {
         }
     }
 
-    handleCommand() {
+    async handleCommand() {
         let commandOutput = {};
 
         let parts = this.state.currentInput.split(' ');
@@ -122,8 +122,26 @@ class DefaultView extends React.Component {
         });
 
         if (foundCommand) {
-            commandOutput = foundCommand.handle(parts, this);            
-            output.output[0] = commandOutput.output;
+            commandOutput = foundCommand.handle(parts, this);   
+            if ('bulk' in commandOutput) {
+                await (new Promise((resolve, reject) => {
+                    this.setState({
+                        output: [...this.state.output, {
+                            directory: '~',
+                            input: this.state.currentInput,
+                            output: ['']
+                        }]
+                    }, () => resolve());
+                }))
+                
+                output = commandOutput.output;
+            } else {
+                output.output[0] = commandOutput.output;
+
+                this.props.onHistory(parts.join(' '));
+            }
+        } else {
+            this.props.onHistory(parts.join(' '));
         }
 
         if ('setDisconnected' in commandOutput) {
@@ -147,8 +165,13 @@ class DefaultView extends React.Component {
         }
 
         if (! ('preventDefault' in commandOutput)) {
+            if ('bulk' in commandOutput) {
+                output = [...this.state.output, ...output]
+            } else {
+                output = [...this.state.output, output]
+            }
             this.setState({
-                output: [...this.state.output, output]
+                output
             }, () => {
                 this.props.onOutput(this.state.output);
                 
