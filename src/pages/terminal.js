@@ -8,6 +8,7 @@ import open from '../services/Terminal/open';
 import exit from '../services/Terminal/exit';
 import whoami from '../services/Terminal/whoami';
 import ping from '../services/Terminal/ping';
+import echo from '../services/Terminal/echo';
 import nano from '../services/Terminal/nano';
 import sudo from '../services/Terminal/sudo';
 import JurassicPark from '../services/Terminal/JurassicPark';
@@ -119,6 +120,7 @@ class Terminal extends React.Component {
                 exit,
                 nano,
                 ping,
+                echo,
                 JurassicPark,
             ]
         }
