@@ -3,7 +3,6 @@ import Seo from "../seo";
 import {Helmet} from "react-helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaperPlane} from "@fortawesome/pro-solid-svg-icons";
-import { Peer } from "peerjs";
 import { io } from "socket.io-client";
 import { isBrowser } from "../../services/auth";
 
@@ -29,7 +28,7 @@ class Chat extends React.Component {
     componentDidMount() {
         this.socket = io('https://chat-server.welford.me');
 
-        this.peer = new Peer(undefined, {
+        this.peer = new window.Peer(undefined, {
             path: "/peerjs",
             host: "chat-server.welford.me",
             secure: true,
@@ -147,7 +146,9 @@ class Chat extends React.Component {
                     htmlAttributes={{
                         class: 'chat-app',
                     }}
-                />
+                >
+                    <script src={`https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.4.7/peerjs.min.js`}></script>
+                </Helmet>
             </div>
         );
     }
