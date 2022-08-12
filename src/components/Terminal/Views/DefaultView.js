@@ -108,6 +108,10 @@ class DefaultView extends React.Component {
             this.props.onDisconnect(commandOutput.setDisconnected);
         }
         
+        if ('setTitle' in commandOutput) {
+            this.props.onSetTitle(commandOutput.setTitle)
+        }
+        
         if ('setView' in commandOutput) {
             this.props.onSetView(commandOutput.setView);
         }

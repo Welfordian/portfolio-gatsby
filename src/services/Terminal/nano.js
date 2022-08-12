@@ -23,7 +23,7 @@ class Nano extends React.Component {
             };
         }
         
-        return { setView: 'nano', setFile: args[1] };
+        return { setTitle: 'nano -v', setView: 'nano', setFile: args[1] };
     }
 }
 

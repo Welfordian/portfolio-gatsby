@@ -106,6 +106,7 @@ class Terminal extends React.Component {
         let defaultView = <DefaultView
             onSetFile={file => this.setState({ currentFile: file })}
             onSetView={view => this.setState({ currentView: view })}
+            onSetTitle={title => this.setState({ terminalTitle: title })}
             onDirectoryChange={directory => this.setState({ directory })}
             onDisconnect={disconnected => this.setState({ disconnected })}
             directory={this.state.directory}
@@ -119,6 +120,7 @@ class Terminal extends React.Component {
             directory={this.state.directory}
             dirListing={this.state.dirListing}
             onSetView={view => this.setState({ currentView: view })}
+            onSetTitle={title => this.setState({ terminalTitle: title })}
         ></NanoView>;
         
         if (this.state.currentView === 'default') view = defaultView;
@@ -143,7 +145,13 @@ class Terminal extends React.Component {
                             </div>
 
                             <div className="mx-auto select-none">
-                                <p className="text-center text-gray-300 text-sm">josh@welford.me: {this.state.directory}</p>
+                                {
+                                    this.state.currentView === 'default'
+                                    ?
+                                        <p className="text-center text-gray-300 text-sm">josh@welford.me: {this.state.directory}</p>
+                                    :
+                                        <p className="text-center text-gray-300 text-sm">{this.state.terminalTitle}</p>    
+                                }
                             </div>
                             
                             <div>
