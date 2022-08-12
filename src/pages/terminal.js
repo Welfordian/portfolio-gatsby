@@ -12,7 +12,7 @@ import sudo from '../services/Terminal/sudo';
 import {graphql} from "gatsby";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";
+import {faExternalLink, faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";
 import Modal from "../components/Modal";
 import DefaultView from "../components/Terminal/Views/DefaultView";
 import NanoView from "../components/Terminal/Views/NanoView";
@@ -128,6 +128,16 @@ class Terminal extends React.Component {
         
         return (
             <Layout hideSocial hideTagline>
+                <div className={`flex justify-center mr-12`}>
+                    <div className={`flex flex-col w-full md:w-4/5 items-end`}>
+                        <a className={`bg-gray-600 text-white px-6 py-2 rounded-t-lg`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/terminal.js`} target="_blank" rel="noopener">
+                            <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+                            
+                            Source
+                        </a>
+                    </div>
+                </div>
+                
                 <div className={`flex justify-center grow`}>
                     <div className={`max-h-[43rem] flex flex-col rounded-lg shadow-xl shadow-gray-400 w-full md:w-4/5`}>
                         <div className="flex items-center h-6 justify-between rounded-t-lg bg-gray-600 border-b border-gray-500 text-center text-black">

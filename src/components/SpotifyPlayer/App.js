@@ -10,6 +10,8 @@ import Slider from 'rc-slider';
 import { Levels } from "react-activity";
 import 'rc-slider/assets/index.css';
 import Search from "./Search/Search";
+import {faExternalLink} from "@fortawesome/pro-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 class App extends React.Component {
     constructor(props) {
@@ -71,8 +73,12 @@ class App extends React.Component {
     render() {
         return (
             'track_window' in this.state.playerState ? <div className={`flex items-end flex-col w-full sm:w-full md:w-2/6`}>
-                <div className="px-3 py-2 bg-black text-white">
-                    <a href="https://github.com/Welfordian/portfolio-gatsby/tree/main/src/components/SpotifyPlayer" target="_blank" rel="noopener">Source</a>
+                <div className="px-6 py-2 bg-black text-white">
+                    <a href="https://github.com/Welfordian/portfolio-gatsby/tree/main/src/components/SpotifyPlayer" target="_blank" rel="noopener">
+                        <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+                        
+                        Source
+                    </a>
                 </div>
                 
                 <Search deviceId={this.state.deviceId} player={this.state.player} playerState={this.state.playerState} token={this.props.token} />
