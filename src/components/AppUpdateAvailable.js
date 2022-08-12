@@ -11,6 +11,14 @@ class AppUpdateAvailable extends React.Component {
         this.state = {
             open: isBrowser && document.querySelectorAll('[data-update-available]').length,
         }
+        
+        if (isBrowser) {
+            setTimeout(() => {
+                this.setState({
+                    open: isBrowser && document.querySelectorAll('[data-update-available]').length,
+                })
+            }, 8000)
+        }
     }
 
     render() {
