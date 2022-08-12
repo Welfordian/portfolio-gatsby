@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
-import { Levels } from "react-activity";
 import "react-activity/dist/Levels.css";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
 import ResourcesContainer from "../components/Resources/ResourcesContainer";
-import {Helmet} from "react-helmet";
+import ResourcesSkeleton from "../components/Resources/ResourcesSkeleton";
 
 class Resources extends React.Component {
     componentDidMount() {
@@ -28,7 +27,9 @@ class Resources extends React.Component {
                     Object.keys(this.props.bookmarks).length
                         ? <ResourcesContainer resources={this.props.bookmarks}></ResourcesContainer>
                         : <div className="flex justify-center mt-16">
-                            <Levels size={50} speed={0.5}/>
+                            <ResourcesSkeleton
+                                count={15}
+                            ></ResourcesSkeleton>
                         </div>
                 }
             </Layout>

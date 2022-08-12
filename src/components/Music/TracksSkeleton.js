@@ -1,11 +1,6 @@
 import React from "react";
-import Track from "./Track";
-import Marquee from "react-fast-marquee";
-import DetectableOverflow from "react-detectable-overflow";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
-import {Levels} from "react-activity";
-import moment from "moment";
 
 export default class TracksSkeleton extends React.Component {
     render () {
