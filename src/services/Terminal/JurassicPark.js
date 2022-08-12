@@ -9,8 +9,6 @@ class JurassicPark extends React.Component {
     }
 
     handle(args, app) {
-        console.log(args);
-
         if (args[0] === 'access' && args[1] === 'main' && args[2] === 'security' && args[3] === 'grid') {
             return {
                 setTitle: 'access',
