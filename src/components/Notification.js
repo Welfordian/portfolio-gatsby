@@ -14,7 +14,6 @@ class Notification extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevProps, this.props);
         if (this.props.show === true && prevProps.show === false) {
             this.setState(({
                 clearTimeout: setTimeout(() => {
