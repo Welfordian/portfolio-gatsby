@@ -37,6 +37,12 @@ html.dashboard-layout, html.dashboard-layout body, html.dashboard-layout #___gat
     height: 100%;
 }
 
+html.chat-app, html.chat-app body, html.chat-app #___gatsby, html.chat-app #___gatsby #gatsby-focus-wrapper {
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+}
+
 span.caretover:after {
     content: '';
     background: #75FB54;

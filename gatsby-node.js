@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
     const youtifyPage = path.resolve('src/pages/youtify.js')
     const watchTogether = path.resolve('src/components/WatchTogether/app.js');
+    const chat = path.resolve('src/components/Chat/chat.js');
 
     const result = await graphql(`
     {
@@ -53,5 +54,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         path: '/watch-together/:slug',
         matchPath: '/watch-together/:slug',
         component: watchTogether,
+    })
+
+    createPage({
+        path: '/chat/:slug',
+        matchPath: '/chat/:slug',
+        component: chat,
     })
 }

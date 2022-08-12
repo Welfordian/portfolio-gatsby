@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---cache-dev-404-page-js",
     "path": "/dev-404-page/",
-    "result": {"data":{"allSiteFunction":{"nodes":[{"functionRoute":"hello-world"}]},"allSitePage":{"nodes":[{"path":"/blog/test-2/"},{"path":"/blog/this-is-a-test/"},{"path":"/youtify/:slug"},{"path":"/watch-together/:slug"},{"path":"/404.html"},{"path":"/404/"},{"path":"/blog/"},{"path":"/"},{"path":"/links/"},{"path":"/login/"},{"path":"/music/"},{"path":"/resources/"},{"path":"/spotify-player/"},{"path":"/terminal/"},{"path":"/watch-together/"},{"path":"/youtify/"},{"path":"/dashboard/"}]}},"pageContext":{}},
+    "result": {"data":{"allSiteFunction":{"nodes":[{"functionRoute":"hello-world"}]},"allSitePage":{"nodes":[{"path":"/blog/test-2/"},{"path":"/blog/this-is-a-test/"},{"path":"/youtify/:slug"},{"path":"/watch-together/:slug"},{"path":"/chat/:slug"},{"path":"/404.html"},{"path":"/404/"},{"path":"/blog/"},{"path":"/chat/"},{"path":"/"},{"path":"/links/"},{"path":"/login/"},{"path":"/music/"},{"path":"/resources/"},{"path":"/spotify-player/"},{"path":"/terminal/"},{"path":"/watch-together/"},{"path":"/youtify/"},{"path":"/dashboard/"}]}},"pageContext":{}},
     "staticQueryHashes": []}
