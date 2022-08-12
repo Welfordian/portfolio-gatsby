@@ -9,6 +9,7 @@ import exit from '../services/Terminal/exit';
 import whoami from '../services/Terminal/whoami';
 import nano from '../services/Terminal/nano';
 import sudo from '../services/Terminal/sudo';
+import JurassicPark from '../services/Terminal/JurassicPark';
 import {graphql} from "gatsby";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -16,6 +17,7 @@ import {faExternalLink, faQuestionCircle} from "@fortawesome/pro-solid-svg-icons
 import Modal from "../components/Modal";
 import DefaultView from "../components/Terminal/Views/DefaultView";
 import NanoView from "../components/Terminal/Views/NanoView";
+import JurassicParkView from "../components/Terminal/Views/JurassicParkView";
 
 class Terminal extends React.Component {
     constructor(props) {
@@ -27,6 +29,7 @@ class Terminal extends React.Component {
             disconnected: false,
             directory: '~',
             currentFile: null,
+            output: [],
             
             dirListing: [
                 {
@@ -95,7 +98,8 @@ class Terminal extends React.Component {
                 ls,
                 clear,
                 exit,
-                nano
+                nano,
+                JurassicPark,
             ]
         }
     }
@@ -104,6 +108,7 @@ class Terminal extends React.Component {
         let view;
         
         let defaultView = <DefaultView
+            onOutput={output => this.setState({ output })}
             onSetFile={file => this.setState({ currentFile: file })}
             onSetView={view => this.setState({ currentView: view })}
             onSetTitle={title => this.setState({ terminalTitle: title })}
@@ -123,8 +128,15 @@ class Terminal extends React.Component {
             onSetTitle={title => this.setState({ terminalTitle: title })}
         ></NanoView>;
         
+        let jurassicParkView = <JurassicParkView
+            onSetView={view => this.setState({ currentView: view })}
+            directory={this.state.directory}
+            output={this.state.output}
+        ></JurassicParkView>
+        
         if (this.state.currentView === 'default') view = defaultView;
         if (this.state.currentView === 'nano') view = nanoView;
+        if (this.state.currentView === 'jurassic-park') view = jurassicParkView;
         
         return (
             <Layout hideSocial hideTagline>

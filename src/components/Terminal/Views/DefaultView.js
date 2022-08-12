@@ -133,6 +133,8 @@ class DefaultView extends React.Component {
                 output: [...this.state.output, output]
             })
         }
+        
+        this.props.onOutput(this.state.output);
 
         this.resetInput();
     }
