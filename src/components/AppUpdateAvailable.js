@@ -7,7 +7,7 @@ class AppUpdateAvailable extends React.Component {
         super(props);
         
         this.state = {
-            open: true,
+            open: document.querySelectorAll('[data-update-available]').length,
         }
     }
 
