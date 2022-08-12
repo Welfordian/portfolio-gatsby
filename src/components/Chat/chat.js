@@ -26,6 +26,18 @@ class Chat extends React.Component {
     }
 
     componentDidMount() {
+        let waitForPeerInterval = setInterval.prototype;
+
+        waitForPeerInterval = setInterval(() => {
+            if (('Peer' in window)) {
+                clearInterval(waitForPeerInterval);
+                
+                this.boot();
+            }
+        }, 200);
+    }
+    
+    boot() {
         this.socket = io('https://chat-server.welford.me');
 
         this.peer = new window.Peer(undefined, {
@@ -34,7 +46,7 @@ class Chat extends React.Component {
             secure: true,
         });
 
-        this.socket.on('user-disconnected', (userId) => {            
+        this.socket.on('user-disconnected', (userId) => {
             let streams = this.state.streams.filter(stream => {
                 return stream.peer !== userId
             })
@@ -45,11 +57,11 @@ class Chat extends React.Component {
         this.socket.on('user-list', list => {
             this.setState({ initialList: list })
         })
-        
+
         this.peer.on("open", (id) => {
             this.socket.emit("join-room", (isBrowser() ? window.location.pathname.replace('/chat/','') : null), id);
         });
-        
+
         navigator.mediaDevices.getUserMedia({
             audio: true,
             video: true,
@@ -58,7 +70,7 @@ class Chat extends React.Component {
 
             this.peer.on("call", (call) => {
                 call.answer(stream);
-                
+
                 call.on("stream", (userVideoStream) => {
                     this.addVideoStream(userVideoStream, false, call.peer);
                 });
@@ -104,7 +116,13 @@ class Chat extends React.Component {
         });
     };
 
-    render() {
+    render() {        
+        if (isBrowser()) {
+            let script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.4.7/peerjs.min.js';
+            document.head.append(script);
+        }
+        
         return (
             <div className={`flex grow`}>
                 <Seo title="Chat App" />
@@ -146,9 +164,7 @@ class Chat extends React.Component {
                     htmlAttributes={{
                         class: 'chat-app',
                     }}
-                >
-                    <script src={`https://cdnjs.cloudflare.com/ajax/libs/peerjs/1.4.7/peerjs.min.js`}></script>
-                </Helmet>
+                />
             </div>
         );
     }
