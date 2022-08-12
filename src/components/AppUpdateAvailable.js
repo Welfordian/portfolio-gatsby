@@ -2,12 +2,14 @@ import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSync} from "@fortawesome/pro-solid-svg-icons";
 
+const isBrowser = typeof window !== "undefined"
+
 class AppUpdateAvailable extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            open: document.querySelectorAll('[data-update-available]').length,
+            open: isBrowser && document.querySelectorAll('[data-update-available]').length,
         }
     }
 
