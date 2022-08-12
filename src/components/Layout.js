@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import Seo from "./seo";
 import SocialLinks from "./SocialLinks";
+import AppUpdateAvailable from "./AppUpdateAvailable";
 
 export default class Layout extends React.Component {
     render() {
@@ -20,6 +21,8 @@ export default class Layout extends React.Component {
                         </div>
                     </div>
                 </div>
+                
+                <AppUpdateAvailable></AppUpdateAvailable>
             </div>
         );
     }
