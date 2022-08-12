@@ -15,9 +15,7 @@ export default class CaseStudies extends React.Component {
                     
                     <CaseStudy
                         inverted
-                        name="[Removed]"
-                        description="[Removed]"
-                        length="[Removed]"
+                        redacted
                     ></CaseStudy>
 
                     <CaseStudy
