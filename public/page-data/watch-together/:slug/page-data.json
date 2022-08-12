@@ -1,0 +1,6 @@
+{
+    "componentChunkName": "component---src-components-watch-together-app-js",
+    "path": "/watch-together/:slug",
+    "result": {"pageContext":{"matchPath":"/watch-together/:slug"}},
+    "staticQueryHashes": ["63159454"],
+    "matchPath": "/watch-together/:slug"}
