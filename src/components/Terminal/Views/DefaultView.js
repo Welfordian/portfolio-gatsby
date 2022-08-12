@@ -9,23 +9,7 @@ class DefaultView extends React.Component {
         this.state = {
             currentInput: '',
             inputDisabled: false,
-            output: [
-                {
-                    isSystem: true,
-                    input: '',
-                    output: ['Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-88-generic x86_64)']
-                },
-                {
-                    isSystem: true,
-                    input: '',
-                    output: ['*** System restart required ***']
-                },
-                {
-                    isSystem: true,
-                    input: '',
-                    output: [`Last login: ${moment().subtract(1, 'hours').format('ddd MMM D HH:mm:ss YYYY')} from 1.1.1.1`]
-                }
-            ],
+            output: this.props.output,
         }
 
         this.terminalInput = React.createRef();

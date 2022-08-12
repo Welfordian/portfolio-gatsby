@@ -7,6 +7,7 @@ import cd from '../services/Terminal/cd';
 import open from '../services/Terminal/open';
 import exit from '../services/Terminal/exit';
 import whoami from '../services/Terminal/whoami';
+import ping from '../services/Terminal/ping';
 import nano from '../services/Terminal/nano';
 import sudo from '../services/Terminal/sudo';
 import JurassicPark from '../services/Terminal/JurassicPark';
@@ -17,7 +18,9 @@ import {faExternalLink, faQuestionCircle} from "@fortawesome/pro-solid-svg-icons
 import Modal from "../components/Modal";
 import DefaultView from "../components/Terminal/Views/DefaultView";
 import NanoView from "../components/Terminal/Views/NanoView";
+import PingView from "../components/Terminal/Views/PingView";
 import JurassicParkView from "../components/Terminal/Views/JurassicParkView";
+import moment from "moment";
 
 class Terminal extends React.Component {
     constructor(props) {
@@ -29,7 +32,23 @@ class Terminal extends React.Component {
             disconnected: false,
             directory: '~',
             currentFile: null,
-            output: [],
+            output: [
+                {
+                    isSystem: true,
+                    input: '',
+                    output: ['Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-88-generic x86_64)']
+                },
+                {
+                    isSystem: true,
+                    input: '',
+                    output: ['*** System restart required ***']
+                },
+                {
+                    isSystem: true,
+                    input: '',
+                    output: [`Last login: ${moment().subtract(1, 'hours').format('ddd MMM D HH:mm:ss YYYY')} from 1.1.1.1`]
+                }
+            ],
             
             dirListing: [
                 {
@@ -99,6 +118,7 @@ class Terminal extends React.Component {
                 clear,
                 exit,
                 nano,
+                ping,
                 JurassicPark,
             ]
         }
@@ -108,6 +128,7 @@ class Terminal extends React.Component {
         let view;
         
         let defaultView = <DefaultView
+            output={this.state.output}
             onOutput={output => this.setState({ output })}
             onSetFile={file => this.setState({ currentFile: file })}
             onSetView={view => this.setState({ currentView: view })}
@@ -134,12 +155,21 @@ class Terminal extends React.Component {
             output={this.state.output}
         ></JurassicParkView>
         
+        let pingView = <PingView
+            onOutput={output => this.setState({ output })}
+            onSetView={view => this.setState({ currentView: view })}
+            directory={this.state.directory}
+            file={this.state.currentFile}
+            output={this.state.output}
+        ></PingView>
+        
         if (this.state.currentView === 'default') view = defaultView;
         if (this.state.currentView === 'nano') view = nanoView;
+        if (this.state.currentView === 'ping') view = pingView;
         if (this.state.currentView === 'jurassic-park') view = jurassicParkView;
         
         return (
-            <Layout hideSocial hideTagline>
+            <Layout hideSocial hideTagline marginTop={`mt-6`}>
                 <div className={`flex justify-center mr-12`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-600 text-white px-6 py-2 rounded-t-lg`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/terminal.js`} target="_blank" rel="noopener">
