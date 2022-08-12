@@ -5,7 +5,7 @@ class Nano extends React.Component {
         super(props);
 
         this.signature = 'nano';
-        this.aliases = [];
+        this.aliases = ['cat', 'vim', 'vi'];
     }
 
     handle(args, app) {

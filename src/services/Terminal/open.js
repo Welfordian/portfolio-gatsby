@@ -6,7 +6,7 @@ class open extends React.Component {
         super(props);
 
         this.signature = 'open';
-        this.aliases = ['cat', 'vim', 'vi'];
+        this.aliases = [];
     }
 
     handle(args, app) {
