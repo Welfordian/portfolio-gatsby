@@ -11,7 +11,7 @@ class cd extends React.Component {
     handle(args, app) {
         let regexp = /..\/(.*)/;
         let dir = args[1];
-        let dirListing = app.state.dirListing;
+        let dirListing = app.props.dirListing;
         
         if (regexp.test(dir)) {
             dir = regexp.exec(dir)[1];
@@ -43,7 +43,7 @@ class cd extends React.Component {
         }
 
         return {
-            output: `d: no such file or directory: ${dir}`
+            output: `cd: no such file or directory: ${dir}`
         };
     }
 }

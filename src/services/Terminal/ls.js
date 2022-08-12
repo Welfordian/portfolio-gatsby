@@ -8,9 +8,9 @@ class ls extends React.Component{
         this.aliases = ['l'];
     }
 
-    handle(args, app) {
-        let dirListing = app.state.directory === '~' ? app.state.dirListing : app.state.dirListing.find(item => {
-            return item.name === app.state.directory;
+    handle(args, app) {        
+        let dirListing = app.props.directory === '~' ? app.props.dirListing : app.props.dirListing.find(item => {
+            return item.name === app.props.directory;
         })['children'];
         
         return {output: (

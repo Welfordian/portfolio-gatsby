@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import {connect} from "react-redux";
 import {faShare} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import TracksSkeleton from "../components/Music/TracksSkeleton";
 
 class Music extends React.Component {
     componentDidMount() {
@@ -14,7 +15,7 @@ class Music extends React.Component {
         const {lastFmTracksLoaded} = this.props;
 
         if (! tracks.length) {
-            axios.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=welfordian&api_key=cd1a599104643eed3f309d8376b4740d&format=json&limit=23').then((r) => {
+            axios.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=welfordian&api_key=cd1a599104643eed3f309d8376b4740d&format=json&limit=24').then((r) => {
                 lastFmTracksLoaded(r.data.recenttracks.track);
             });
         }
@@ -28,9 +29,7 @@ class Music extends React.Component {
                 {
                     this.props.tracks.length
                         ? <Tracks tracks={this.props.tracks} />
-                        : <div className="flex justify-center mt-16">
-                            <Levels size={50} speed={0.5}/>
-                        </div>
+                        : <TracksSkeleton count={24}></TracksSkeleton>
                 }
             </Layout>
         );

@@ -36,3 +36,25 @@ html.watch-together, html.watch-together body, html.watch-together #___gatsby, h
 html.dashboard-layout, html.dashboard-layout body, html.dashboard-layout #___gatsby, html.dashboard-layout #___gatsby #gatsby-focus-wrapper {
     height: 100%;
 }
+
+span.caretover:after {
+    content: '';
+    background: #75FB54;
+    width: 10px;
+    height: 3px;
+    display: inline-block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    opacity: 1;
+}
+
+span.caretover.blink:after {
+    animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.0;
+    }
+}

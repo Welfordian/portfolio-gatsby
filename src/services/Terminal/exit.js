@@ -9,11 +9,7 @@ class exit extends React.Component {
     }
 
     handle(args, app) {
-        return { 
-            setState: {
-                disconnected: true
-            } 
-        };
+        return { setDisconnected: true };
     }
 }
 
