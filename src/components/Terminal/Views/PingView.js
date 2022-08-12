@@ -38,13 +38,13 @@ class PingView extends React.Component {
     pingDomain(domain = '', timeout = false, times = 0) {
         let start_time = new Date().getTime();
         const controller = new AbortController();
-        setTimeout(() => controller.abort(), 1000);
+        setTimeout(() => controller.abort(), 5000);
         
         if (this.abortFetch) return;
         
         if (timeout) {            
             setTimeout(() => {                
-                fetch(domain, {signal: controller.signal}).then(() => {
+                fetch(domain, {signal: controller.signal, mode: 'no-cors'}).then(() => {
                     if (times < 5) {
                         this.sendOutput(`64 bytes from ${domain}: icmp_seq=6 ttl=54 time=${(new Date().getTime() - start_time)} ms`);
                         
@@ -53,6 +53,7 @@ class PingView extends React.Component {
                         this.props.onSetView('default');
                     }
                 }).catch(e => {
+                    console.log(e);
                     let error = e.name === 'AbortError' ? 'Request timed out.' : `ping: cannot resolve ${domain}: Unknown host`
                     
                     if (times < 5) {
@@ -65,7 +66,7 @@ class PingView extends React.Component {
                 })
             }, 800);
         } else {
-            fetch(domain, {signal: controller.signal}).then(() => {
+            fetch(domain, {signal: controller.signal, mode: 'no-cors'}).then(() => {
                 this.sendOutput(`64 bytes from ${domain}: icmp_seq=6 ttl=54 time=${(new Date().getTime() - start_time)} ms`);
 
                 this.pingDomain(domain, true, (times + 1));
