@@ -38,12 +38,11 @@ class Chat extends React.Component {
     }
     
     boot() {
-        this.socket = io('https://chat-server.welford.me');
+        this.socket = io('http://localhost:3030');
 
         this.peer = new window.Peer(undefined, {
             path: "/peerjs",
-            host: "chat-server.welford.me",
-            secure: true,
+            host: "localhost",
         });
 
         this.socket.on('user-disconnected', (userId) => {
@@ -143,19 +142,19 @@ class Chat extends React.Component {
                                 }
                         </div>
 
-                        <div className={`bg-gray-600 w-4/12 flex-col hidden md:flex`}>
-                            <div className={`flex grow`}>
-                                
-                            </div>
-                            
-                            <div className={`flex px-4 py-5 gap-3 items-center`}>
-                                <input placeholder={`Type message here...`} className={`p-3 rounded-lg outline-none grow`} type={`text`} />
-                                
-                                <button className={`px-4 py-3 bg-blue-500 text-white rounded-lg`}>
-                                    <FontAwesomeIcon icon={faPaperPlane}></FontAwesomeIcon>
-                                </button>
-                            </div>
-                        </div>
+                        {/*<div className={`bg-gray-600 w-4/12 flex-col hidden md:flex`}>*/}
+                        {/*    <div className={`flex grow`}>*/}
+                        {/*        */}
+                        {/*    </div>*/}
+                        {/*    */}
+                        {/*    <div className={`flex px-4 py-5 gap-3 items-center`}>*/}
+                        {/*        <input placeholder={`Type message here...`} className={`p-3 rounded-lg outline-none grow`} type={`text`} />*/}
+                        {/*        */}
+                        {/*        <button className={`px-4 py-3 bg-blue-500 text-white rounded-lg`}>*/}
+                        {/*            <FontAwesomeIcon icon={faPaperPlane}></FontAwesomeIcon>*/}
+                        {/*        </button>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
                 
