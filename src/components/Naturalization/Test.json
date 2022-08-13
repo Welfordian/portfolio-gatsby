@@ -1,0 +1,38 @@
+[
+  {
+    "question": "Who is the best person in the world?",
+    "answers": [
+      "Joshua Welford"
+    ],
+    "decoys": [
+      "Someone Else"
+    ]
+  },
+  {
+    "question": "Who is the funniest person in the world?",
+    "answers": [
+      "Joshua Welford"
+    ],
+    "decoys": [
+      "Someone Else"
+    ]
+  },
+  {
+    "question": "Who is the most charming person in the world?",
+    "answers": [
+      "Joshua Welford"
+    ],
+    "decoys": [
+      "Someone Else"
+    ]
+  },
+  {
+    "question": "Who is the best looking person in the world?",
+    "answers": [
+      "Joshua Welford"
+    ],
+    "decoys": [
+      "Someone Else"
+    ]
+  }
+]

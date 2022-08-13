@@ -7,7 +7,9 @@ export default class Header extends React.Component {
         return (
             <nav className="flex items-center justify-center justify-between flex-wrap p-3 px-8 mt-8">
                 <div className="flex flex-col items-center justify-center mr-6 w-full md:w-auto">
-                    <p className="text-xl tracking-tight text-center">Josh Welford</p>
+                    <p className="text-xl tracking-tight text-center">
+                        <Link to="/">Josh Welford</Link>
+                    </p>
                 </div>
                 <div className="w-full block flex-grow flex items-center justify-center md:justify-none lg:w-auto">
                     <div className="text-sm lg:flex-grow">
