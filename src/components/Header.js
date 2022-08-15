@@ -11,48 +11,45 @@ export default class Header extends React.Component {
                         <Link to="/">Josh Welford</Link>
                     </p>
                 </div>
-                <div className="w-full block flex-grow flex items-center justify-center md:justify-none lg:w-auto">
-                    <div className="text-sm lg:flex-grow">
-                    </div>
-                    <div className="flex flex-wrap justify-center items-center">
-                        <Link to="/"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold">
-                            Home
-                        </Link>
-                        <Link to="/music"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                            Music
-                        </Link>
-                        <Link to="/resources"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                            Resources
-                        </Link>
-                        <a target="_blank" rel="noopener" href="https://resources.josh.workers.dev/resume"
-                              className="mr-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                            Resume
-                        </a>
-                        <Link to="/blog"
-                              className="block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                            Blog
-                        </Link>
-                        {
-                            isLoggedIn()
-                            ?
-                                <>
-                                    <Link to="/dashboard/"
-                                       className="cursor-pointer ml-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                                        Dashboard
-                                    </Link>
 
-                                    <a onClick={() => { logout() }}
-                                       className="cursor-pointer ml-10 block text-gray-500 mt-4 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
-                                        Logout
-                                    </a>
-                                </>
+                <div className="flex flex-wrap justify-center items-center self-end w-full md:w-auto items-center mt-4 md:mt-0">
+                    <Link to="/"
+                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold">
+                        Home
+                    </Link>
+                    <Link to="/music"
+                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                        Music
+                    </Link>
+                    <Link to="/resources"
+                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                        Resources
+                    </Link>
+                    <a target="_blank" rel="noopener" href="https://resources.josh.workers.dev/resume"
+                       className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                        Resume
+                    </a>
+                    <Link to="/blog"
+                          className="block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                        Blog
+                    </Link>
+                    {
+                        isLoggedIn()
+                            ?
+                            <>
+                                <Link to="/dashboard/"
+                                      className="cursor-pointer ml-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                                    Dashboard
+                                </Link>
+
+                                <a onClick={() => { logout() }}
+                                   className="cursor-pointer ml-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                                    Logout
+                                </a>
+                            </>
                             :
-                                <></>
-                        }
-                    </div>
+                            <></>
+                    }
                 </div>
             </nav>
         );
