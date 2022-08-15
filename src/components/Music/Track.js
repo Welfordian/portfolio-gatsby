@@ -18,16 +18,16 @@ export default class Track extends React.Component {
     
     render () {
         return (
-            <a className="relative w-full h-[450px] md:w-[450px] mb-5" target="_blank" rel="noopener" href={this.props.track.url} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
-                <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.image[3]['#text']}) no-repeat center center`, backgroundSize: "cover"}}>
+            <a className="relative w-full h-[450px] md:w-[450px] mb-5" target="_blank" rel="noopener" href={this.props.track.track.external_urls.spotify} onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
+                <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.track.album.images[0]['url']}) no-repeat center center`, backgroundSize: "cover"}}>
                     <div className="font-bold text-xl px-4 py-6 text-center bg-black/[0.6]">
                             {
                                 this.state.isOverflowed
                                 ?
-                                    <Marquee gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
+                                    <Marquee gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.track.name}</Marquee>
                                 :
                                     <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
-                                        <p>{this.props.track.name}</p>
+                                        <p>{this.props.track.track.name}</p>
                                     </DetectableOverflow>
                             }
                     </div>
@@ -35,7 +35,7 @@ export default class Track extends React.Component {
                     <div className="flex flex-col px-4 py-6 bg-black/[0.6]">
                         <p className="font-semibold">
                             <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
-                            {this.props.track.artist['#text']}
+                            {this.props.track.track.artists[0]['name']}
                         </p>
                         {
                             '@attr' in this.props.track
@@ -45,7 +45,7 @@ export default class Track extends React.Component {
                                   </p>
                                 : <p className="mt-3 font-semibold">
                                     <FontAwesomeIcon className="mr-4" icon={faClock} />
-                                    {moment.unix(this.props.track.date['uts']).fromNow(true)} ago
+                                    {moment(this.props.track.played_at).fromNow(true)} ago
                                   </p>
                         }
                     </div>

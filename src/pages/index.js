@@ -1,17 +1,19 @@
 import * as React from "react"
 import CaseStudies from "../components/Home/CaseStudies";
 import PersonalProjects from "../components/Home/PersonalProjects";
-import Layout from "../components/Layout";
 import Experiments from "../components/Home/Experiments";
+import SocialLinks from "../components/SocialLinks";
 
 const IndexPage = () => (
-    <Layout>
+    <>
+        <SocialLinks />
+        
         <CaseStudies />
 
         <PersonalProjects />
-        
+
         <Experiments />
-    </Layout>
+    </>
 )
 
 export default IndexPage

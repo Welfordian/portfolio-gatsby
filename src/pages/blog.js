@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import {connect} from "react-redux";
 import {graphql} from "gatsby";
 import BlogTags from "../components/Blog/BlogTags";
+import SocialLinks from "../components/SocialLinks";
 
 class Blog extends React.Component {
     constructor(props) {
@@ -36,13 +37,15 @@ class Blog extends React.Component {
         }
 
         return (
-            <Layout>
+            <>
+                <SocialLinks />
+                
                 <p className="text-4xl mt-24">Blog Posts</p>
 
                 <BlogTags tags={tags} onTagUpdate={this.onTagUpdate.bind(this)}/>
 
                 <BlogPosts posts={posts} />
-            </Layout>
+            </>
         );
     }
 }

@@ -3,6 +3,7 @@ import { navigate } from 'gatsby';
 import Layout from "../components/Layout";
 import Modal from "../components/Modal";
 import {isBrowser} from "../services/auth";
+import {ThemeProvider} from "../context/Layout";
 
 class WatchTogether extends React.Component {
     constructor() {
@@ -30,7 +31,7 @@ class WatchTogether extends React.Component {
     
     render() {
         return (
-            <Layout hideSocial hideTagline>
+            <>
                 <h1 className="text-4xl text-center">Watch Together</h1>
 
                 <p className="mt-3 text-center">Watch YouTube videos together in sync</p>
@@ -40,11 +41,11 @@ class WatchTogether extends React.Component {
 
                     <button className="bg-black text-white px-3 py-4 w-36" onClick={() => this.setState({modalOpen: true})}>Join Room</button>
                 </div>
-                
+
                 <Modal title="Join existing room" open={this.state.modalOpen} buttons={this.state.modalButtons}>
                     <input type="text" className="w-full px-2 py-3 text-lg" placeholder="Room ID" onChange={e => this.setState({roomId: e.target.value})} value={this.state.roomId} />
                 </Modal>
-            </Layout>
+            </>
         );
     }
 }

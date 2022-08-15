@@ -29,7 +29,7 @@ class Chat extends React.Component {
 
     render() {
         return (
-            <Layout hideSocial hideTagline>
+            <>
                 <h1 className="text-4xl text-center">Chat Together</h1>
 
                 <p className="mt-3 text-center">Chat with multiple people via video</p>
@@ -43,7 +43,7 @@ class Chat extends React.Component {
                 <Modal title="Join existing chat" open={this.state.modalOpen} buttons={this.state.modalButtons}>
                     <input type="text" className="w-full px-2 py-3 text-lg" placeholder="Chat ID" onChange={e => this.setState({roomId: e.target.value})} value={this.state.roomId} />
                 </Modal>
-            </Layout>
+            </>
         );
     }
 }

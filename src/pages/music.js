@@ -1,13 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { Levels } from "react-activity";
 import "react-activity/dist/Levels.css";
 import Tracks from "../components/Music/Tracks";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
-import {faShare} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import TracksSkeleton from "../components/Music/TracksSkeleton";
+import SocialLinks from "../components/SocialLinks";
 
 class Music extends React.Component {
     componentDidMount() {
@@ -15,15 +13,17 @@ class Music extends React.Component {
         const {lastFmTracksLoaded} = this.props;
 
         if (! tracks.length) {
-            axios.get('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=welfordian&api_key=cd1a599104643eed3f309d8376b4740d&format=json&limit=24').then((r) => {
-                lastFmTracksLoaded(r.data.recenttracks.track);
+            axios.get('https://portfolio-api-new.test/api/spotify/recent').then((r) => {
+                lastFmTracksLoaded(r.data);
             });
         }
     }
 
     render () {
         return (
-            <Layout>
+            <>
+                <SocialLinks />
+                
                 <p className="text-4xl mt-24">Recently Played</p>
 
                 {
@@ -31,7 +31,7 @@ class Music extends React.Component {
                         ? <Tracks tracks={this.props.tracks} />
                         : <TracksSkeleton count={24}></TracksSkeleton>
                 }
-            </Layout>
+            </>
         );
     }
 }

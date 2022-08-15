@@ -2,7 +2,6 @@ import React from 'react'
 import { SpotifyApiContext } from 'react-spotify-api'
 import Cookies from 'js-cookie'
 import { SpotifyAuth, Scopes } from 'react-spotify-auth'
-import Layout from "../components/Layout";
 import App from "../components/SpotifyPlayer/App";
 
 const isBrowser = typeof window !== "undefined"
@@ -26,7 +25,7 @@ class SpotifyPlayer extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <>
                 {this.state.token ? (
                     <SpotifyApiContext.Provider value={this.state.token}>
                         <div className={`flex justify-center`}>
@@ -47,7 +46,7 @@ class SpotifyPlayer extends React.Component {
                         />
                     </div>
                 )}
-            </Layout>
+            </>
         );
     }
 }

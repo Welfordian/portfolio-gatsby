@@ -1,8 +1,4 @@
 import * as React from "react"
-import CaseStudies from "../components/Home/CaseStudies";
-import PersonalProjects from "../components/Home/PersonalProjects";
-import Layout from "../components/Layout";
-import PersonalProject from "../components/Home/PersonalProject";
 import Link from "../components/Links/Link";
 import GitHub from "../images/GitHub.svg";
 import LinkedIn from "../images/LinkedIn.svg";
@@ -10,12 +6,16 @@ import Twitter from "../images/Twitter.svg";
 import Instagram from "../images/Instagram.svg";
 import Spotify from "../images/Spotify.svg";
 import LastFM from "../images/LastFM.svg";
+import {Helmet} from "react-helmet";
+import SocialLinks from "../components/SocialLinks";
 
 const LinksPage = () => (
-    <Layout hideSocial>
-        <div className="flex justify-center">
+    <div className={`flex flex-col justify-center grow h-full`}>        
+        <div className="flex flex-col justify-center grow items-center">
+            <SocialLinks hideTagline={false} hideSocial={true} />
+            
             {/* GitHub */}
-            <div className="w-full xl:w-1/3 flex flex-col mt-12">
+            <div className="w-full xl:w-1/3 flex flex-col mt-10 px-8 md:mx-0">
                 <Link
                     to="https://link.welford.me/github"
                     icon={<GitHub />}
@@ -64,7 +64,13 @@ const LinksPage = () => (
                 </Link>
             </div>
         </div>
-    </Layout>
+
+        <Helmet
+            htmlAttributes={{
+                class: 'links-page',
+            }}
+        />
+    </div>
 )
 
 export default LinksPage

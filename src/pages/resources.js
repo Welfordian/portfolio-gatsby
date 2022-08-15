@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import {connect} from "react-redux";
 import ResourcesContainer from "../components/Resources/ResourcesContainer";
 import ResourcesSkeleton from "../components/Resources/ResourcesSkeleton";
+import SocialLinks from "../components/SocialLinks";
 
 class Resources extends React.Component {
     componentDidMount() {
@@ -20,7 +21,9 @@ class Resources extends React.Component {
 
     render () {
         return (
-            <Layout>
+            <>
+                <SocialLinks />
+                
                 <p className="text-4xl mt-24">Resources</p>
 
                 {
@@ -32,7 +35,7 @@ class Resources extends React.Component {
                             ></ResourcesSkeleton>
                         </div>
                 }
-            </Layout>
+            </>
         );
     }
 }

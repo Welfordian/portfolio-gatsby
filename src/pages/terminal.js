@@ -186,17 +186,17 @@ class Terminal extends React.Component {
         if (this.state.currentView === 'jurassic-park') view = jurassicParkView;
         
         return (
-            <Layout hideSocial hideTagline marginTop={`mt-6`}>
+            <>
                 <div className={`flex justify-center mr-12`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-600 text-white px-6 py-2 rounded-t-lg`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/terminal.js`} target="_blank" rel="noopener">
                             <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
-                            
+
                             Source
                         </a>
                     </div>
                 </div>
-                
+
                 <div className={`flex justify-center grow`}>
                     <div className={`max-h-[43rem] flex flex-col rounded-lg shadow-xl shadow-gray-400 w-full md:w-4/5`}>
                         <div className="flex items-center h-6 justify-between rounded-t-lg bg-gray-600 border-b border-gray-500 text-center text-black">
@@ -204,9 +204,9 @@ class Terminal extends React.Component {
                                 <div className="flex ml-2 justify-center items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3">
                                     {
                                         this.state.currentView === 'nano'
-                                        ?
+                                            ?
                                             <div className="flex items-center text-center bg-[#8C1A11] shadow-inner rounded-full w-1 h-1"></div>
-                                        : ""    
+                                            : ""
                                     }
                                 </div>
                                 <div className="ml-2 border-yellow-900 bg-yellow-500 shadow-inner rounded-full w-3 h-3"></div>
@@ -216,15 +216,15 @@ class Terminal extends React.Component {
                             <div className="mx-auto select-none">
                                 {
                                     this.state.currentView === 'default'
-                                    ?
+                                        ?
                                         <p className="text-center text-gray-300 text-sm">josh@welford.me: {this.state.directory}</p>
-                                    :
-                                        <p className="text-center text-gray-300 text-sm">{this.state.terminalTitle}</p>    
+                                        :
+                                        <p className="text-center text-gray-300 text-sm">{this.state.terminalTitle}</p>
                                 }
                             </div>
-                            
+
                             <div>
-                                <FontAwesomeIcon 
+                                <FontAwesomeIcon
                                     onClick={() => this.setState({ modalOpen: true })}
                                     className={`text-white mr-2 cursor-pointer`}
                                     icon={faQuestionCircle}
@@ -235,7 +235,7 @@ class Terminal extends React.Component {
                             {
                                 view
                             }
-                            
+
                             <div className={`absolute top-0 left-0 w-full h-full bg-gray-500 bg-opacity-75 ${this.state.disconnected ? '' : 'hidden'}`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
                                 <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
                                     <div className="relative bg-gray-800 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
@@ -286,7 +286,7 @@ class Terminal extends React.Component {
                         class: 'watch-together',
                     }}
                 />
-            </Layout>
+            </>
         );
     }
 }

@@ -30,13 +30,13 @@ class Youtify extends React.Component {
 
     render () {
         return (
-            <Layout>
+            <>
                 {this.state.token || this.state.playlist ? (
                     <SpotifyApiContext.Provider value={this.state.token}>
                         <App token={this.state.token} />
                     </SpotifyApiContext.Provider>
                 ) : (
-                    <div className="flex flex-col items-center justify-center mt-12">                        
+                    <div className="flex flex-col items-center justify-center mt-12">
                         <SpotifyAuth
                             redirectUri='https://welford.me/youtify/'
                             clientID='6d08c3a931c74f95813b4f181ef0ad50'
@@ -61,7 +61,7 @@ class Youtify extends React.Component {
                         </div>
                     </div>
                 )}
-            </Layout>
+            </>
         );
     }
 }
