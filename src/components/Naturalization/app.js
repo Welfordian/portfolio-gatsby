@@ -56,12 +56,6 @@ class App extends React.Component {
                                 onFinish={() => { this.setState({isComplete: true}) }}
                             ></Quiz>    
                 }
-
-                <Helmet
-                    htmlAttributes={{
-                        class: 'watch-together',
-                    }}
-                />
             </div>
         );
     }
