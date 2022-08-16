@@ -12410,7 +12410,7 @@ __webpack_require__.r(__webpack_exports__);
 class Layout extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   render() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_context_Layout__WEBPACK_IMPORTED_MODULE_4__["default"].Consumer, null, theme => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "flex justify-center h-full pb-12"
+      className: "flex justify-center h-full pb-8"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_seo__WEBPACK_IMPORTED_MODULE_2__["default"], {
       title: "Joshua Welford"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -12491,7 +12491,7 @@ class NowPlaying extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component
   }
 
   render() {
-    if (this.state.track === null) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
+    if (this.state.track === null || this.state.track === []) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null);
     let image = this.state.track.item.album.images[0];
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: `w-full md:w-auto fixed bottom-0 left-0 self-center flex w-full justify-center md:justify-start z-0`

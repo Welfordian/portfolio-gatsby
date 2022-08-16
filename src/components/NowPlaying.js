@@ -42,7 +42,9 @@ class NowPlaying extends React.Component {
     }
     
     render() {
-        if (this.state.track === null) return (<div></div>)
+        if (this.state.track === null || this.state.track.length === 0) return (<div></div>)
+        
+        console.log(this.state.track);
         
         let image = this.state.track.item.album.images[0];
         
