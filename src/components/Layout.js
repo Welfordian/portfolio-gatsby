@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from "./Header";
 import Seo from "./seo";
-import SocialLinks from "./SocialLinks";
 import NowPlaying from "./NowPlaying";
 import ThemeContext from "../context/Layout";
 
