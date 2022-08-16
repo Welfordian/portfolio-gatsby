@@ -9,7 +9,7 @@ export default class Layout extends React.Component {
         return (
             <ThemeContext.Consumer>
                 {theme => (
-                    <div className="flex justify-center h-full pb-12">
+                    <div className="flex justify-center h-full pb-8">
                         <Seo title="Joshua Welford" />
 
                         <div className="container h-full mb-12 flex flex-col">
