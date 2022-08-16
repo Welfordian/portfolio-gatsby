@@ -48,10 +48,10 @@ class NowPlaying extends React.Component {
         
         return (
             <div className={`w-full md:w-auto fixed bottom-0 left-0 self-center flex w-full justify-center md:justify-start z-0`}>
-                <div className={`bg-black px-4 py-3 mb-3 ml-3 mr-3 shadow-md shadow-gray-900`}>
+                <div className={`bg-black/80 px-4 py-3 mb-3 ml-3 mr-3 shadow-md shadow-gray-900`}>
                     <a href={this.state.track.item.external_urls.spotify} target={`_blank`} rel={`noopener`}>
                         <div className="flex items-end w-full">
-                            <div className="inline-flex items-center bg-black w-full">
+                            <div className="inline-flex items-center w-full">
                                 <Levels size={20} color={`white`} className={`mr-4`}></Levels>
 
                                 <div className={`flex items-center gap-3`}>
