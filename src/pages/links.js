@@ -10,7 +10,7 @@ import {Helmet} from "react-helmet";
 import SocialLinks from "../components/SocialLinks";
 
 const LinksPage = () => (
-    <div className={`flex flex-col justify-center grow h-full`}>        
+    <div className={`flex flex-col justify-center grow h-full pb-12`}>        
         <div className="flex flex-col justify-center grow items-center">
             <SocialLinks hideTagline={false} hideSocial={true} />
             
