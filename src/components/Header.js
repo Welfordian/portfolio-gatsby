@@ -14,23 +14,23 @@ export default class Header extends React.Component {
 
                 <div className="flex flex-wrap justify-center items-center self-end w-full md:w-auto items-center mt-4 md:mt-0">
                     <Link to="/"
-                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold">
+                          className="mr-5 block text-gray-500 lg:inline-block lg:mt-0 hover:text-white hover:border-black hover:bg-black hover:text-white px-3 py-2 font-bold border-4 border-white transition duration-300">
                         Home
                     </Link>
                     <Link to="/music"
-                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                          className="mr-5 block text-gray-500 lg:inline-block lg:mt-0 hover:text-white hover:border-black hover:bg-black hover:text-white px-3 py-2 font-bold border-4 border-white transition duration-300">
                         Music
                     </Link>
                     <Link to="/resources"
-                          className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                          className="mr-5 block text-gray-500 lg:inline-block lg:mt-0 hover:text-white hover:border-black hover:bg-black hover:text-white px-3 py-2 font-bold border-4 border-white transition duration-300">
                         Resources
                     </Link>
                     <a target="_blank" rel="noopener" href="https://resources.josh.workers.dev/resume"
-                       className="mr-10 block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                       className="mr-5 block text-gray-500 lg:inline-block lg:mt-0 hover:text-white hover:border-black hover:bg-black hover:text-white px-3 py-2 font-bold border-4 border-white transition duration-300">
                         Resume
                     </a>
                     <Link to="/blog"
-                          className="block text-gray-500 lg:inline-block lg:mt-0 hover:text-black font-bold relative">
+                          className="block text-gray-500 lg:inline-block lg:mt-0 hover:text-white hover:border-black hover:bg-black hover:text-white px-3 py-2 font-bold border-4 border-white transition duration-300">
                         Blog
                     </Link>
                     {

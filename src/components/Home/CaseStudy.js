@@ -3,7 +3,7 @@ import React from "react";
 export default class CaseStudy extends React.Component {
     render () {
         return (
-            <div className={`flex flex-col justify-between ${this.props.inverted ? "bg-black text-white" : "text-black"} p-8`}>
+            <div className={`flex transition-all duration-300 flex-col justify-between ${this.props.inverted ? "bg-black text-white" : "text-black"} p-8`}>
                 <div>
                     <p className="font-bold text-2xl mb-8">
                         {

@@ -10,7 +10,7 @@ export default class Resource extends React.Component {
     
     render () {
         return (
-            <a className="w-[524px] max-w-full cursor-pointer font-[Helvetica] block" target="_blank" rel="noopener" href={this.props.resource.url}>
+            <a className="w-[524px] max-w-full cursor-pointer font-[Helvetica] block hover:scale-105 transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 hover:rotate-1" target="_blank" rel="noopener" href={this.props.resource.url}>
                 <div className="w-[524px] max-w-full cursor-pointer font-[Helvetica]">
                     <div className="h-[274px] border-[1px] border-b-0 border-[#dadde1] bg-cover bg-center bg-no-repeat lazy"
                          data-bg={`${this.props.resource.openGraph.image ?? 'https://via.placeholder.com/525x275.png?text=NO%20IMAGE'}`}></div>
