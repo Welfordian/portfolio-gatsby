@@ -24,7 +24,7 @@ export default class Track extends React.Component {
                             {
                                 this.state.isOverflowed
                                 ?
-                                    <Marquee gradient={false} speed={50} play={this.state.playMarquee}>{this.props.track.track.name}</Marquee>
+                                    <Marquee gradient={false} speed={30} play={this.state.playMarquee}>{this.props.track.track.name}</Marquee>
                                 :
                                     <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
                                         <p>{this.props.track.track.name}</p>

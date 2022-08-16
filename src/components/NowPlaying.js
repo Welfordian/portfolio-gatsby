@@ -3,6 +3,8 @@ import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import {Levels} from "react-activity";
+import Marquee from "react-fast-marquee";
+import DetectableOverflow from "react-detectable-overflow";
 
 class NowPlaying extends React.Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class NowPlaying extends React.Component {
         
         this.state = {
             track: null,
+            isOverflowed: false,
         }
     }
 
@@ -24,7 +27,8 @@ class NowPlaying extends React.Component {
     loadTrack() {
         axios.get('https://api.welford.me/spotify/now').then((r) => {
             this.setState({
-                track: r.data
+                track: r.data,
+                isOverflowed: false,
             })
             
             if (r.data.is_playing) {
@@ -32,6 +36,8 @@ class NowPlaying extends React.Component {
             } else {
                 this.loadTrackTimeout();
             }
+        }).catch(() => {
+            this.loadTrackTimeout(5000);
         });
     }
     
@@ -52,7 +58,17 @@ class NowPlaying extends React.Component {
                                     <img className="w-16 self-center" src={image.url} />
 
                                     <div className="text-white max-w-full flex flex-col justify-between">
-                                        <p className="break-words">{this.state.track.item.name}</p>
+                                        <div className={`max-w-xs`}>
+                                            {
+                                                this.state.isOverflowed
+                                                    ?
+                                                    <Marquee className={`max-w-xs`} gradient={false} speed={30} play={this.state.playMarquee}>{this.state.track.item.name}</Marquee>
+                                                    :
+                                                    <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
+                                                        <p className="break-words">{this.state.track.item.name}</p>
+                                                    </DetectableOverflow>
+                                            }
+                                        </div>
                                         <p>{this.state.track.item.artists[0]['name']}</p>
                                     </div>
                                 </div>
