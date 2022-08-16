@@ -1,29 +1,11 @@
-import {ThemeProvider} from "./src/context/Layout";
-import Layout from "./src/components/Layout";
-import React from "react";
-
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-import React, { Component }  from 'react';
-import "./src/css/index.css"
-
-import wrapWithProvider from "./wrap-with-provider"
-import Layout from "./src/components/Layout";
-import { ThemeProvider } from "./src/context/Layout";
-export const wrapRootElement = wrapWithProvider
-
 const path = require("path")
 const { slash } = require(`gatsby-core-utils`)
-
-export const wrapPageElement = ({ element, props }) => {
-    return <ThemeProvider>
-        <Layout {...props}>{element}</Layout>
-    </ThemeProvider>
-}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
     const {createPage} = actions

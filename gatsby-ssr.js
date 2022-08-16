@@ -5,10 +5,19 @@
  */
 
 // You can delete this file if you're not using it
+import React, { Component }  from 'react';
+import "./src/css/index.css"
 
 import wrapWithProvider from "./wrap-with-provider"
+import Layout from "./src/components/Layout";
+import { ThemeProvider } from "./src/context/Layout";
 export const wrapRootElement = wrapWithProvider
-import React from "react";
+
+export const wrapPageElement = ({ element, props }) => {
+    return <ThemeProvider>
+        <Layout {...props}>{element}</Layout>
+    </ThemeProvider>
+}
 
 
 export function onRenderBody(
