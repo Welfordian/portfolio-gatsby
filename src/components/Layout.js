@@ -13,11 +13,11 @@ export default class Layout extends React.Component {
                         <Seo title="Joshua Welford" />
 
                         <div className="container h-full mb-12 flex flex-col">
-                            {theme.hideHeader ? '' : <Header />}
+                            {theme.hideHeader ? '' : <Header location={this.props.location} />}
 
                             <div className={`flex flex-col ${theme.marginTop ? '' : 'mt-8'} grow`}>
                                 <div className="m-4 p-4 grow flex flex-col">
-                                    {this.props.children}
+                                    <>{React.cloneElement(this.props.children, {location: this.props.location})}</>
                                 </div>
                             </div>
                         </div>

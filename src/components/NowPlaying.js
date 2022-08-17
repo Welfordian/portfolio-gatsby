@@ -64,7 +64,7 @@ class NowPlaying extends React.Component {
                             <FontAwesomeIcon onClick={e => this.close(e)} className={`absolute -top-3 -right-4 text-white px-2 py-1`} icon={faTimes} />
                             
                             <div className="inline-flex items-center w-full">
-                                <Levels size={20} color={`white`} className={`mr-4`}></Levels>
+                                <Levels size={20} color={`white`} className={`mr-4 w-5`}></Levels>
 
                                 <div className={`flex items-center gap-3`}>
                                     <img className="w-16 self-center" src={image.url} />
