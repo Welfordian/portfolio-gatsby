@@ -1,0 +1,10 @@
+[
+    {
+        "functionRoute": "hello-world",
+        "pluginName": "default-site-plugin",
+        "originalAbsoluteFilePath": "/Users/josh/Sites/portfolio-gatsby/src/api/hello-world.js",
+        "originalRelativeFilePath": "hello-world.js",
+        "relativeCompiledFilePath": "hello-world.js",
+        "absoluteCompiledFilePath": "/Users/josh/Sites/portfolio-gatsby/.cache/functions/hello-world.js"
+    }
+]

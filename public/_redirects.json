@@ -1,0 +1,1 @@
+{"redirects":[],"rewrites":[{"fromPath":"/chat/:slug","toPath":"/chat/:slug"},{"fromPath":"/watch-together/:slug","toPath":"/watch-together/:slug"},{"fromPath":"/youtify/:slug","toPath":"/youtify/:slug"}]}

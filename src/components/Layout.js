@@ -17,7 +17,7 @@ export default class Layout extends React.Component {
 
                             <div className={`flex flex-col ${theme.marginTop ? '' : 'mt-8'} grow`}>
                                 <div className="m-4 p-4 grow flex flex-col">
-                                    <>{React.cloneElement(this.props.children, {location: this.props.location})}</>
+                                    {this.props.children}
                                 </div>
                             </div>
                         </div>
