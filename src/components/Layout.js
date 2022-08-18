@@ -3,6 +3,7 @@ import Header from "./Header";
 import Seo from "./seo";
 import NowPlaying from "./NowPlaying";
 import ThemeContext from "../context/Layout";
+import MouseTrail from "./MouseTrail";
 
 export default class Layout extends React.Component {
     render() {
