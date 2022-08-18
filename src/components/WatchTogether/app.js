@@ -52,17 +52,17 @@ class App extends React.Component {
 
     render() {        
         return (
-            <Layout hideSocial hideTagline>
+            <>
                 {
                     ! this.state.modalOpen
-                    ?
-                        this.state.connected 
+                        ?
+                        this.state.connected
                             ?
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 grow flex l">
                                 <WatchArea
                                     socket={this.state.socket}
                                 ></WatchArea>
-                                
+
                                 <Chat
                                     socket={this.state.socket}
                                     socketId={this.state.socketId}
@@ -71,18 +71,18 @@ class App extends React.Component {
                             </div>
                             :
                             <h1 className="text-4xl text-center">Disconnected.</h1>
-                    :
+                        :
                         <Modal title="Enter a name" open={this.state.modalOpen} buttons={[<button className="bg-black text-white px-3 py-4 w-36" onClick={() => this.joinRoom()}>Join</button>]}>
                             <input autoComplete={`off`} type="text" className="w-full px-2 py-3 text-lg" placeholder="Jane Doe" onChange={e => this.setState({name: e.target.value})} value={this.state.name} />
-                        </Modal>  
+                        </Modal>
                 }
 
                 <Helmet
                     htmlAttributes={{
                         class: 'watch-together',
                     }}
-                />
-            </Layout>
+                /> 
+            </>    
         );
     }
 }
