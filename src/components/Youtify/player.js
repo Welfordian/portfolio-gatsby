@@ -102,7 +102,8 @@ class Player extends React.Component {
                         ?
                         <div className="flex flex-col justify-between">
                             <div className={`w-full`}>
-                                <YouTube className={`w-full`} containerClassName={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
+                                <YouTube className={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
+                                
                                 <div className="flex justify-between mt-4">
                                     <button className={this.hasPreviousVideo() ? 'text-black' : 'text-gray-300'} onClick={this.previousVideo.bind(this)}>Previous</button>
                                     <SavePlaylist videos={this.state.videos} tracks={this.state.tracks} isPlaylist={this.props.slug.length} />
