@@ -51,15 +51,15 @@ export default class Header extends React.Component {
                 <div className="flex flex-wrap justify-center items-center self-end w-full md:w-auto items-center mt-4 md:mt-0">
                     <div className="flex justify-center font-bold">
                         <NavItem to={'https://link.welford.me/twitter'} external={true}>
-                            <FontAwesomeIcon className={`text-xl`} icon={faTwitter} />
+                            <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faTwitter} />
                         </NavItem>
                         
                         <NavItem to={`https://link.welford.me/github`} external={true}>
-                            <FontAwesomeIcon className={`text-xl`} icon={faGithub} />
+                            <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} />
                         </NavItem>
                         
                         <NavItem to={`https://link.welford.me/linkedin`} external={true}>
-                            <FontAwesomeIcon className={`text-xl`} icon={faLinkedin} />
+                            <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} />
                         </NavItem>
                     </div>
                 </div>
