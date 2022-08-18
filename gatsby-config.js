@@ -88,6 +88,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-202915992-1",
+        head: false,
+        anonymize: false,
+        respectDNT: false,
+        exclude: ["/preview/**"],
+        pageTransitionDelay: 0,
+        defer: true,
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {

@@ -20,6 +20,7 @@
     "dotenv": "^16.0.1",
     "gatsby": "^3.9.1",
     "gatsby-plugin-gatsby-cloud": "^2.9.1",
+    "gatsby-plugin-google-analytics": "^4.21.0",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-manifest": "^3.9.0",
     "gatsby-plugin-matomo": "^0.10.0",
