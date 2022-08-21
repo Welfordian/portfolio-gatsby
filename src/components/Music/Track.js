@@ -77,7 +77,7 @@ export default class Track extends React.Component {
                                     {
                                         this.state.isPlayingPreview
                                         ?
-                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Pause Preview`}></FontAwesomeIcon>
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
                                         :
                                             <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>  
                                     }
