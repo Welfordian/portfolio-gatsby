@@ -27,6 +27,10 @@ export default class Track extends React.Component {
             this.setState({ isPlayingPreview: false, previewProgress: 0 })
         }
         
+        this.audioRef.current.onpause = () => {
+            this.setState({ isPlayingPreview: false, previewProgress: 0 })
+        }
+        
         requestAnimationFrame(this.previewProgress.bind(this))
     }
 
@@ -37,8 +41,10 @@ export default class Track extends React.Component {
             
             this.setState({ isPlayingPreview: false, previewProgress: 0 })
         } else {
+            document.querySelectorAll('audio').forEach(audio => audio.pause())
+            
             this.audioRef.current.play();
-
+            
             this.setState({ isPlayingPreview: true })
         }
     }
