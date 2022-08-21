@@ -13,7 +13,7 @@ class Music extends React.Component {
         const {lastFmTracksLoaded} = this.props;
 
         if (! tracks.length) {
-            axios.get('https://api.welford.me/spotify/recent').then((r) => {
+            axios.get('https://portfolio-api-new.test/spotify/recent').then((r) => {
                 lastFmTracksLoaded(r.data);
             });
         }
