@@ -3,18 +3,54 @@ import Marquee from "react-fast-marquee";
 import DetectableOverflow from 'react-detectable-overflow';
 import moment from "moment";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClock, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
+import {faClock, faStop, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
 import {Levels} from "react-activity";
 import {faSpotify, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import {faPause, faPlay} from "@fortawesome/pro-solid-svg-icons";
 
 export default class Track extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
             isOverflowed: false,
             playMarquee: true,
+            isPlayingPreview: false,
+            previewProgress: 0,
         }
+        
+        this.audioRef = React.createRef();
+    }
+    
+    componentDidMount() {
+        this.audioRef.current.onended = () => {
+            this.setState({ isPlayingPreview: false, previewProgress: 0 })
+        }
+        
+        requestAnimationFrame(this.previewProgress.bind(this))
+    }
+
+    togglePreview() {
+        if (this.state.isPlayingPreview) {
+            this.audioRef.current.pause();
+            this.audioRef.current.currentTime = 0
+            
+            this.setState({ isPlayingPreview: false, previewProgress: 0 })
+        } else {
+            this.audioRef.current.play();
+
+            this.setState({ isPlayingPreview: true })
+        }
+    }
+    
+    previewProgress() {
+        if (this.state.isPlayingPreview) {
+            this.setState({
+                previewProgress: (this.audioRef.current.currentTime / this.audioRef.current.duration) * 100
+            })
+        }
+        
+        requestAnimationFrame(this.previewProgress.bind(this));
     }
     
     render () {
@@ -34,18 +70,39 @@ export default class Track extends React.Component {
                     </div>
                     
                     <div className="flex justify-center w-auto px-4 py-2">
-                        <a target="_blank" rel="noopener" href={this.props.track.spotify_url} className={`relative`}>
+                        {
+                            this.props.track.preview_url !== null
+                            ?
+                                <div>
+                                    {
+                                        this.state.isPlayingPreview
+                                        ?
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Pause Preview`}></FontAwesomeIcon>
+                                        :
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>  
+                                    }
+                                    <audio className={`hidden`} ref={this.audioRef}>
+                                        <source src={this.props.track.preview_url} type="audio/mpeg" />
+                                    </audio>
+                                </div>
+                            : <div></div>    
+                        }
+                        <a target="_blank" rel="noopener" href={this.props.track.spotify_url} className={`relative cursor-pointer`}>
                             <div className={`absolute w-14 h-14 rounded-full bg-white top-[2%] left-[3%]`}></div>
-                            <FontAwesomeIcon icon={faSpotify} size={`4x`} className={`text-[#1DB954] drop-shadow shadow-red-500 mr-8`}></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faSpotify} size={`4x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
                         </a>
 
-                        <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative`}>
+                        <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
                             <div className={`absolute w-5 h-5 bg-white top-[34%] left-[40%]`}></div>
-                            <FontAwesomeIcon icon={faYoutube} size={`4x`} className={`text-[#FF0000] drop-shadow shadow-red-500`}></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faYoutube} size={`4x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
                         </a>
                     </div>
                     
-                    <div className="flex flex-col px-4 py-6 bg-black/[0.6]">
+                    <div className="flex flex-col px-4 py-6 bg-black/[0.6] relative">
+                        <div className={`absolute top-0 left-0 bg-white h-1 -mt-1 mix-blend-difference`} style={{width: `${this.state.previewProgress}%`}}>
+                            
+                        </div>
+                        
                         <p className="font-semibold">
                             <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
                             {this.props.track.artist}

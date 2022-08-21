@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     if (action.type === "LASTFM_TRACKS_LOADED") {
         return {
             ...state,
-            tracks: action.tracks,
+            tracks: [...state.tracks, ...action.tracks],
         }
     }
 

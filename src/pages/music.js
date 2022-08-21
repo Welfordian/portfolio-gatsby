@@ -7,16 +7,56 @@ import {connect} from "react-redux";
 import TracksSkeleton from "../components/Music/TracksSkeleton";
 import SocialLinks from "../components/SocialLinks";
 
-class Music extends React.Component {
+class Music extends React.Component {    
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            page: 1,
+        }
+        
+        this.isLoadingMore = false;
+        this.loadMore = false;
+    }
+
     componentDidMount() {
         const {tracks} = this.props;
-        const {lastFmTracksLoaded} = this.props;
 
         if (! tracks.length) {
-            axios.get('https://api.welford.me/spotify/recent').then((r) => {
-                lastFmTracksLoaded(r.data.data);
-            });
+            this.loadTracks(true);
         }
+
+        window.addEventListener('scroll', e => {
+            const scrollY = window.scrollY + window.innerHeight + 2;
+            const bodyScroll = document.body.offsetHeight;
+
+            if (scrollY >= (bodyScroll - 750)) {
+                this.loadMore = true;
+
+                this.loadTracks();
+            } else {
+                this.loadMore = false;
+            }
+        });
+    }
+    
+    loadTracks(force = false) {
+        const {lastFmTracksLoaded} = this.props;
+        
+        if ((! force && ! (this.loadMore)) || this.isLoadingMore) return;
+        
+        this.loadMore = false;
+        this.isLoadingMore = true;
+        
+        axios.get('https://api.welford.me/spotify/recent?page=' + this.state.page).then((r) => {
+            lastFmTracksLoaded(r.data.data);
+
+            this.setState({
+                page: this.state.page + 1
+            })
+            
+            this.isLoadingMore = false;
+        });
     }
 
     render () {
