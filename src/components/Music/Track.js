@@ -3,10 +3,9 @@ import Marquee from "react-fast-marquee";
 import DetectableOverflow from 'react-detectable-overflow';
 import moment from "moment";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClock, faStop, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
-import {Levels} from "react-activity";
+import {faClock, faStop, faUserMusic, faPlay} from "@fortawesome/pro-solid-svg-icons";
+import { Popover } from 'react-tiny-popover'
 import {faSpotify, faYoutube} from "@fortawesome/free-brands-svg-icons";
-import {faPause, faPlay} from "@fortawesome/pro-solid-svg-icons";
 
 export default class Track extends React.Component {
     constructor(props) {
@@ -17,9 +16,12 @@ export default class Track extends React.Component {
             playMarquee: true,
             isPlayingPreview: false,
             previewProgress: 0,
+            popoverOpen: false,
         }
         
         this.audioRef = React.createRef();
+        
+        this.explicit = <div className={`bg-gray-700 shadow-md text-white px-2 py-1`}>Explicit</div>
     }
     
     componentDidMount() {
@@ -63,16 +65,30 @@ export default class Track extends React.Component {
         return (
             <div className="relative w-full h-[450px] md:w-[450px] mb-5 hover:scale-105 transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 hover:rotate-1 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
                 <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.album_image}) no-repeat center center`, backgroundSize: "cover"}}>
-                    <div className="font-bold text-xl px-4 py-6 text-center bg-black/[0.6]">
-                            {
-                                this.state.isOverflowed
+                    <div className="font-bold text-xl px-4 py-6 text-center bg-black/[0.6] flex">
+                        {
+                            this.props.track.explicit
                                 ?
-                                    <Marquee gradient={false} speed={30} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
-                                :
-                                    <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
-                                        <p>{this.props.track.name}</p>
-                                    </DetectableOverflow>
-                            }
+                                <div className={`bg-gray-700 px-2 mr-2 inline`} title={`Explicit`} onMouseEnter={() => this.setState({popoverOpen: true})} onMouseLeave={() => this.setState({popoverOpen: false})}>
+                                    <Popover 
+                                        isOpen={this.state.popoverOpen}
+                                        content={this.explicit}
+                                    >
+                                        <p className={`inline p-0 m-0`}>E</p>
+                                    </Popover>
+                                </div>
+                                : <span></span>
+                        }
+                        
+                        {
+                            this.state.isOverflowed
+                            ?
+                                <Marquee gradient={false} speed={30} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
+                            :
+                                <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
+                                    <p>{this.props.track.name}</p>
+                                </DetectableOverflow>
+                        }
                     </div>
                     
                     <div className="flex justify-center w-auto px-4 py-2">
@@ -105,25 +121,20 @@ export default class Track extends React.Component {
                     </div>
                     
                     <div className="flex flex-col px-4 py-6 bg-black/[0.6] relative">
-                        <div className={`absolute top-0 left-0 bg-white h-1 -mt-1 mix-blend-difference`} style={{width: `${this.state.previewProgress}%`}}>
-                            
-                        </div>
+                        <div 
+                            className={`absolute top-0 left-0 bg-white h-1 -mt-1 mix-blend-difference`}
+                            style={{width: `${this.state.previewProgress}%`}}
+                        ></div>
                         
-                        <p className="font-semibold">
+                        <div className="font-semibold flex items-center">
                             <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
                             {this.props.track.artist}
+                        </div>
+                        
+                        <p className="mt-3 font-semibold">
+                            <FontAwesomeIcon className="mr-4" icon={faClock} />
+                            {moment(this.props.track.played_at).fromNow(true)} ago
                         </p>
-                        {
-                            '@attr' in this.props.track
-                                ? <p className="mt-3 font-semibold flex items-end">
-                                    <Levels className="mr-4" />
-                                    Listening Now
-                                  </p>
-                                : <p className="mt-3 font-semibold">
-                                    <FontAwesomeIcon className="mr-4" icon={faClock} />
-                                    {moment(this.props.track.played_at).fromNow(true)} ago
-                                  </p>
-                        }
                     </div>
                 </div>
             </div>

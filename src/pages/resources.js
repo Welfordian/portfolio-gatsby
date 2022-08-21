@@ -6,8 +6,21 @@ import {connect} from "react-redux";
 import ResourcesContainer from "../components/Resources/ResourcesContainer";
 import ResourcesSkeleton from "../components/Resources/ResourcesSkeleton";
 import SocialLinks from "../components/SocialLinks";
+import Modal from "../components/Modal";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";
 
 class Resources extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            modalOpen: false,
+        }
+        
+        this.modalButtons = <button className="bg-black text-white px-3 py-4 w-36" onClick={() => this.setState({modalOpen: false})}>Close</button>
+    }
+
     componentDidMount() {
         const {bookmarks} = this.props;
         const {bookmarksLoaded} = this.props;
@@ -24,7 +37,10 @@ class Resources extends React.Component {
             <>
                 <SocialLinks />
                 
-                <p className="text-4xl mt-24">Resources</p>
+                <p className="text-4xl mt-24 flex items-center gap-2">
+                    <FontAwesomeIcon className={`cursor-pointer`} icon={faQuestionCircle} onClick={() => { this.setState({ modalOpen: true })}}></FontAwesomeIcon>
+                    Resources
+                </p>
 
                 {
                     Object.keys(this.props.bookmarks).length
@@ -35,6 +51,19 @@ class Resources extends React.Component {
                             ></ResourcesSkeleton>
                         </div>
                 }
+
+                <Modal title="How does this page work?" open={this.state.modalOpen} buttons={[this.modalButtons]}>
+                    <div className={`text-white`}>
+                        <p>
+                            Instead of creating a UI for this page, the resources are tied directly to my browser bookmarks.
+                            I created a Chromium extension that, when a bookmark is added to a specific folder,
+                            a POST request is made to an API on my server. The extension also makes requests when
+                            a bookmark in that folder is updated or deleted. The API then scrapes the page
+                            for Open Graph tags to display the data on this page. The images are then stored in
+                            Cloudflare, resized and converted to WebP format.
+                        </p>
+                    </div>
+                </Modal>
             </>
         );
     }

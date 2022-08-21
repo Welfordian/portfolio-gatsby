@@ -6,6 +6,7 @@ import {Levels} from "react-activity";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from "react-detectable-overflow";
 import {faTimes} from "@fortawesome/pro-light-svg-icons";
+import {Popover} from "react-tiny-popover";
 
 class NowPlaying extends React.Component {
     constructor(props) {
@@ -15,7 +16,10 @@ class NowPlaying extends React.Component {
             track: null,
             isClosed: false,
             isOverflowed: false,
+            popoverOpen: false,
         }
+
+        this.explicit = <div className={`bg-gray-700 shadow-md text-white px-2 py-1`}>Explicit</div>
     }
 
     componentDidMount() {
@@ -81,7 +85,22 @@ class NowPlaying extends React.Component {
                                                     </DetectableOverflow>
                                             }
                                         </div>
-                                        <p>{this.state.track.item.artists[0]['name']}</p>
+                                        <p>
+                                            {
+                                                this.state.track.item.explicit
+                                                    ?
+                                                    <div className={`bg-gray-700 px-1 mr-2 inline`} title={`Explicit`} onMouseEnter={() => this.setState({popoverOpen: true})} onMouseLeave={() => this.setState({popoverOpen: false})}>
+                                                        <Popover
+                                                            isOpen={this.state.popoverOpen}
+                                                            content={this.explicit}
+                                                        >
+                                                            <p className={`inline p-0 m-0`}>E</p>
+                                                        </Popover>
+                                                    </div>
+                                                    : <span></span>
+                                            }
+                                            {this.state.track.item.artists[0]['name']}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
