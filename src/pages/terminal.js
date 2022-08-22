@@ -198,7 +198,7 @@ class Terminal extends React.Component {
                 </div>
 
                 <div className={`flex justify-center grow`}>
-                    <div className={`max-h-[43rem] flex flex-col rounded-lg shadow-xl shadow-gray-400 dark:shadow-md dark:shadow-gray-800 w-full md:w-4/5`}>
+                    <div className={`h-[42rem] flex flex-col rounded-lg shadow-xl shadow-gray-400 dark:shadow-md dark:shadow-gray-800 w-full md:w-4/5`}>
                         <div className="flex items-center h-6 justify-between rounded-t-lg bg-gray-600 border-b border-gray-500 text-center text-black">
                             <div className={`flex`}>
                                 <div className="flex ml-2 justify-center items-center text-center border-red-900 bg-red-500 shadow-inner rounded-full w-3 h-3">
