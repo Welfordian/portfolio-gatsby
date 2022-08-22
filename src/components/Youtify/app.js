@@ -18,7 +18,7 @@ class App extends React.Component {
 
     render () {
         return (
-            <div className={`-mt-12`}>
+            <div className={`md:-mt-12`}>
                 {
                     this.state.playlist
                         ?
