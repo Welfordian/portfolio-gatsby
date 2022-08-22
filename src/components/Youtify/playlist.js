@@ -7,7 +7,7 @@ class Playlist extends React.Component {
     render() {
         console.log(this.props.playlist[0]);
         return (
-            <div className={`overflow-auto col-span-4 md:col-span-2 lg:col-span-1`}>
+            <div className={`overflow-auto col-span-4 md:col-span-2 lg:col-span-1 dark:text-gray-300`}>
                 <div className={`flex-grow h-full overflow-auto flex flex-col gap-2`}>
                     {
                         this.props.playlist.map((track, index) => {
