@@ -5,7 +5,7 @@ export default class PersonalProjects extends React.Component {
     render () {
         return (
             <div>
-                <p className="text-4xl mt-24">Personal Projects</p>
+                <p className="text-4xl mt-24 dark:text-gray-300">Personal Projects</p>
 
                 <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-max mt-12">
                     <PersonalProject

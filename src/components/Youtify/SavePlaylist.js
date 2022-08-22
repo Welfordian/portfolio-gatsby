@@ -31,7 +31,7 @@ class SavePlaylist extends React.Component {
         if (! this.state.isPlaylist) {
             return (
                 <div>
-                    <button className={`text-black`} onClick={this.savePlaylist.bind(this)}>Save Playlist</button>
+                    <button className={`text-black dark:text-gray-300`} onClick={this.savePlaylist.bind(this)}>Save Playlist</button>
                 </div>
             )
         }

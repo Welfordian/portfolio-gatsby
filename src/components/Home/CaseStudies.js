@@ -5,7 +5,7 @@ export default class CaseStudies extends React.Component {
     render () {
         return (
             <div>
-                <p className="text-4xl mt-24">Case Studies</p>
+                <p className="text-4xl mt-24 dark:text-gray-300">Case Studies</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-max mt-12">
                     <CaseStudy
                         name="Environmental 360"

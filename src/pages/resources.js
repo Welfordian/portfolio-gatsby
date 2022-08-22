@@ -37,7 +37,7 @@ class Resources extends React.Component {
             <>
                 <SocialLinks />
                 
-                <p className="text-4xl mt-24 flex items-center gap-2">
+                <p className="text-4xl mt-24 flex items-center gap-2 dark:text-gray-300">
                     <FontAwesomeIcon className={`cursor-pointer`} icon={faQuestionCircle} onClick={() => { this.setState({ modalOpen: true })}}></FontAwesomeIcon>
                     Resources
                 </p>

@@ -9,8 +9,8 @@ class SocialLinks extends React.Component {
         return (
             <div className="flex flex-col justify-center mx-4 px-4">
                 {this.props.hideTagline ? '' : <div className={`flex flex-col items-center justify-center`}>
-                    <h1 className="text-3xl md:text-4xl text-center">Joshua Welford</h1>
-                    <p className="mt-4">Software Engineer</p>
+                    <h1 className="text-3xl md:text-4xl text-center dark:text-gray-300">Joshua Welford</h1>
+                    <p className="mt-4 dark:text-gray-300">Software Engineer</p>
 
                     <Tagline />
                 </div>}

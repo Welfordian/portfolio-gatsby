@@ -7,7 +7,7 @@ class Modal extends React.Component {
     
     render () {
         return (
-            <div className={`relative z-10 ${this.props.open ? '' : 'hidden'}`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div className={`relative z-50 ${this.props.open ? '' : 'hidden'}`} aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
                 <div className="fixed z-10 inset-0 overflow-y-auto">

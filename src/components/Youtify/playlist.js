@@ -7,11 +7,11 @@ class Playlist extends React.Component {
     render() {
         return (
             <div className={`mt-12`}>
-                <p className="text-4xl">Playlist</p>
+                <p className="text-4xl dark:text-gray-300">Playlist</p>
 
                 <div>
                     <table className={`min-w-max w-full table-auto mt-12`}>
-                        <thead className={`bg-gray-200 text-gray-600 uppercase text-sm leading-normal`}>
+                        <thead className={`bg-gray-200 dark:bg-gray-500 dark:text-gray-300 text-gray-600 uppercase text-sm leading-normal`}>
                             <tr>
                                 <th className={`py-6`}></th>
                                 <th className={`text-left`}>Title</th>
@@ -20,11 +20,11 @@ class Playlist extends React.Component {
                                 <th className={`text-left`}>Duration</th>
                             </tr>
                         </thead>
-                        <tbody className={`text-gray-600 text-sm font-light`}>
+                        <tbody className={`dark:text-gray-300 text-gray-600 text-sm font-light`}>
                         {
                             this.props.playlist.map((track, index) => {
                                 return (
-                                    <tr className={`border-b border-gray-200 hover:bg-gray-100 cursor-pointer`} onClick={() => this.props.onChange(index)}>
+                                    <tr className={`border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer`} onClick={() => this.props.onChange(index)}>
                                         <td className={`pl-3 py-3`}>
                                             {
                                                 this.props.currentVideoIndex === index ? <Levels size={40} speed={0.5}/> : <img className={`w-10`} src={track.track.album.images[0].url} />

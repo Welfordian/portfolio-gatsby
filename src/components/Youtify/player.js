@@ -3,6 +3,7 @@ import axios from 'axios';
 import YouTube from 'react-youtube';
 import Playlist from "./playlist";
 import SavePlaylist from "./SavePlaylist";
+import {isBrowser} from "../../services/auth";
 
 class Player extends React.Component {
     constructor(props) {
@@ -48,11 +49,13 @@ class Player extends React.Component {
 
     startProcessing() {
         let track = this.state.tracks[this.state.processedIndex];
+        
+        if (track === undefined || ! ('track' in track)) return;
 
-        axios.get('https://www.googleapis.com/youtube/v3/search?maxResults=1&key=' + this.state.youtubeKey + '&maxResults=1&q=' + track.track.name + ' - ' + track.track.artists[0].name + '&type=video&part=snippet').then(response => {
-            this.setState({ videos: [...this.state.videos, response.data.items[0]] });
+        axios.get(`https://youtube-search.welford.me/?artist=${track.track.artists[0].name}&track=${track.track.name}&key=Ol$c4wtIy-FV2h6$OjxXUL6-$f6wycH`).then(response => {
+            this.setState({ videos: [...this.state.videos, response.data[0]] });
 
-            if (this.state.processedIndex <= this.state.tracks.length) {
+            if (this.state.processedIndex < this.state.tracks.length) {
                 this.setState({
                     processedIndex: this.state.processedIndex + 1
                 });
@@ -83,7 +86,9 @@ class Player extends React.Component {
     }
 
     switchVideo(index) {
-        this.setState({ currentVideoIndex: index });
+        this.setState({ currentVideoIndex: index }, () => {
+            isBrowser() && window.scrollTo({top: 125, behavior: 'smooth'});
+        });
     }
 
     render () {
@@ -105,9 +110,9 @@ class Player extends React.Component {
                                 <YouTube className={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
                                 
                                 <div className="flex justify-between mt-4">
-                                    <button className={this.hasPreviousVideo() ? 'text-black' : 'text-gray-300'} onClick={this.previousVideo.bind(this)}>Previous</button>
+                                    <button className={this.hasPreviousVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.previousVideo.bind(this)}>Previous</button>
                                     <SavePlaylist videos={this.state.videos} tracks={this.state.tracks} isPlaylist={this.props.slug.length} />
-                                    <button className={this.hasNextVideo() ? 'text-black' : 'text-gray-300'} onClick={this.nextVideo.bind(this)}>Next</button>
+                                    <button className={this.hasNextVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.nextVideo.bind(this)}>Next</button>
                                 </div>
                             </div>
 

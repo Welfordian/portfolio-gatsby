@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {graphql} from "gatsby";
 import PropTypes from "prop-types"
 import SocialLinks from "../components/SocialLinks";
+import {Helmet} from "react-helmet";
 
 class BlogPostFull extends React.Component {
     render() {
@@ -16,11 +17,17 @@ class BlogPostFull extends React.Component {
             <>
                 <SocialLinks />
                 
-                <div>
+                <div className={`dark:text-gray-300`}>
                     <p className="text-4xl mt-12" dangerouslySetInnerHTML={{ __html: post.title }}></p>
 
                     <div className="mt-12 blog-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                 </div>
+
+                <Helmet
+                    htmlAttributes={{
+                        class: 'links-page',
+                    }}
+                />
             </>
         );
     }

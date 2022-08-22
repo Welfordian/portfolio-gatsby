@@ -70,7 +70,7 @@ class App extends React.Component {
                                 />
                             </div>
                             :
-                            <h1 className="text-4xl text-center">Disconnected.</h1>
+                            <h1 className="text-4xl text-center dark:text-gray-300">Disconnected.</h1>
                         :
                         <Modal title="Enter a name" open={this.state.modalOpen} buttons={[<button className="bg-black text-white px-3 py-4 w-36" onClick={() => this.joinRoom()}>Join</button>]}>
                             <input autoComplete={`off`} type="text" className="w-full px-2 py-3 text-lg" placeholder="Jane Doe" onChange={e => this.setState({name: e.target.value})} value={this.state.name} />

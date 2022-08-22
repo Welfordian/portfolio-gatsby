@@ -73,7 +73,7 @@ class App extends React.Component {
     render() {
         return (
             'track_window' in this.state.playerState ? <div className={`flex items-end flex-col w-full sm:w-full md:w-2/6`}>
-                <div className="px-6 py-2 bg-black text-white">
+                <div className="px-6 py-2 bg-black dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 text-white">
                     <a href="https://github.com/Welfordian/portfolio-gatsby/tree/main/src/components/SpotifyPlayer" target="_blank" rel="noopener">
                         <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
                         
@@ -83,7 +83,7 @@ class App extends React.Component {
                 
                 <Search deviceId={this.state.deviceId} player={this.state.player} playerState={this.state.playerState} token={this.props.token} />
                 
-                <div className={`inline-flex flex-col justify-center bg-black p-8 w-full`}>
+                <div className={`inline-flex flex-col justify-center bg-black dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 p-8 w-full`}>
                     <PlayerImage player={this.state.player} playerState={this.state.playerState}/>
 
                     <div className={`mt-4`}>

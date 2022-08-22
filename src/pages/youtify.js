@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import App from "../components/Youtify/app";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSync} from "@fortawesome/pro-solid-svg-icons";
+import {Helmet} from "react-helmet";
 
 const isBrowser = typeof window !== "undefined"
 
@@ -43,7 +44,7 @@ class Youtify extends React.Component {
                             scopes={[Scopes.userReadPrivate, 'user-read-email']}
                             title={"Connect to Spotify"}
                             logoClassName={"w-8 mr-8 fill-current text-white"}
-                            btnClassName={"flex bg-black text-white items-center px-8 py-3 w-full md:w-2/4 lg:w-1/4 text-center justify-center"}
+                            btnClassName={"flex bg-black text-white items-center px-8 py-3 w-full md:w-2/4 lg:w-1/4 text-center justify-center dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900"}
                             onAccessToken={token => {this.gotToken(token)}}
                         />
 
@@ -61,6 +62,12 @@ class Youtify extends React.Component {
                         </div>
                     </div>
                 )}
+
+                <Helmet
+                    htmlAttributes={{
+                        class: 'watch-together',
+                    }}
+                />
             </>
         );
     }

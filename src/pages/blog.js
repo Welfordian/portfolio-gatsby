@@ -40,7 +40,7 @@ class Blog extends React.Component {
             <>
                 <SocialLinks />
                 
-                <p className="text-4xl mt-24">Blog Posts</p>
+                <p className="text-4xl mt-24 dark:text-gray-300">Blog Posts</p>
 
                 <BlogTags tags={tags} onTagUpdate={this.onTagUpdate.bind(this)}/>
 

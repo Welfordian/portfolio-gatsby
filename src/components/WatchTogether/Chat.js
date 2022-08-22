@@ -54,7 +54,7 @@ class Chat extends React.Component {
     
     render () {
         return (
-            <div className="bg-black grow text-white p-3 flex flex-col">
+            <div className="bg-black dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 grow text-white p-3 flex flex-col">
                 <div className={`flex justify-between`}>
                     <div className={`flex`}>
                         {

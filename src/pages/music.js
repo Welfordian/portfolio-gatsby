@@ -64,7 +64,7 @@ class Music extends React.Component {
             <>
                 <SocialLinks />
                 
-                <p className="text-4xl mt-24">Recently Played</p>
+                <p className="text-4xl mt-24 dark:text-gray-300">Recently Played</p>
 
                 {
                     this.props.tracks.length

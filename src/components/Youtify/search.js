@@ -12,7 +12,7 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <p className="text-4xl">Spotify Playlist URL</p>
+                <p className="text-4xl dark:text-gray-300">Spotify Playlist URL</p>
 
                 <input className="border-4 border-black w-full px-2 py-3 mt-8" type={"text"} onChange={this.handlePlaylistUpdate.bind(this)} />
             </div>
