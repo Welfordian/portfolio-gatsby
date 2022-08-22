@@ -1,7 +1,6 @@
 import React from 'react';
 import Player from "./player";
 import Search from "./search";
-import axios from 'axios';
 
 const isBrowser = typeof window !== "undefined"
 
@@ -19,13 +18,16 @@ class App extends React.Component {
 
     render () {
         return (
-            <div className={`mt-12`}>
+            <div className={`-mt-12`}>
                 {
-                    this.state.playlist ?
-                        <Player playlist={this.state.playlist} tracks={this.state.tracks} videos={this.state.videos} token={this.props.token} slug={this.state.slug} /> :
-                        <Search
-                            onPlaylist={(playlist) => {this.setState({playlist})}}
-                            playlist={this.state.playlist} />
+                    this.state.playlist
+                        ?
+                            <Player playlist={this.state.playlist} tracks={this.state.tracks} videos={this.state.videos} token={this.props.token} slug={this.state.slug} />
+                        :
+                            <Search
+                                onPlaylist={(playlist) => {this.setState({playlist})}}
+                                playlist={this.state.playlist}
+                            />
                 }
             </div>
         );

@@ -5,24 +5,46 @@ import NowPlaying from "./NowPlaying";
 import ThemeContext from "../context/Layout";
 
 export default class Layout extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            isDark: false,
+        }
+    }
+
+    componentDidMount() {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            this.setState({ isDark: true });
+        } else {
+            this.setState({ isDark: false });
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            this.setState({ isDark: e.matches});
+        })
+    }
+
     render() {
         return (
             <ThemeContext.Consumer>
                 {theme => (
-                    <div className="flex justify-center min-h-screen pb-8 dark:bg-black">
-                        <Seo title="Joshua Welford" />
+                    <div className={`${this.state.isDark ? 'dark' : ''}`}>
+                        <div className={`flex justify-center min-h-screen pb-8 dark:bg-black`}>
+                            <Seo title="Joshua Welford" />
 
-                        <div className="container h-full mb-12 flex flex-col">
-                            {theme.hideHeader ? '' : <Header location={this.props.location} />}
+                            <div className="container h-full mb-12 flex flex-col">
+                                {theme.hideHeader ? '' : <Header location={this.props.location} onColorSchemeChange={() => {}} />}
 
-                            <div className={`flex flex-col ${theme.marginTop ? '' : 'md:mt-32'} grow`}>
-                                <div className="m-4 p-4 grow flex flex-col">
-                                    {this.props.children}
+                                <div className={`flex flex-col ${theme.marginTop ? '' : 'md:mt-32'} grow`}>
+                                    <div className="m-4 p-4 grow flex flex-col">
+                                        {this.props.children}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <NowPlaying></NowPlaying>
+                            <NowPlaying></NowPlaying>
+                        </div>
                     </div>
                 )}
             </ThemeContext.Consumer>

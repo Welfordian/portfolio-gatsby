@@ -87,7 +87,7 @@ class Player extends React.Component {
 
     switchVideo(index) {
         this.setState({ currentVideoIndex: index }, () => {
-            isBrowser() && window.scrollTo({top: 125, behavior: 'smooth'});
+            isBrowser() && window.scrollTo({top: 0, behavior: 'smooth'})
         });
     }
 
@@ -101,12 +101,12 @@ class Player extends React.Component {
         };
 
         return (
-            <div>
+            <div className={`h-full`}>
                 {
                     this.state.videos.length
                         ?
-                        <div className="flex flex-col justify-between">
-                            <div className={`w-full`}>
+                        <div className="grid grid-cols-4 justify-between gap-3 md:gap-2">
+                            <div className={`w-full col-span-4 md:col-span-2 lg:col-span-3`}>
                                 <YouTube className={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
                                 
                                 <div className="flex justify-between mt-4">
@@ -116,7 +116,7 @@ class Player extends React.Component {
                                 </div>
                             </div>
 
-                            <Playlist onChange={this.switchVideo.bind(this)} currentVideoIndex={this.state.currentVideoIndex} playlist={this.state.tracks} />
+                            <Playlist onChange={this.switchVideo.bind(this)} currentVideoIndex={this.state.currentVideoIndex} playlist={this.state.videos} />
                         </div>
                         :
                         null

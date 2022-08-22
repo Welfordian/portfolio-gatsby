@@ -65,7 +65,7 @@ class Youtify extends React.Component {
 
                 <Helmet
                     htmlAttributes={{
-                        class: 'watch-together',
+                        class: 'youtify',
                     }}
                 />
             </>

@@ -30,19 +30,27 @@
 }
 
 html.watch-together, html.watch-together body, html.watch-together #___gatsby, html.watch-together #___gatsby #gatsby-focus-wrapper {
-    /*height: 100%;*/
     min-height: 100vh;
     flex-grow: 1;
 }
 
+html.youtify, html.youtify body, html.youtify #___gatsby, html.youtify #___gatsby #gatsby-focus-wrapper {
+    min-height: 100vh;
+    max-height: 100%;
+    flex-grow: 1;
+}
+
+html.youtify .container {
+    max-width: 100%;
+    height: 100vh !important;
+}
+
 html.dashboard-layout, html.dashboard-layout body, html.dashboard-layout #___gatsby, html.dashboard-layout #___gatsby #gatsby-focus-wrapper {
-    /*height: 100%;*/
     min-height: 100vh;
     flex-grow: 1;
 }
 
 html.links-page, html.links-page body, html.links-page #___gatsby, html.links-page #___gatsby #gatsby-focus-wrapper {
-    /*height: 100%;*/
     min-height: 100vh;
     flex-grow: 1;
 }
