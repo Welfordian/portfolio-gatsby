@@ -61,8 +61,8 @@ class NowPlaying extends React.Component {
         let image = this.state.track.item.album.images[0];
         
         return (
-            <div className={`w-full md:w-auto fixed bottom-0 left-0 self-center flex w-full justify-center md:justify-start z-10`}>
-                <div className={`bg-black/80 px-4 py-3 mb-3 ml-3 mr-3 shadow-md shadow-gray-900`}>
+            <div className={`w-full md:w-auto fixed bottom-0 left-0 self-center flex w-full justify-center md:justify-start z-10 md:ml-[7.25em]`}>
+                <div className={`bg-black/80 px-4 py-3 mb-3 ml-3 mr-3 drop-shadow-[0_8px_5px_rgba(0,0,0,0.10)]`}>
                     <a href={this.state.track.item.external_urls.spotify} target={`_blank`} rel={`noopener`}>
                         <div className="flex items-end w-full relative">
                             <FontAwesomeIcon onClick={e => this.close(e)} className={`absolute -top-3 -right-4 text-white px-2 py-1`} icon={faTimes} />

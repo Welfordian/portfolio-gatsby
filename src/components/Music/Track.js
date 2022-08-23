@@ -63,9 +63,9 @@ export default class Track extends React.Component {
     
     render () {
         return (
-            <div className="dark:hover:shadow-gray-800 relative w-full h-[450px] md:w-[450px] mb-5 hover:scale-105 transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 hover:rotate-1 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
-                <div className="flex flex-col justify-between text-white w-full h-[450px] md:w-[450px]" style={{background: `url(${this.props.track.album_image}) no-repeat center center`, backgroundSize: "cover"}}>
-                    <div className="font-bold text-xl px-4 py-6 text-center bg-black/[0.6] flex">
+            <div className="dark:hover:shadow-gray-800 relative w-full h-[340px] md:h-[250px] md:w-[287px] transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
+                <div className="flex flex-col justify-between text-white w-full h-[340px] md:h-[250px] md:w-[287px]" style={{background: `url(${this.props.track.album_image}) no-repeat center center`, backgroundSize: "cover"}}>
+                    <div className="font-bold text-sm px-4 py-3 text-center bg-black/[0.6] flex">
                         {
                             this.props.track.explicit
                                 ?
@@ -99,9 +99,9 @@ export default class Track extends React.Component {
                                     {
                                         this.state.isPlayingPreview
                                         ?
-                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
                                         :
-                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`4x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>  
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>  
                                     }
                                     <audio className={`hidden`} ref={this.audioRef}>
                                         <source src={this.props.track.preview_url} type="audio/mpeg" />
@@ -110,17 +110,17 @@ export default class Track extends React.Component {
                             : <div></div>    
                         }
                         <a target="_blank" rel="noopener" href={this.props.track.spotify_url} className={`relative cursor-pointer`}>
-                            <div className={`absolute w-14 h-14 rounded-full bg-white top-[2%] left-[3%]`}></div>
-                            <FontAwesomeIcon icon={faSpotify} size={`4x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
+                            <div className={`absolute w-7 h-7 rounded-full bg-white top-[10%] left-[2%]`}></div>
+                            <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
                         </a>
 
                         <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
-                            <div className={`absolute w-5 h-5 bg-white top-[34%] left-[40%]`}></div>
-                            <FontAwesomeIcon icon={faYoutube} size={`4x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
+                            <div className={`absolute w-3 h-3 bg-white top-[32%] left-[40%]`}></div>
+                            <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
                         </a>
                     </div>
                     
-                    <div className="flex flex-col px-4 py-6 bg-black/[0.6] relative">
+                    <div className="flex flex-col px-4 py-3 text-sm bg-black/[0.6] relative">
                         <div 
                             className={`absolute top-0 left-0 bg-white h-1 -mt-1 mix-blend-difference`}
                             style={{width: `${this.state.previewProgress}%`}}

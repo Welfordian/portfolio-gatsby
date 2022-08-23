@@ -11,7 +11,7 @@ class DashboardIndex extends React.Component {
         }
         
         if (! this.state.isLoggedIn) {
-            isBrowser() && (window.location.hrfe = '/login')
+            isBrowser() && (window.location.href = '/login')
         }
     }
 
