@@ -121,16 +121,16 @@ export default class Header extends React.Component {
                     ref={this.links}
                     className={`${this.mobileClass()} w-0 pointer-events-auto flex flex-col md:flex-row flex-wrap items-center w-full md:w-auto items-center md:mt-0 gap-1 md:p-2 bg-white dark:bg-black transition-all z-40`}
                 >
-                    <NavItem to="/" page={this.state.page} onClick={() => this.closeNav()}>Home</NavItem>
-                    <NavItem to="/music" page={this.state.page} onClick={() => this.closeNav()}>Music</NavItem>
-                    <NavItem to="/resources" page={this.state.page} onClick={() => this.closeNav()}>Resources</NavItem>
-                    <NavItem to="https://resources.josh.workers.dev/resume" external={true} page={this.state.page} onClick={() => this.closeNav()}>Resume</NavItem>
-                    <NavItem to="/blog" page={this.state.page} onClick={() => this.closeNav()}>Blog</NavItem>
+                    <NavItem to="/" page={this.state.page} onClick={() => this.toggleNav()}>Home</NavItem>
+                    <NavItem to="/music" page={this.state.page} onClick={() => this.toggleNav()}>Music</NavItem>
+                    <NavItem to="/resources" page={this.state.page} onClick={() => this.toggleNav()}>Resources</NavItem>
+                    <NavItem to="https://resources.josh.workers.dev/resume" external={true} page={this.state.page} onClick={() => this.toggleNav()}>Resume</NavItem>
+                    <NavItem to="/blog" page={this.state.page} onClick={() => this.toggleNav()}>Blog</NavItem>
                     {
                         isLoggedIn()
                             ?
                             <>
-                                <NavItem to="/dashboard/" page={this.state.page} onClick={() => this.closeNav()}>Dashboard</NavItem>
+                                <NavItem to="/dashboard/" page={this.state.page} onClick={() => this.toggleNav()}>Dashboard</NavItem>
                                 <NavItem to="/blog" page={this.state.page} onClick={() => { logout() }}>Logout</NavItem>
                             </> : <></>
                     }
@@ -140,15 +140,15 @@ export default class Header extends React.Component {
                         ?
                             <div className={`flex mt-4`}>
                                 <NavItem to={'https://link.welford.me/twitter'} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faTwitter} onClick={() => this.closeNav()} />
+                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
                                 </NavItem>
 
                                 <NavItem to={`https://link.welford.me/github`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} onClick={() => this.closeNav()} />
+                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
                                 </NavItem>
 
                                 <NavItem to={`https://link.welford.me/linkedin`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} onClick={() => this.closeNav()} />
+                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
                                 </NavItem>
                             </div>
                         :
@@ -162,15 +162,15 @@ export default class Header extends React.Component {
                 >
                     <div className="flex justify-center font-bold">
                         <NavItem to={'https://link.welford.me/twitter'} external={true} >
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faTwitter} onClick={() => this.closeNav()} />
+                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
                         </NavItem>
 
                         <NavItem to={`https://link.welford.me/github`} external={true} >
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.closeNav()} />
+                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
                         </NavItem>
 
                         <NavItem to={`https://link.welford.me/linkedin`} external={true} >
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.closeNav()} />
+                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
                         </NavItem>
                     </div>
                 </div>
