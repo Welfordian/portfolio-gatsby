@@ -66,7 +66,7 @@ export default class Header extends React.Component {
     toggleNav() {
         let isOpen = ! this.state.navOpen;
         
-        if (isOpen) {
+        if (this.state.isMobile && isOpen) {
             document.querySelector('body').classList.add('overflow-hidden');
         } else {
             document.querySelector('body').classList.remove('overflow-hidden');
