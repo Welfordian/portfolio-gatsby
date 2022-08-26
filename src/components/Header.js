@@ -94,7 +94,7 @@ export default class Header extends React.Component {
                 {
                     this.state.isMobile 
                     ? 
-                        <div className={`${this.state.navOpen ? 'dark:bg-black dark:text-white bg-white w-full' : 'w-8'} transition-all md:hidden pointer-events-auto p-2 flex items-center justify-between dark:text-white`} onClick={() => this.toggleNav()}>
+                        <div className={`${this.state.navOpen ? 'dark:bg-black dark:text-white bg-white w-full' : 'w-8'} pt-10 transition-all md:hidden pointer-events-auto p-2 flex items-center justify-between dark:text-white`} onClick={() => this.toggleNav()}>
                             {
                                 this.state.navOpen
                                 ?
