@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSpotify} from "@fortawesome/free-brands-svg-icons";
 import {Levels} from "react-activity";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from "react-detectable-overflow";

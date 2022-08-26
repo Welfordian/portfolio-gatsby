@@ -11,7 +11,7 @@ export default class Layout extends React.Component {
                 <Seo title="Joshua Welford" />
 
                 <div className="container h-full mb-12 flex flex-col">
-                    {this.props.hideHeader ? '' : <Header />}
+                    {this.props.hideHeader ? '' : <Header location={{pathname: ""}} />}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 px-8 lg:grid-cols-4 grow flex mt-8 pb-12">
                         <div className="grow-0 space-x-1 text-white w-full col-span-3 lg:col-span-1">
