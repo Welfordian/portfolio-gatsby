@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock, faStop, faUserMusic, faPlay} from "@fortawesome/pro-solid-svg-icons";
 import { Popover } from 'react-tiny-popover'
 import {faSpotify, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import YoutubeLinkConfirmation from "../YoutubeLinkConfirmation";
 
 export default class Track extends React.Component {
     constructor(props) {
@@ -114,10 +115,12 @@ export default class Track extends React.Component {
                             <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
                         </a>
 
-                        <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
-                            <div className={`absolute w-3 h-3 bg-white top-[32%] left-[40%]`}></div>
-                            <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
-                        </a>
+                        <YoutubeLinkConfirmation>
+                            <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
+                                <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
+                                <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
+                            </a>
+                        </YoutubeLinkConfirmation>
                     </div>
                     
                     <div className="flex flex-col px-4 py-3 text-sm bg-black/[0.6] relative">

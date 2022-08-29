@@ -1,11 +1,5 @@
 import * as React from "react"
 import Link from "../components/Links/Link";
-import GitHub from "../images/GitHub.svg";
-import LinkedIn from "../images/LinkedIn.svg";
-import Twitter from "../images/Twitter.svg";
-import Instagram from "../images/Instagram.svg";
-import Spotify from "../images/Spotify.svg";
-import LastFM from "../images/LastFM.svg";
 import {Helmet} from "react-helmet";
 import SocialLinks from "../components/SocialLinks";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
