@@ -113,12 +113,14 @@ export default class Track extends React.Component {
                         <a target="_blank" rel="noopener" href={this.props.track.spotify_url} className={`relative cursor-pointer`}>
                             <div className={`absolute w-7 h-7 rounded-full bg-white top-[10%] left-[2%]`}></div>
                             <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
+                            <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
                         </a>
 
                         <YoutubeLinkConfirmation>
                             <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
                                 <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
                                 <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
+                                <span style={{position: 'absolute', top: '-999999em'}}>Listen on YouTube</span>
                             </a>
                         </YoutubeLinkConfirmation>
                     </div>

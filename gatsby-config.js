@@ -108,6 +108,13 @@ module.exports = {
           include: /src\/images/
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://welford.me',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     }
   ],
 }

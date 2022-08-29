@@ -70,7 +70,7 @@ class NowPlaying extends React.Component {
                                 <Levels size={20} color={`white`} className={`mr-4 w-5`}></Levels>
 
                                 <div className={`flex items-center gap-3`}>
-                                    <img className="w-16 self-center" src={image.url} />
+                                    <img className="w-16 self-center" alt={`Album art for ${this.state.track.item.name} by ${this.state.track.item.artists[0]['name']}`} src={image.url} />
 
                                     <div className="text-white max-w-full flex flex-col justify-between">
                                         <div className={`max-w-xs`}>

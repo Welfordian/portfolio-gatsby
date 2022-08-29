@@ -161,16 +161,19 @@ export default class Header extends React.Component {
                     className={`${this.mobileClass()} w-0 pointer-events-auto flex flex-col flex-wrap items-center md:w-auto items-center md:mt-0 gap-1 p-2 bg-white dark:bg-black md:mr-8 transition-all z-50`}
                 >
                     <div className="flex justify-center font-bold">
-                        <NavItem to={'https://link.welford.me/twitter'} external={true} >
+                        <NavItem to={'https://link.welford.me/twitter'} external={true} aria-label="Link to Twitter">
                             <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
+                            <span style={{position: 'absolute', top: '-999999em'}}>Link to Twitter</span>
                         </NavItem>
 
-                        <NavItem to={`https://link.welford.me/github`} external={true} >
+                        <NavItem to={`https://link.welford.me/github`} external={true} aria-label="Link to GitHub">
                             <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
+                            <span style={{position: 'absolute', top: '-999999em'}}>Link to GitHub</span>
                         </NavItem>
 
-                        <NavItem to={`https://link.welford.me/linkedin`} external={true} >
+                        <NavItem to={`https://link.welford.me/linkedin`} external={true} aria-label="Link to LinkedIn">
                             <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
+                            <span style={{position: 'absolute', top: '-999999em'}}>Link to LinkedIn</span>
                         </NavItem>
                     </div>
                 </div>

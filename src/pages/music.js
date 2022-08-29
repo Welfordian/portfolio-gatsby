@@ -74,14 +74,14 @@ class Music extends React.Component {
                         <p className="text-4xl dark:text-gray-300">Playlists</p>
                         
                         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-3`}>
-                            <SpotifyPlaylist playlist="6e8oMgHsl4V4jcw9lhQ9mj"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="7ji8f9PubYla3q652Yz6n4"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="6YXFiifYX1ItKtimFesUNJ"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="5NF6WIrvfy8cWpdfaoh2au"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="5YyO8lDKAh2siTh2EDcwYl"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="2n96PioY2RL0GriBf8VcTK"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="7qU5YlXlr1hQdLK8hFeWxs"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="336VFONhuhd44C09b1xntQ"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="6e8oMgHsl4V4jcw9lhQ9mj" title="A Chill Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="7ji8f9PubYla3q652Yz6n4" title="A Poppy Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="6YXFiifYX1ItKtimFesUNJ" title="A Bouncy Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="5NF6WIrvfy8cWpdfaoh2au" title="A Lucid Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="5YyO8lDKAh2siTh2EDcwYl" title="A Byers Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="2n96PioY2RL0GriBf8VcTK" title="A Dirt Road Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="7qU5YlXlr1hQdLK8hFeWxs" title="A Special Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="336VFONhuhd44C09b1xntQ" title="A Rocky Vibe Playlist"></SpotifyPlaylist>
                         </div>
                     </div>
                 </div>
