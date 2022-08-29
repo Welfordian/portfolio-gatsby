@@ -44,7 +44,7 @@ html.youtify .container {
     margin-bottom: 0 !important;
 }
 
-html.youtify .content, .content-container, .pb-8 {
+html.youtify .content, .youtify .content-container, .youtify .pb-8 {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
