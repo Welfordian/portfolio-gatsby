@@ -8,6 +8,8 @@ import Spotify from "../images/Spotify.svg";
 import LastFM from "../images/LastFM.svg";
 import {Helmet} from "react-helmet";
 import SocialLinks from "../components/SocialLinks";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faInstagram, faLastfm, faLinkedin, faSpotify, faTwitter} from "@fortawesome/free-brands-svg-icons";
 
 const LinksPage = () => (
     <div className={`flex flex-col justify-center grow h-full pb-12`}>        
@@ -15,10 +17,10 @@ const LinksPage = () => (
             <SocialLinks hideTagline={false} hideSocial={true} />
             
             {/* GitHub */}
-            <div className="w-full xl:w-1/3 flex flex-col mt-10 px-8 md:mx-0">
+            <div className="w-full xl:w-1/3 flex flex-col mt-10 px-8 md:mx-0 gap-4">
                 <Link
                     to="https://link.welford.me/github"
-                    icon={<GitHub />}
+                    icon={<FontAwesomeIcon icon={faGithub} />}
                 >
                     GitHub
                 </Link>
@@ -26,7 +28,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/linkedin"
-                    icon={<LinkedIn />}
+                    icon={<FontAwesomeIcon icon={faLinkedin} />}
                 >
                     LinkedIn
                 </Link>
@@ -34,7 +36,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/twitter"
-                    icon={<Twitter />}
+                    icon={<FontAwesomeIcon icon={faTwitter} />}
                 >
                     Twitter
                 </Link>
@@ -42,7 +44,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/instagram"
-                    icon={<Instagram />}
+                    icon={<FontAwesomeIcon icon={faInstagram} />}
                 >
                     Instagram
                 </Link>
@@ -50,7 +52,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/spotify"
-                    icon={<Spotify />}
+                    icon={<FontAwesomeIcon icon={faSpotify} />}
                 >
                     Spotify
                 </Link>
@@ -58,7 +60,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/lastfm"
-                    icon={<LastFM />}
+                    icon={<FontAwesomeIcon icon={faLastfm} />}
                 >
                     LastFM
                 </Link>

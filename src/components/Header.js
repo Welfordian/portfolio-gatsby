@@ -90,7 +90,7 @@ export default class Header extends React.Component {
 
     render () {
         return (
-            <div className={`overflow-hidden flex flex-col md:flex-row mt-0 ml-0 md:ml-4 justify-between fixed md:mt-8 container mx-4 md:p-4 z-50 pointer-events-none`}>
+            <div className={`navigation overflow-hidden flex flex-col md:flex-row mt-0 ml-0 md:ml-4 justify-between fixed md:mt-8 container mx-4 md:p-4 z-50 pointer-events-none`}>
                 {
                     this.state.isMobile 
                     ? 

@@ -41,6 +41,21 @@ html.youtify, html.youtify body, html.youtify #___gatsby, html.youtify #___gatsb
 
 html.youtify .container {
     max-width: 100%;
+    margin-bottom: 0 !important;
+}
+
+html.youtify .content, .content-container, .pb-8 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+html.youtify .content {
+    padding-top: 0 !important;
+}
+
+html.youtify .navigation {
+    display: none !important;
 }
 
 html.dashboard-layout, html.dashboard-layout body, html.dashboard-layout #___gatsby, html.dashboard-layout #___gatsby #gatsby-focus-wrapper {

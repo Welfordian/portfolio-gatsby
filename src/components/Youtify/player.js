@@ -106,14 +106,16 @@ class Player extends React.Component {
                     this.state.videos.length
                         ?
                         <div className="grid grid-cols-4 justify-between gap-3 md:gap-2">
-                            <div className={`w-full col-span-4 md:col-span-2 lg:col-span-3`}>
-                                <YouTube className={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
-                                
-                                <div className="flex justify-between mt-4">
-                                    <button className={this.hasPreviousVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.previousVideo.bind(this)}>Previous</button>
-                                    <SavePlaylist videos={this.state.videos} tracks={this.state.tracks} isPlaylist={this.props.slug.length} />
-                                    <button className={this.hasNextVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.nextVideo.bind(this)}>Next</button>
-                                </div>
+                            <div className={'md:h-screen col-span-4 md:col-span-2 lg:col-span-3'}>
+                                <div className={`h-full w-full`}>
+                                    <YouTube className={`aspect-w-16 aspect-h-9`} videoId={this.state.videos[this.state.currentVideoIndex].id.videoId} opts={opts} onEnd={this.nextVideo.bind(this)} />
+
+                                    <div className="flex justify-between mt-4">
+                                        <button className={this.hasPreviousVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.previousVideo.bind(this)}>Previous</button>
+                                        <SavePlaylist videos={this.state.videos} tracks={this.state.tracks} isPlaylist={this.props.slug.length} />
+                                        <button className={this.hasNextVideo() ? 'text-black dark:text-gray-300' : 'text-gray-300 dark:text-gray-500'} onClick={this.nextVideo.bind(this)}>Next</button>
+                                    </div>
+                                </div>    
                             </div>
 
                             <Playlist onChange={this.switchVideo.bind(this)} currentVideoIndex={this.state.currentVideoIndex} playlist={this.state.videos} />
