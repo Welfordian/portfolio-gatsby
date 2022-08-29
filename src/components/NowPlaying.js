@@ -90,6 +90,7 @@ class NowPlaying extends React.Component {
                                                     ?
                                                     <div className={`bg-gray-700 px-1 mr-2 inline`} title={`Explicit`} onMouseEnter={() => this.setState({popoverOpen: true})} onMouseLeave={() => this.setState({popoverOpen: false})}>
                                                         <Popover
+                                                            containerClassName={`z-50`}
                                                             isOpen={this.state.popoverOpen}
                                                             content={this.explicit}
                                                         >
