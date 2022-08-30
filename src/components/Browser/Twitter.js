@@ -18,7 +18,7 @@ class Twitter extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={`p-3`}>
                 <h1>This is Twitter!</h1>
             </div>
         );

@@ -7,6 +7,7 @@ import Facebook from "../components/Browser/Facebook";
 import NewTab from "../components/Browser/NewTab";
 import NameNotResolved from "../components/Browser/NameNotResolved";
 import IndexPage from "./index";
+import {faExternalLink} from "@fortawesome/pro-solid-svg-icons";
 
 class Browser extends React.Component {
     constructor(props) {
@@ -113,6 +114,16 @@ class Browser extends React.Component {
         
         return (
             <div>
+                <div className={`flex justify-center mr-12`}>
+                    <div className={`flex flex-col w-full md:w-4/5 items-end`}>
+                        <a className={`bg-gray-300 px-6 py-2 rounded-t-lg hover:bg-gray-400/60 transition-colors`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/browser.js`} target="_blank" rel="noopener">
+                            <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+
+                            Source
+                        </a>
+                    </div>
+                </div>
+                
                 <Tabs onSelect={(index, oldIndex, e) => this.focusOrRemove(index, oldIndex, e)}>
                     <div className={`flex justify-center grow`}>
                         <div className={`h-[42rem] flex flex-col rounded-lg shadow-xl shadow-gray-400 dark:shadow-md dark:shadow-gray-800 w-full md:w-[80em]`}>
@@ -141,7 +152,7 @@ class Browser extends React.Component {
                                 </div>
 
                                 <div className={`h-12 flex items-center px-2`}>
-                                    <div className={`hover:bg-gray-400/50 px-3 py-1 rounded transition-colors duration-200`} onClick={() => this.addTab()}>
+                                    <div className={`hover:bg-gray-400/50 px-3 py-1 rounded transition-colors duration-200 cursor-pointer`} onClick={() => this.addTab()}>
                                         <FontAwesomeIcon icon={faPlus} />
                                     </div>
                                 </div>
@@ -149,9 +160,9 @@ class Browser extends React.Component {
                             
                             <div className={`w-full bg-gray-200 h-10 flex`}>
                                 <div className={`flex h-10 items-center px-2 gap-2`}>
-                                    <FontAwesomeIcon className={`${this.state.canGoBack ? 'hover:bg-gray-400/50' : 'text-gray-400'} px-2 py-1 transition-colors duration-200`} icon={faArrowLeft} size={'lg'} />
-                                    <FontAwesomeIcon className={`${this.state.canGoForward ? 'hover:bg-gray-400/50' : 'text-gray-400'} px-2 py-1 transition-colors duration-200`} icon={faArrowRight} size={'lg'} />
-                                    <FontAwesomeIcon className={`hover:bg-gray-400/50 px-2 py-1 transition-colors`} icon={faSync} size={'lg'} />
+                                    <FontAwesomeIcon className={`${this.state.canGoBack ? 'hover:bg-gray-400/50' : 'text-gray-400'} px-2 py-1 rounded transition-colors duration-200`} icon={faArrowLeft} size={'lg'} />
+                                    <FontAwesomeIcon className={`${this.state.canGoForward ? 'hover:bg-gray-400/50' : 'text-gray-400'} px-2 py-1 rounded transition-colors duration-200`} icon={faArrowRight} size={'lg'} />
+                                    <FontAwesomeIcon className={`hover:bg-gray-400/50 px-2 py-1 transition-colors rounded`} icon={faSync} size={'lg'} />
                                 </div>
                                 
                                 <div className={`relative w-full h-10 pr-1`}>
