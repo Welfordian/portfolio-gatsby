@@ -4,16 +4,32 @@ import PersonalProjects from "../components/Home/PersonalProjects";
 import Experiments from "../components/Home/Experiments";
 import SocialLinks from "../components/SocialLinks";
 
-const IndexPage = () => (
-    <>
-        <SocialLinks />
-        
-        <CaseStudies />
+class IndexPage extends React.Component {
+    constructor(props) {
+        super(props);
 
-        <PersonalProjects />
+        this.title = 'New Tab'
 
-        <Experiments />
-    </>
-)
+        this.icon = 'https://assets.msn.com/statics/icons/favicon_newtabpage.png'
+
+        this.aliases = [
+            'jw://home',
+        ]
+    }
+
+    render() {
+        return (
+            <>
+                <SocialLinks />
+
+                <CaseStudies />
+
+                <PersonalProjects />
+
+                <Experiments />
+            </>
+        );
+    }
+}
 
 export default IndexPage
