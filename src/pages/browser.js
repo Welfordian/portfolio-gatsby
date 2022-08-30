@@ -94,7 +94,9 @@ class Browser extends React.Component {
     }
     
     focusOrRemove(index, oldIndex, e) {
-        let isClosing = e.nativeEvent.path.filter(el => {
+        let path = e.nativeEvent.path || (e.nativeEvent.composedPath && e.nativeEvent.composedPath());
+        
+        let isClosing = path.filter(el => {
             if (el.classList) {
                 return el.classList.contains('close-tab');
             }
