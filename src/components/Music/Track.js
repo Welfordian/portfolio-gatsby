@@ -98,43 +98,42 @@ export default class Track extends React.Component {
                         }
                     </div>
 
-                    {
-                        'played_at' in this.props.track
-                        ?
-                            <div className="flex justify-center w-auto px-4 py-2">
-                                {
-                                    this.props.track.preview_url !== null
-                                        ?
-                                        <div>
-                                            {
-                                                this.state.isPlayingPreview
-                                                    ?
-                                                    <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
-                                                    :
-                                                    <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>
-                                            }
-                                            <audio className={`hidden`} ref={this.audioRef}>
-                                                <source src={this.props.track.preview_url} type="audio/mpeg" />
-                                            </audio>
-                                        </div>
-                                        : <div></div>
-                                }
-                                <a target="_blank" rel="noopener" href={this.props.track.spotify_url} className={`relative cursor-pointer`}>
-                                    <div className={`absolute w-7 h-7 rounded-full bg-white top-[10%] left-[2%]`}></div>
-                                    <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
-                                    <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
-                                </a>
+                    <div className="flex justify-center w-auto px-4 py-2">
+                        {
+                            this.props.track.preview_url !== null
+                                ?
+                                <div>
+                                    {
+                                        this.state.isPlayingPreview
+                                            ?
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
+                                            :
+                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>
+                                    }
+                                    <audio className={`hidden`} ref={this.audioRef}>
+                                        <source src={this.props.track.preview_url} type="audio/mpeg" />
+                                    </audio>
+                                </div>
+                                : <div></div>
+                        }
+                        <a target="_blank" rel="noopener" href={'spotify_url' in this.props.track ? this.props.track.spotify_url : this.props.track.external_urls.spotify} className={`relative cursor-pointer`}>
+                            <div className={`absolute w-7 h-7 rounded-full bg-white top-[10%] left-[2%]`}></div>
+                            <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
+                            <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
+                        </a>
 
+                        {
+                            'youtube_url' in this.props.track
+                            ?
                                 <YoutubeLinkConfirmation>
                                     <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
                                         <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
                                         <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
                                         <span style={{position: 'absolute', top: '-999999em'}}>Listen on YouTube</span>
                                     </a>
-                                </YoutubeLinkConfirmation>
-                            </div>
-                        : ``    
-                    }
+                                </YoutubeLinkConfirmation> : ''
+                        }
+                    </div>
                     
                     <div className="flex flex-col px-4 py-3 text-sm bg-black/[0.6] relative">
                         <div 
