@@ -127,17 +127,13 @@ export default class Track extends React.Component {
                             <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
                         </a>
 
-                        {
-                            'youtube_url' in this.props.track
-                            ?
-                                <YoutubeLinkConfirmation onContinue={() => { this.audioRef.current.pause() }}>
-                                    <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
-                                        <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
-                                        <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
-                                        <span style={{position: 'absolute', top: '-999999em'}}>Listen on YouTube</span>
-                                    </a>
-                                </YoutubeLinkConfirmation> : ''
-                        }
+                        <YoutubeLinkConfirmation href={this.props.track.youtube_url || '#now_playing'} onContinue={() => { this.audioRef.current.pause() }}>
+                            <a target="_blank" rel="noopener" href={this.props.track.youtube_url || '#now_playing'} className={`relative cursor-pointer`}>
+                                <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
+                                <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
+                                <span style={{position: 'absolute', top: '-999999em'}}>Listen on YouTube</span>
+                            </a>
+                        </YoutubeLinkConfirmation>
                     </div>
                     
                     <div className="flex flex-col px-4 py-3 text-sm bg-black/[0.6] relative">
