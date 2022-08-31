@@ -115,7 +115,7 @@ export default class Track extends React.Component {
                                             :
                                             <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>
                                     }
-                                    <audio className={`hidden`} ref={this.audioRef}>
+                                    <audio className={`hidden`} key={'spotify_id' in this.props.track ? this.props.track.spotify_id : this.props.track.uri} ref={this.audioRef}>
                                         <source src={this.props.track.preview_url} type="audio/mpeg" />
                                     </audio>
                                 </div>
