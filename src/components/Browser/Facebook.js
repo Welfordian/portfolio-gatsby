@@ -8,6 +8,8 @@ class Facebook extends React.Component {
         
         this.icon = 'https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico'
 
+        this.mainUrl = 'https://facebook.com'
+        
         this.aliases = [
             'facebook.com',
             'www.facebook.com',

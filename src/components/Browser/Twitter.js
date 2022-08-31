@@ -8,6 +8,8 @@ class Twitter extends React.Component {
         
         this.icon = 'https://abs.twimg.com/favicons/twitter.2.ico'
         
+        this.mainUrl = 'https://twitter.com'
+        
         this.aliases = [
             'twitter.com',
             'www.twitter.com',

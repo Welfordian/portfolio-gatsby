@@ -11,6 +11,16 @@ class NameNotResolved extends React.Component {
         this.aliases = [
             'jw://err_name_not_resolved',
         ]
+        
+        this.state = {
+            url: ''
+        }
+    }
+    
+    componentDidMount() {
+        this.setState({
+            url: this.props.url
+        })
     }
 
     render() {
@@ -19,7 +29,7 @@ class NameNotResolved extends React.Component {
                 <div>
                     <h1 className="text-2xl">Hmmm... can't reach this page</h1>
 
-                    <p className={`mt-8`}>{this.props.url}'s server IP address could not be found.</p>
+                    <p className={`mt-8`}>{this.state.url}'s server IP address could not be found.</p>
                     
                     <p className={`font-bold mt-8`}>Try:</p>
                     

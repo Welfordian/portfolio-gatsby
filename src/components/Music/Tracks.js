@@ -3,6 +3,7 @@ import Track from "./Track";
 import axios from "axios";
 import TracksSkeleton from "./TracksSkeleton";
 import Spinner from '../../images/Spinner.svg'
+import NowPlaying from "../NowPlaying";
 
 export default class Tracks extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ export default class Tracks extends React.Component {
         
         this.setState({ isLoadingMore: true })
 
-        axios.get('https://api.welford.me/spotify/recent?limit=20&page=' + this.state.page).then((r) => {
+        axios.get('https://api.welford.me/spotify/recent?limit=19&page=' + this.state.page).then((r) => {
             this.props.onLoad(r.data.data);
 
             this.setState({
@@ -57,6 +58,7 @@ export default class Tracks extends React.Component {
                 <p className="text-4xl dark:text-gray-300">Recently Played</p>
                 
                 <div className="flex flex-wrap justify-between mt-3 gap-2" ref={this.container}>
+                    <NowPlaying></NowPlaying>
                     {
                         this.props.tracks.length
                             ? this.props.tracks.map((track) => {

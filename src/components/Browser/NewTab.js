@@ -10,6 +10,7 @@ class NewTab extends React.Component {
         
         this.aliases = [
             'jw://newtab',
+            ''
         ]
     }
 
