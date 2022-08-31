@@ -40,6 +40,8 @@ class YoutubeLinkConfirmation extends React.Component {
         }, () => {
             link.click();
             
+            this.props.onContinue();
+            
             this.setState({
                 preventClick: true,
                 modalOpen: false,

@@ -60,8 +60,6 @@ class NowPlaying extends React.Component {
         
         let image = this.state.track?.item?.album?.images[0];
         
-        console.log(this.state.track.item);
-        
         return (
             <Track track={this.state.track.item}></Track>
             // <div className={`w-full md:w-auto fixed bottom-0 left-0 self-center flex w-full justify-center md:justify-start z-10 md:ml-[7.25em]`}>

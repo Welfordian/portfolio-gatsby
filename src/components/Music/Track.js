@@ -39,6 +39,14 @@ export default class Track extends React.Component {
         
         requestAnimationFrame(this.previewProgress.bind(this))
     }
+    
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.track.uri !== this.props.track.uri) {
+            this.setState({
+                isOverflowed: false,
+            })
+        }
+    }
 
     togglePreview() {
         if (this.state.isPlayingPreview) {
@@ -66,9 +74,6 @@ export default class Track extends React.Component {
     }
     
     render () {
-        if (! ('played_at' in this.props.track)) {
-            console.log(this.props.track);
-        }
         return (
             <div className="dark:hover:shadow-gray-800 relative w-full h-[340px] md:h-[250px] md:w-[287px] transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
                 <div className="flex flex-col justify-between text-white w-full h-[340px] md:h-[250px] md:w-[287px]" style={{background: `url(${'album_image' in this.props.track ? this.props.track.album_image : this.props.track.album.images[0].url}) no-repeat center center`, backgroundSize: "cover"}}>
@@ -86,16 +91,16 @@ export default class Track extends React.Component {
                                 </div>
                                 : <span></span>
                         }
-                        
-                        {
-                            this.state.isOverflowed
-                            ?
-                                <Marquee gradient={false} speed={30} play={this.state.playMarquee}>{this.props.track.name}</Marquee>
-                            :
-                                <DetectableOverflow onChange={isOverflowed => this.setState({ isOverflowed })}>
-                                    <p>{this.props.track.name}</p>
-                                </DetectableOverflow>
-                        }
+
+                        <div className={`w-full relative overflow-hidden`}>
+                            <Marquee gradient={false} speed={30} play={this.state.playMarquee}>
+                                <span className={`hello ${this.state.isOverflowed ? '' : 'hidden'}`}>{this.props.track.name}</span>
+                            </Marquee>
+
+                            <DetectableOverflow onChange={isOverflowed => { setTimeout(() => { this.setState({ isOverflowed }); }, 500) }}>
+                                <p className={`${this.state.isOverflowed ? 'w-0 h-0': ''}`}>{this.props.track.name}</p>
+                            </DetectableOverflow>
+                        </div>
                     </div>
 
                     <div className="flex justify-center w-auto px-4 py-2">
@@ -125,7 +130,7 @@ export default class Track extends React.Component {
                         {
                             'youtube_url' in this.props.track
                             ?
-                                <YoutubeLinkConfirmation>
+                                <YoutubeLinkConfirmation onContinue={() => { this.audioRef.current.pause() }}>
                                     <a target="_blank" rel="noopener" href={this.props.track.youtube_url} className={`relative cursor-pointer`}>
                                         <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
                                         <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
