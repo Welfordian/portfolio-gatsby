@@ -5,11 +5,11 @@ import {faClock, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
 export default class TracksSkeleton extends React.Component {
     render () {
         return (
-            <div className="flex flex-wrap justify-between">
+            <div className="flex flex-wrap justify-between gap-2">
                 {
                     new Array(this.props.count).fill(null).map((track) => {
                         return (
-                            <div className="relative w-full h-[250px] md:w-[287px] mb-2" target="_blank" rel="noopener">
+                            <div className="relative w-full h-[250px] md:w-[287px]" target="_blank" rel="noopener">
                                 <div className="bg-gray-400 flex flex-col justify-between text-white w-full h-[250px] md:w-[287px]">
                                     <div className="font-bold text-xl px-4 py-3 text-center bg-black/[0.6]">
                                         <p className={`h-5 bg-gray-500 animate-pulse-fast`}>&nbsp;</p>

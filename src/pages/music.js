@@ -7,6 +7,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLastfm, faSpotify} from "@fortawesome/free-brands-svg-icons";
 import Header from "../components/Header";
 import SocialLinks from "../components/SocialLinks";
+import TopTracks from "../components/Music/TopTracks";
 
 class Music extends React.Component {
     render () {
@@ -68,7 +69,9 @@ class Music extends React.Component {
                 <SocialLinks />
                 
                 <div className="mt-24 gap-12">
-                    <Tracks tracks={this.props.tracks} onLoad={this.props.lastFmTracksLoaded} />
+                    <TopTracks></TopTracks>
+                    
+                    <Tracks className={`mt-12`} tracks={this.props.tracks} onLoad={this.props.lastFmTracksLoaded} />
                     
                     <div className={`w-full mt-12`}>
                         <p className="text-4xl dark:text-gray-300">Playlists</p>

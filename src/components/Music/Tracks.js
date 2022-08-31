@@ -54,7 +54,7 @@ export default class Tracks extends React.Component {
 
     render () {
         return (
-            <div className={`w-full`}>
+            <div className={`w-full ${this.props.className}`}>
                 <p className="text-4xl dark:text-gray-300">Recently Played</p>
                 
                 <div className="flex flex-wrap justify-between mt-3 gap-2" ref={this.container}>

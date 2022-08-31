@@ -14,6 +14,20 @@ const reducer = (state, action) => {
             tracks: [...state.tracks, ...action.tracks],
         }
     }
+    
+    if (action.type === 'TOP_TRACKS_LOADED') {
+        return {
+            ...state,
+            top_tracks: action.top_tracks
+        }
+    }
+    
+    if (action.type === 'SET_TOP_TRACKS_TIME_PERIOD') {
+        return {
+            ...state,
+            top_tracks_time_period: action.time_period
+        }
+    }
 
     if (action.type === "BOOKMARKS_LOADED") {
         return {
@@ -23,7 +37,6 @@ const reducer = (state, action) => {
     }
     
     if (action.type === "BLOG_TAGS_LOADED") {
-        console.log(action);
         return {
             ...state,
             tags: action.tags
@@ -33,7 +46,7 @@ const reducer = (state, action) => {
     return state
 }
 
-const initialState = { posts: [], tracks: [], bookmarks: {} }
+const initialState = { posts: [], tracks: [], top_tracks: [], top_tracks_time_period: 'this_week', bookmarks: {} }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
