@@ -5,7 +5,7 @@ import NavItem from "./NavItem";
 export default class NotFound extends React.Component {
     render() {
         return (
-            <div className="py-24 flex-col flex justify-center items-center">
+            <div className="py-24 flex-col flex justify-center items-center mt-32">
                 <h1 className="text-3xl md:text-5xl text-center">Looks like you're lost.</h1>
                 
                 <p className={`pt-12 text-center`}>It happens to the best of us. Here's some useful links.</p>

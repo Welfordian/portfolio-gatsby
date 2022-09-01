@@ -123,7 +123,7 @@ class Chat extends React.Component {
         }
         
         return (
-            <div className={`flex grow`}>
+            <div className={`flex grow mt-32`}>
                 <Seo title="Chat App" />
 
                 <div className={`flex flex-col justify-between grow-0 w-full`}>

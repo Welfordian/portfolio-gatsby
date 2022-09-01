@@ -52,7 +52,7 @@ class App extends React.Component {
 
     render() {        
         return (
-            <>
+            <div className={`mt-32`}>
                 {
                     ! this.state.modalOpen
                         ?
@@ -82,7 +82,7 @@ class App extends React.Component {
                         class: 'watch-together',
                     }}
                 /> 
-            </>    
+            </div>    
         );
     }
 }

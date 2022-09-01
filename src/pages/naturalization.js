@@ -5,7 +5,7 @@ import {Helmet} from "react-helmet";
 class Naturalization extends React.Component {
     render() {
         return (
-            <>
+            <div class={`mt-32`}>
                 <App></App>
 
                 <Helmet
@@ -13,7 +13,7 @@ class Naturalization extends React.Component {
                         class: 'watch-together',
                     }}
                 />
-            </>
+            </div>
         );
     }
 }

@@ -26,7 +26,7 @@ class SpotifyPlayer extends React.Component {
 
     render() {
         return (
-            <>
+            <div className={`mt-32`}>
                 {this.state.token ? (
                     <SpotifyApiContext.Provider value={this.state.token}>
                         <div className={`flex justify-center`}>
@@ -53,7 +53,7 @@ class SpotifyPlayer extends React.Component {
                         class: 'links-page',
                     }}
                 />
-            </>
+            </div>
         );
     }
 }

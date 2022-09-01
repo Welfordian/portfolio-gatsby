@@ -42,7 +42,7 @@ class Login extends React.Component {
         }
 
         return (
-            <div className={`flex justify-center`}>
+            <div className={`flex justify-center mt-32`}>
                 <div className={`flex flex-col bg-black text-white w-1/2 p-12 shadow-2xl shadow-gray-700 relative`}>
                     <Notification show={this.state.showNotification} onHide={() => this.setState({ showNotification: false })} message={this.state.notificationMessage}></Notification>
                     <form className={`flex flex-col gap-6`} method="post" onSubmit={event => { this.handleSubmit(event) }}>

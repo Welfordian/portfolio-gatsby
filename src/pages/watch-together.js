@@ -32,7 +32,7 @@ class WatchTogether extends React.Component {
     
     render() {
         return (
-            <>
+            <div className={`mt-32`}>
                 <h1 className="text-4xl text-center">Watch Together</h1>
 
                 <p className="mt-3 text-center">Watch YouTube videos together in sync</p>
@@ -52,7 +52,7 @@ class WatchTogether extends React.Component {
                         class: 'watch-together',
                     }}
                 />
-            </>
+            </div>
         );
     }
 }

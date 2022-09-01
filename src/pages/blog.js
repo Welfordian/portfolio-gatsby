@@ -37,7 +37,7 @@ class Blog extends React.Component {
         }
 
         return (
-            <>
+            <div>
                 <SocialLinks />
                 
                 <p className="text-4xl mt-24 dark:text-gray-300">Blog Posts</p>
@@ -45,7 +45,7 @@ class Blog extends React.Component {
                 <BlogTags tags={tags} onTagUpdate={this.onTagUpdate.bind(this)}/>
 
                 <BlogPosts posts={posts} />
-            </>
+            </div>
         );
     }
 }

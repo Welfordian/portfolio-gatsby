@@ -198,7 +198,7 @@ class Browser extends React.Component {
         let Component = this.state.tabs[this.state.activeTab].component;
         
         return (
-            <div>
+            <div className={`mt-32`}>
                 <div className={`flex justify-center mr-12 select-none`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-300 px-6 py-2 rounded-t-lg hover:bg-gray-400/60 transition-colors`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/browser.js`} target="_blank" rel="noopener">

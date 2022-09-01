@@ -186,7 +186,7 @@ class Terminal extends React.Component {
         if (this.state.currentView === 'jurassic-park') view = jurassicParkView;
         
         return (
-            <>
+            <div className={`mt-32`}>
                 <div className={`flex justify-center mr-12`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-600 text-white px-6 py-2 rounded-t-lg`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/terminal.js`} target="_blank" rel="noopener">
@@ -286,7 +286,7 @@ class Terminal extends React.Component {
                         class: 'watch-together',
                     }}
                 />
-            </>
+            </div>
         );
     }
 }

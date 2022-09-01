@@ -11,7 +11,7 @@ const LinksPage = () => (
             <SocialLinks hideTagline={false} hideSocial={true} />
             
             {/* GitHub */}
-            <div className="w-full xl:w-1/3 flex flex-col mt-10 px-8 md:mx-0 gap-4">
+            <div className="w-full xl:w-1/3 flex flex-col mt-16 px-8 md:mx-0 gap-4">
                 <Link
                     to="https://link.welford.me/github"
                     icon={<FontAwesomeIcon icon={faGithub} />}

@@ -33,11 +33,11 @@ export default class Layout extends React.Component {
                         <div className={`flex justify-center min-h-screen pb-8 dark:bg-black`}>
                             <Seo title="Joshua Welford" />
 
-                            <div className="container h-full mb-12 flex flex-col">
+                            <div className="container h-full mb-16 flex flex-col">
                                 {theme.hideHeader ? '' : <Header location={this.props.location} onColorSchemeChange={() => {}} />}
 
-                                <div className={`flex flex-col ${theme.marginTop ? '' : 'md:mt-32'} grow content-container`}>
-                                    <div className="m-4 p-4 grow flex flex-col content">
+                                <div className={`flex flex-col grow content-container`}>
+                                    <div className="m-4 -mt-2 p-4 grow flex flex-col content">
                                         {this.props.children}
                                     </div>
                                 </div>
