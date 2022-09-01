@@ -44,25 +44,25 @@ class App extends React.Component {
                     name: `Josh Welford's Web Player`,
                     getOAuthToken: cb => { cb(this.props.token); }
                 })
+            }, () => {
+                this.state.player.addListener('player_state_changed', state => {
+                    if (state !== null) {
+                        this.setState({playerState: state})
+                    }
+                });
+
+                this.state.player.addListener('ready', ({ device_id }) => {
+                    this.setState({deviceId: device_id});
+
+                    axios.put('https://api.spotify.com/v1/me/player', {device_ids: [device_id]}, {
+                        headers: {
+                            Authorization: `Bearer ${this.props.token}`
+                        },
+                    })
+                });
+
+                this.state.player.connect();
             })
-
-            this.state.player.addListener('player_state_changed', state => {
-                if (state !== null) {
-                    this.setState({playerState: state})
-                }
-            });
-
-            this.state.player.addListener('ready', ({ device_id }) => {
-                this.setState({deviceId: device_id});
-                
-                axios.put('https://api.spotify.com/v1/me/player', {device_ids: [device_id]}, {
-                    headers: {
-                        Authorization: `Bearer ${this.props.token}`
-                    },
-                })
-            });
-
-            this.state.player.connect();
         };
     }
 
