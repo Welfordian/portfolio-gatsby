@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sirin+Stencil&display=swap');
 
 * {
     font-family: 'Roboto Mono', monospace;
+}
+
+.pretty-font, .pretty-font * {
+    font-family: 'Sirin Stencil', cursive !important;
 }
 
 .blog-content pre {

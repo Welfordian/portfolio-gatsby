@@ -110,7 +110,7 @@ export default class Header extends React.Component {
                             {
                                 this.state.navOpen
                                 ?
-                                    <p className={`justify-self-center`}>Joshua Welford</p>
+                                    <p className={`justify-self-center pretty-font`}>JW</p>
                                 : <></>    
                             }
                         </div>
@@ -125,7 +125,6 @@ export default class Header extends React.Component {
                     <NavItem to="/music" page={this.state.page} onClick={() => this.toggleNav()}>Music</NavItem>
                     <NavItem to="/resources" page={this.state.page} onClick={() => this.toggleNav()}>Resources</NavItem>
                     <NavItem to="https://resources.josh.workers.dev/resume" external={true} page={this.state.page} onClick={() => this.toggleNav()}>Resume</NavItem>
-                    <NavItem to="/blog" page={this.state.page} onClick={() => this.toggleNav()}>Blog</NavItem>
                     {
                         isLoggedIn()
                             ?

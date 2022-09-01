@@ -7,14 +7,6 @@ import SocialLinks from "../components/SocialLinks";
 class IndexPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.title = 'New Tab'
-
-        this.icon = 'https://assets.msn.com/statics/icons/favicon_newtabpage.png'
-
-        this.aliases = [
-            'jw://home',
-        ]
     }
 
     render() {
