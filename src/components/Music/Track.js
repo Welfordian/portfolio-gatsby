@@ -55,7 +55,10 @@ export default class Track extends React.Component {
             
             this.setState({ isPlayingPreview: false, previewProgress: 0 })
         } else {
-            document.querySelectorAll('audio').forEach(audio => audio.pause())
+            document.querySelectorAll('audio').forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            })
             
             this.audioRef.current.play();
             
