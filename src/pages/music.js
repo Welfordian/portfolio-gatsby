@@ -97,7 +97,7 @@ const mapStateToProps = ({tracks}) => {
     return { tracks }
 }
 const mapDispatchToProps = dispatch => {
-    return { lastFmTracksLoaded: (tracks) => dispatch({ type: `LASTFM_TRACKS_LOADED`, tracks }) }
+    return { lastFmTracksLoaded: (tracks, clearState) => dispatch({ type: `LASTFM_TRACKS_LOADED`, tracks, clearState }) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Music);

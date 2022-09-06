@@ -9,9 +9,17 @@ const reducer = (state, action) => {
     }
 
     if (action.type === "LASTFM_TRACKS_LOADED") {
+        let tracks = [];
+        
+        if (action.clearState) {
+            tracks = [...action.tracks];
+        } else {
+            tracks = [...state.tracks, ...action.tracks];
+        }
+        
         return {
             ...state,
-            tracks: [...state.tracks, ...action.tracks],
+            tracks,
         }
     }
     

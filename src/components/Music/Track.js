@@ -27,7 +27,7 @@ export default class Track extends React.Component {
     }
     
     componentDidMount() {
-        if ('played_at' in this.props.track) {
+        if ('played_at' in this.props.track && this.props.track.preview_url !== null && this.props.track.preview_url.length !== 0) {
             this.audioRef.current.onended = () => {
                 this.setState({ isPlayingPreview: false, previewProgress: 0 })
             }
@@ -73,10 +73,16 @@ export default class Track extends React.Component {
         requestAnimationFrame(this.previewProgress.bind(this));
     }
     
+    pausePreview() {
+        if (this.props.track.preview_url === null || this.props.track.preview_url.length === 0) return;
+        
+        this.audioRef.current.pause()
+    }
+    
     render () {
         return (
             <div className="dark:hover:shadow-gray-800 relative w-full h-[340px] md:h-[250px] md:w-[287px] transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
-                <div className="flex flex-col justify-between text-white w-full h-[340px] md:h-[250px] md:w-[287px]" style={{background: `url(${'album_image' in this.props.track ? this.props.track.album_image : this.props.track.album.images[0].url}) no-repeat center center`, backgroundSize: "cover"}}>
+                <div className="flex flex-col justify-between text-white w-full h-[340px] md:h-[250px] md:w-[287px] bg-contain" style={{background: `url(${'album_image' in this.props.track ? this.props.track.album_image : this.props.track.album.images[0].url}) no-repeat center center`, backgroundSize: "cover"}}>
                     <div className="font-bold text-sm px-4 py-3 text-center bg-black/[0.6] flex">
                         {
                             this.props.track.explicit
@@ -105,7 +111,7 @@ export default class Track extends React.Component {
 
                     <div className="flex justify-center w-auto px-4 py-2">
                         {
-                            this.props.track.preview_url !== null
+                            this.props.track.preview_url !== null && this.props.track.preview_url.length !== 0
                                 ?
                                 <div>
                                     {
@@ -127,7 +133,7 @@ export default class Track extends React.Component {
                             <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
                         </a>
 
-                        <YoutubeLinkConfirmation href={this.props.track.youtube_url || '#now_playing'} onContinue={() => { this.audioRef.current.pause() }}>
+                        <YoutubeLinkConfirmation href={this.props.track.youtube_url || '#now_playing'} onContinue={() => { this.pausePreview() }}>
                             <a target="_blank" rel="noopener" href={this.props.track.youtube_url || '#now_playing'} className={`relative cursor-pointer`}>
                                 <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
                                 <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
