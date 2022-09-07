@@ -4,6 +4,7 @@ import axios from "axios";
 import TracksSkeleton from "./TracksSkeleton";
 import Spinner from '../../images/Spinner.svg'
 import NowPlaying from "../NowPlaying";
+import Search from "./Search";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/pro-light-svg-icons";
 
@@ -47,8 +48,8 @@ export default class Tracks extends React.Component {
         });
     }
     
-    performSearch(e) {
-        this.setState({ search: e.target.value }, () => {
+    performSearch(val) {
+        this.setState({ search: val }, () => {
             clearTimeout(this.state.searchTimeout);
             
             this.setState({
@@ -68,7 +69,7 @@ export default class Tracks extends React.Component {
                     <p className="text-4xl dark:text-gray-300">Recently Played</p>
                     
                     <div className={`relative`}>
-                        <input value={this.state.search} onChange={e => { this.performSearch(e) }} className={`w-full md:w-96 mt-4 md:mt-0 justify-center border dark:border-gray-600 border-gray-300 dark:text-gray-300 dark:bg-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100`} type={`text`} placeholder={`Search...`} />
+                        <Search search={this.state.search} onChange={e => { this.performSearch(e) }} />
 
                         {
                             this.state.loadingSearch

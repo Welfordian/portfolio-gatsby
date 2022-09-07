@@ -29,6 +29,13 @@ const reducer = (state, action) => {
             top_tracks: action.top_tracks
         }
     }
+
+    if (action.type === 'ARTISTS_LOADED') {
+        return {
+            ...state,
+            artists: action.artists
+        }
+    }
     
     if (action.type === 'SET_TOP_TRACKS_TIME_PERIOD') {
         return {
