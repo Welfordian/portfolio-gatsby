@@ -6,7 +6,7 @@ class TemporaryOverlay extends React.Component {
     constructor(props) {
         super(props);
 
-        let isVisible = true; //isBrowser() && localStorage.getItem('overlay-seen') === null ? true : false;
+        let isVisible = isBrowser() && localStorage.getItem('overlay-seen') === null ? true : false;
 
         this.state = {
             visible: isVisible,
@@ -15,7 +15,7 @@ class TemporaryOverlay extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            //this.setState({ visible: false })
+            this.setState({ visible: false })
 
             localStorage.setItem('overlay-seen', true);
         }, 6500);
