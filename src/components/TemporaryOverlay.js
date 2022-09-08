@@ -1,11 +1,12 @@
 import React from 'react'
 import { Transition } from '@headlessui/react'
+import {isBrowser} from "../services/auth";
 
 class TemporaryOverlay extends React.Component {
     constructor(props) {
         super(props);
 
-        let isVisible = localStorage.getItem('overlay-seen') === null ? true : false;
+        let isVisible = isBrowser() && localStorage.getItem('overlay-seen') === null ? true : false;
 
         this.state = {
             visible: isVisible,
