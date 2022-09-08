@@ -57,7 +57,7 @@ class Search extends React.Component {
     }
 
     handleKeyDown(e) {
-        if ((e.code === 'Tab' || e.key === 'Tab') || (e.code === 'Enter' || e.key === 'Enter')) {
+        if (this.state.search.trim().length > 0 && (e.code === 'Tab' || e.key === 'Tab') || (e.code === 'Enter' || e.key === 'Enter')) {
             e.preventDefault();
 
             this.setState({
@@ -74,7 +74,7 @@ class Search extends React.Component {
                 {
                     this.state.artistMatch.trim().length > 0
                     ?
-                        <div className={`-z-10 absolute top-0 left-0 w-full md:w-96 mt-4 md:mt-0 justify-center border dark:border-gray-600 border-gray-300 dark:text-gray-300 dark:bg-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-400 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100`}>
+                        <div className={`-z-10 absolute top-0 left-0 w-full md:w-96 mt-4 md:mt-0 justify-center border dark:border-gray-600 border-gray-400 dark:text-gray-300 dark:bg-gray-700 bg-white px-4 py-2 text-sm font-medium text-gray-400 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100`}>
                             { this.state.artistMatch }
                         </div>
                     : <></>
