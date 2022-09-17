@@ -31,8 +31,6 @@ export default class Layout extends React.Component {
             <ThemeContext.Consumer>
                 {theme => (
                     <div className={`${this.state.isDark ? 'dark' : ''}`}>
-                        <TemporaryOverlay></TemporaryOverlay>
-
                         <div className={`flex justify-center min-h-screen pb-8 dark:bg-black`}>
                             <Seo title="Joshua Welford" />
 
