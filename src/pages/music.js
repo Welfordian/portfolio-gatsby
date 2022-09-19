@@ -31,7 +31,7 @@ class Music extends React.Component {
                             <SpotifyPlaylist playlist="5YyO8lDKAh2siTh2EDcwYl" title="A Byers Vibe Playlist"></SpotifyPlaylist>
                             <SpotifyPlaylist playlist="2n96PioY2RL0GriBf8VcTK" title="A Dirt Road Vibe Playlist"></SpotifyPlaylist>
                             <SpotifyPlaylist playlist="7qU5YlXlr1hQdLK8hFeWxs" title="A Special Vibe Playlist"></SpotifyPlaylist>
-                            <SpotifyPlaylist playlist="336VFONhuhd44C09b1xntQ" title="A Rocky Vibe Playlist"></SpotifyPlaylist>
+                            <SpotifyPlaylist playlist="17cub1CAiJOeM4CZxevqDc" title="A Rocky Vibe Playlist"></SpotifyPlaylist>
                         </div>
                     </div>
                 </div>
