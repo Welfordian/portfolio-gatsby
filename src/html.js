@@ -21,6 +21,7 @@ export default function HTML(props) {
             dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+	<a rel="me" href="https://social.welford.me/@josh"></a>
         </body>
         </html>
     )
