@@ -74,20 +74,20 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-//    {
-//     resolve: `gatsby-source-wordpress`,
-//      options: {
-//        /*
-//         * The full URL of the WordPress site's GraphQL API.
-//         * Example : 'https://www.example-site.com/graphql'
-///         */
-//        url: `https://wp.welford.me/graphql`,
-//        auth: {
-///          jwt_user: process.env.JWT_USER,
-//          jwt_pass: process.env.JWT_PASSWORD,
-//        }
-//      },
-//    },
+    {
+    resolve: `gatsby-source-wordpress`,
+     options: {
+       /*
+        * The full URL of the WordPress site's GraphQL API.
+        * Example : 'https://www.example-site.com/graphql'
+         */
+       url: `https://wp.welford.me/graphql`,
+       auth: {
+          jwt_user: process.env.JWT_USER,
+         jwt_pass: process.env.JWT_PASSWORD,
+       }
+     },
+   },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
