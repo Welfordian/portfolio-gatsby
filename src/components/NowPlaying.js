@@ -31,7 +31,7 @@ class NowPlaying extends React.Component {
     }
     
     loadTrack() {
-        axios.get('https://api.welford.me/spotify/now').then((r) => {
+        axios.get('https://portfolio-api-new.test/spotify/now').then((r) => {
             this.setState({
                 track: r.data,
                 isOverflowed: false,

@@ -27,7 +27,7 @@ export function onRenderBody(
         <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>,
         <link rel="preconnect" href="https://imagedelivery.net" />,
         <link rel="dns-prefetch" href="https://imagedelivery.net" />,
-        <link rel="preconnect" href="https://api.welford.me" />,
-        <link rel="dns-prefetch" href="https://api.welford.me" />
+        <link rel="preconnect" href="https://portfolio-api-new.test" />,
+        <link rel="dns-prefetch" href="https://portfolio-api-new.test" />
     ]);
 }

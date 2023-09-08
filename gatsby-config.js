@@ -12,7 +12,7 @@ module.exports = {
     author: `@welfordian`,
   },
   plugins: [
-    //`gatsby-plugin-preact`,
+    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
@@ -81,7 +81,7 @@ module.exports = {
         * The full URL of the WordPress site's GraphQL API.
         * Example : 'https://www.example-site.com/graphql'
          */
-       url: `https://wp.welford.me/graphql`,
+       url: `http://wordpress.test/graphql`,
        auth: {
           jwt_user: process.env.JWT_USER,
          jwt_pass: process.env.JWT_PASSWORD,

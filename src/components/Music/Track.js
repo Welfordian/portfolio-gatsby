@@ -12,7 +12,7 @@ import {Levels} from "react-activity";
 export default class Track extends React.Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             isOverflowed: false,
             playMarquee: true,
@@ -20,12 +20,12 @@ export default class Track extends React.Component {
             previewProgress: 0,
             popoverOpen: false,
         }
-        
+
         this.audioRef = React.createRef();
-        
+
         this.explicit = <div className={`bg-gray-700 shadow-md text-white px-2 py-1`}>Explicit</div>
     }
-    
+
     componentDidMount() {
         if ('played_at' in this.props.track && this.props.track.preview_url !== null && this.props.track.preview_url.length !== 0) {
             this.audioRef.current.onended = () => {
@@ -36,10 +36,10 @@ export default class Track extends React.Component {
                 this.setState({ isPlayingPreview: false, previewProgress: 0 })
             }
         }
-        
+
         requestAnimationFrame(this.previewProgress.bind(this))
     }
-    
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.track.uri !== this.props.track.uri) {
             this.setState({
@@ -52,36 +52,36 @@ export default class Track extends React.Component {
         if (this.state.isPlayingPreview) {
             this.audioRef.current.pause();
             this.audioRef.current.currentTime = 0
-            
+
             this.setState({ isPlayingPreview: false, previewProgress: 0 })
         } else {
             document.querySelectorAll('audio').forEach(audio => {
                 audio.pause();
                 audio.currentTime = 0;
             })
-            
+
             this.audioRef.current.play();
-            
+
             this.setState({ isPlayingPreview: true })
         }
     }
-    
+
     previewProgress() {
         if (this.state.isPlayingPreview) {
             this.setState({
                 previewProgress: (this.audioRef.current.currentTime / this.audioRef.current.duration) * 100
             })
         }
-        
+
         requestAnimationFrame(this.previewProgress.bind(this));
     }
-    
+
     pausePreview() {
         if (this.props.track.preview_url === null || this.props.track.preview_url.length === 0) return;
-        
+
         this.audioRef.current.pause()
     }
-    
+
     render () {
         return (
             <div className="dark:hover:shadow-gray-800 relative w-full h-[340px] md:h-[250px] md:w-[287px] transition-all hover:shadow-lg hover:shadow-gray-700 duration-300 select-none" onMouseEnter={() => this.setState({playMarquee: false})} onMouseLeave={() => this.setState({playMarquee: true})}>
@@ -91,7 +91,7 @@ export default class Track extends React.Component {
                             this.props.track.explicit
                                 ?
                                 <div className={`bg-gray-700 px-2 mr-2 inline`} title={`Explicit`} onMouseEnter={() => this.setState({popoverOpen: true})} onMouseLeave={() => this.setState({popoverOpen: false})}>
-                                    <Popover 
+                                    <Popover
                                         isOpen={this.state.popoverOpen}
                                         content={this.explicit}
                                     >
@@ -144,32 +144,32 @@ export default class Track extends React.Component {
                             </a>
                         </YoutubeLinkConfirmation>
                     </div>
-                    
+
                     <div className="flex flex-col px-4 py-3 text-sm bg-black/[0.6] relative">
-                        <div 
+                        <div
                             className={`absolute top-0 left-0 bg-white h-1 -mt-1 mix-blend-difference`}
                             style={{width: `${this.state.previewProgress}%`}}
                         ></div>
-                        
+
                         <div className="font-semibold flex items-center">
                             <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
                             {this.props.track.artist || this.props.track.artists[0].name}
                         </div>
-                        
+
                         <p className="mt-3 font-semibold flex items-center">
                             {
                                 'played_at' in this.props.track
-                                ?
+                                    ?
                                     <FontAwesomeIcon className="mr-4" icon={faClock} />
-                                :
-                                    <Levels className={`inline-block mr-4`} />    
+                                    :
+                                    <Levels className={`inline-block mr-4`} />
                             }
-                            
+
                             {
                                 'played_at' in this.props.track
-                                ?
+                                    ?
                                     `${moment(this.props.track.played_at).fromNow(true)} ago`
-                                :
+                                    :
                                     "Listening Now"
                             }
                         </p>
