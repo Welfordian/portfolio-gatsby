@@ -22,9 +22,9 @@ class Blog extends React.Component {
         })
     }
     
-    render () {
-        let posts = this.props.data.allWpPost.edges
-        let tags  = this.props.data.allWpTag.nodes
+    render () {        
+        let posts = [];
+        let tags = [];
         
         if (this.state.tagFilter.length) {
             this.state.tagFilter.forEach(tag => {
