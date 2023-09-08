@@ -56,34 +56,34 @@ const mapStateToProps = ({posts, tags}) => {
 
 export default connect(mapStateToProps)(Blog);
 
-export const pageQuery = graphql`
-  query {
-    allWpPost {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-          tags {
-            nodes {
-              name
-              id
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-        }
-      }
-    }
-    
-    allWpTag {
-        nodes {
-            id
-            name
-        }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query {
+//     allWpPost {
+//       edges {
+//         node {
+//           title
+//           excerpt
+//           slug
+//           tags {
+//             nodes {
+//               name
+//               id
+//             }
+//           }
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//         }
+//       }
+//     }
+//    
+//     allWpTag {
+//         nodes {
+//             id
+//             name
+//         }
+//     }
+//   }
+// `

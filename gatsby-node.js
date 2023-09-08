@@ -14,35 +14,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const watchTogether = path.resolve('src/components/WatchTogether/app.js');
     const chat = path.resolve('src/components/Chat/chat.js');
 
-    const result = await graphql(`
-    {
-      allWpPost {
-        edges {
-          node {
-            id
-            slug
-            featuredImage {
-              node {
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-    const { allWpPost } = result.data
-    
-    allWpPost.edges.forEach(edge => {
-        createPage({
-            path: `/blog/${edge.node.slug}/`,
-            component: slash(blogPostTemplate),
-            context: {
-                id: edge.node.id,
-            },
-        })
-    })
+  //   const result = await graphql(`
+  //   {
+  //     allWpPost {
+  //       edges {
+  //         node {
+  //           id
+  //           slug
+  //           featuredImage {
+  //             node {
+  //               sourceUrl
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+  //
+  //   const { allWpPost } = result.data
+  //  
+  //   allWpPost.edges.forEach(edge => {
+  //       createPage({
+  //           path: `/blog/${edge.node.slug}/`,
+  //           component: slash(blogPostTemplate),
+  //           context: {
+  //               id: edge.node.id,
+  //           },
+  //       })
+  //   })
 
     createPage({
         path: '/youtify/:slug',

@@ -291,30 +291,30 @@ class Terminal extends React.Component {
     }
 }
 
-export const pageQuery = graphql`
-  query {
-    allWpPost {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-          tags {
-            nodes {
-              name
-              id
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query {
+//     allWpPost {
+//       edges {
+//         node {
+//           title
+//           excerpt
+//           slug
+//           tags {
+//             nodes {
+//               name
+//               id
+//             }
+//           }
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 const mapStateToProps = ({posts}) => {
     return { posts }

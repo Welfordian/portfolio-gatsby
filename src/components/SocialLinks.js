@@ -14,8 +14,6 @@ class SocialLinks extends React.Component {
                     >
                         JW
                     </h1>
-
-                    <Tagline />
                 </div>}
             </div>
         );

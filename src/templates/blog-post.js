@@ -9,7 +9,7 @@ import {Helmet} from "react-helmet";
 
 class BlogPostFull extends React.Component {
     render() {
-        const post = this.props.data.wpPost
+        const post = {};
 
         console.log(post);
 
@@ -50,16 +50,16 @@ BlogPostFull.propTypes = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlogPostFull);
 
-export const postQuery = graphql`
-  query($id: String!) {
-    wpPost(id: { eq: $id }) {
-      title
-      content
-      featuredImage {
-        node {
-            sourceUrl
-          }
-        }
-    }
-  }
-`
+// export const postQuery = graphql`
+//   query($id: String!) {
+//     wpPost(id: { eq: $id }) {
+//       title
+//       content
+//       featuredImage {
+//         node {
+//             sourceUrl
+//           }
+//         }
+//     }
+//   }
+// `
