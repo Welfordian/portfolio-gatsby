@@ -76,12 +76,6 @@ class Terminal extends React.Component {
                     children: []
                 },
                 {
-                    name: 'blog',
-                    children: this.props.data.allWpPost.edges.map(post => {
-                        return {name: `${post.node.slug}.webloc`}
-                    })
-                },
-                {
                     name: 'socials',
                     link: 'https://l.welford.me',
                     children: [

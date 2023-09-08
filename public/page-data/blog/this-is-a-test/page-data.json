@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-blog-post-js",
-    "path": "/blog/this-is-a-test/",
-    "result": {"data":{"wpPost":{"title":"This is a test","content":"\n<p>This is the main part of the test blog.</p>\n","featuredImage":{"node":{"sourceUrl":"https://wp.welford.me/wp-content/uploads/2021/11/1200x628.png"}}}},"pageContext":{"id":"cG9zdDo5"}},
-    "staticQueryHashes": ["63159454"]}
