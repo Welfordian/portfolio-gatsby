@@ -28445,10 +28445,10 @@ function onRenderBody({
     href: "https://imagedelivery.net"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("link", {
     rel: "preconnect",
-    href: "https://portfolio-api-new.test"
+    href: "https://api.welford.me"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("link", {
     rel: "dns-prefetch",
-    href: "https://portfolio-api-new.test"
+    href: "https://api.welford.me"
   })]);
 }
 
@@ -30638,7 +30638,7 @@ class NowPlaying extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component
   }
 
   loadTrack() {
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://portfolio-api-new.test/spotify/now').then(r => {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://api.welford.me/spotify/now').then(r => {
       this.setState({
         track: r.data,
         isOverflowed: false

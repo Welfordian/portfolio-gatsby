@@ -20,7 +20,7 @@ class Search extends React.Component {
     }
 
     loadArtists() {
-        axios.get('https://portfolio-api-new.test/tracks/artists').then(r => {
+        axios.get('https://api.welford.me/tracks/artists').then(r => {
             this.props.artistsLoaded(r.data);
         })
     }
