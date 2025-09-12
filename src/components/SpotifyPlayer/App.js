@@ -10,8 +10,7 @@ import Slider from 'rc-slider';
 import { Levels } from "react-activity";
 import 'rc-slider/assets/index.css';
 import Search from "./Search/Search";
-import {faExternalLink} from "@fortawesome/pro-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 class App extends React.Component {
     constructor(props) {
@@ -75,7 +74,7 @@ class App extends React.Component {
             'track_window' in this.state.playerState ? <div className={`flex items-end flex-col w-full sm:w-full md:w-2/6`}>
                 <div className="px-6 py-2 bg-black dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 text-white">
                     <a href="https://github.com/Welfordian/portfolio-gatsby/tree/main/src/components/SpotifyPlayer" target="_blank" rel="noopener">
-                        <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+                        <ArrowTopRightOnSquareIcon className={`mr-3 h-4 w-4 inline`} />
                         
                         Source
                     </a>

@@ -1,8 +1,7 @@
 import React from 'react';
 import Seo from "../seo";
 import {Helmet} from "react-helmet";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPaperPlane} from "@fortawesome/pro-solid-svg-icons";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { io } from "socket.io-client";
 import { isBrowser } from "../../services/auth";
 
@@ -151,7 +150,7 @@ class Chat extends React.Component {
                         {/*        <input placeholder={`Type message here...`} className={`p-3 rounded-lg outline-none grow`} type={`text`} />*/}
                         {/*        */}
                         {/*        <button className={`px-4 py-3 bg-blue-500 text-white rounded-lg`}>*/}
-                        {/*            <FontAwesomeIcon icon={faPaperPlane}></FontAwesomeIcon>*/}
+                        {/*            <PaperAirplaneIcon className={`h-5 w-5`}></PaperAirplaneIcon>*/}
                         {/*        </button>*/}
                         {/*    </div>*/}
                         {/*</div>*/}

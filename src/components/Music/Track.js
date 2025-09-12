@@ -2,10 +2,9 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from 'react-detectable-overflow';
 import moment from "moment";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClock, faStop, faUserMusic, faPlay} from "@fortawesome/pro-solid-svg-icons";
+import { ClockIcon, StopIcon, UserIcon, PlayIcon } from "@heroicons/react/24/solid";
 import { Popover } from 'react-tiny-popover'
-import {faSpotify, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import { SiSpotify, SiYoutube } from "react-icons/si";
 import YoutubeLinkConfirmation from "../YoutubeLinkConfirmation";
 import {Levels} from "react-activity";
 
@@ -120,9 +119,9 @@ export default class Track extends React.Component {
                                     {
                                         this.state.isPlayingPreview
                                             ?
-                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faStop} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></FontAwesomeIcon>
+                                            <StopIcon onClick={() => { this.togglePreview() }} className={`h-8 w-8 text-white drop-shadow-md mr-8 cursor-pointer`} title={`Stop Preview`}></StopIcon>
                                             :
-                                            <FontAwesomeIcon onClick={() => { this.togglePreview() }} icon={faPlay} size={`2x`} className={`text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></FontAwesomeIcon>
+                                            <PlayIcon onClick={() => { this.togglePreview() }} className={`h-8 w-8 text-white drop-shadow-md mr-8 cursor-pointer`} title={`Play Preview`}></PlayIcon>
                                     }
                                     <audio className={`hidden`} key={'spotify_id' in this.props.track ? this.props.track.spotify_id : this.props.track.uri} ref={this.audioRef}>
                                         <source src={this.props.track.preview_url} type="audio/mpeg" />
@@ -132,14 +131,14 @@ export default class Track extends React.Component {
                         }
                         <a target="_blank" rel="noopener" href={'spotify_url' in this.props.track ? this.props.track.spotify_url : this.props.track.external_urls.spotify} className={`relative cursor-pointer`}>
                             <div className={`absolute w-7 h-7 rounded-full bg-white top-[10%] left-[2%]`}></div>
-                            <FontAwesomeIcon icon={faSpotify} size={`2x`} className={`text-[#1DB954] drop-shadow-md mr-8`}></FontAwesomeIcon>
+                            <SiSpotify className={`text-[#1DB954] drop-shadow-md mr-8`} size={32}></SiSpotify>
                             <span style={{position: 'absolute', top: '-999999em'}}>Listen on Spotify</span>
                         </a>
 
                         <YoutubeLinkConfirmation href={this.props.track.youtube_url || '#now_playing'} onContinue={() => { this.pausePreview() }}>
                             <a target="_blank" rel="noopener" href={this.props.track.youtube_url || '#now_playing'} className={`relative cursor-pointer`}>
                                 <div className={`absolute w-3 h-3 bg-white top-0 left-[40%]`}></div>
-                                <FontAwesomeIcon icon={faYoutube} size={`2x`} className={`text-[#FF0000] drop-shadow-md`}></FontAwesomeIcon>
+                                <SiYoutube className={`text-[#FF0000] drop-shadow-md`} size={32}></SiYoutube>
                                 <span style={{position: 'absolute', top: '-999999em'}}>Listen on YouTube</span>
                             </a>
                         </YoutubeLinkConfirmation>
@@ -152,7 +151,7 @@ export default class Track extends React.Component {
                         ></div>
 
                         <div className="font-semibold flex items-center">
-                            <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
+                            <UserIcon className="mr-3 h-4 w-4" />
                             {this.props.track.artist || this.props.track.artists[0].name}
                         </div>
 
@@ -160,7 +159,7 @@ export default class Track extends React.Component {
                             {
                                 'played_at' in this.props.track
                                     ?
-                                    <FontAwesomeIcon className="mr-4" icon={faClock} />
+                                    <ClockIcon className="mr-4 h-4 w-4" />
                                     :
                                     <Levels className={`inline-block mr-4`} />
                             }

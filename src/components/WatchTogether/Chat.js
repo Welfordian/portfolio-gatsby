@@ -1,6 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLock, faUnlock} from "@fortawesome/pro-solid-svg-icons";
+import { LockClosedIcon, LockOpenIcon } from "@heroicons/react/24/outline";
 import EventEmitter from "./EventEmitter";
 import EventBus from "./EventBus";
 
@@ -65,9 +64,9 @@ class Chat extends React.Component {
                                         {
                                             this.props.isLocked 
                                             ?
-                                                <FontAwesomeIcon title={`Unlock room`} icon={faLock} />
+                                                <LockOpenIcon title={`Unlock room`} className={`h-4 w-4`} />
                                             :
-                                                <FontAwesomeIcon title={`Lock room`} icon={faUnlock} />
+                                                <LockClosedIcon title={`Lock room`} className={`h-4 w-4`} />
                                         }
                                     </div>
                                 </div>

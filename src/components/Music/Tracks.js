@@ -5,8 +5,7 @@ import TracksSkeleton from "./TracksSkeleton";
 import Spinner from '../../images/Spinner.svg'
 import NowPlaying from "../NowPlaying";
 import Search from "./Search";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSpinner} from "@fortawesome/pro-light-svg-icons";
+import { ImSpinner2 } from "react-icons/im";
 
 export default class Tracks extends React.Component {
     constructor(props) {
@@ -74,7 +73,7 @@ export default class Tracks extends React.Component {
                         {
                             this.state.loadingSearch
                                 ?
-                                <FontAwesomeIcon size={`lg`} icon={faSpinner} className={`dark:text-gray-300 fa-spin absolute right-[.5em] top-[.5em]`} />
+                                <ImSpinner2 className={`dark:text-gray-300 animate-spin absolute right-[.5em] top-[.5em]`} size={20} />
                                 : <></>
                         }
                     </div>

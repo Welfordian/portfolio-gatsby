@@ -1,6 +1,4 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPause, faPlay} from "@fortawesome/free-solid-svg-icons";
 import PlayButton from "./PlayButton";
 import NextButton from "./NextButton";
 import PreviousButton from "./PreviousButton";

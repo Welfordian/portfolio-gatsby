@@ -1,6 +1,5 @@
 import React from 'react'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faExternalLink} from "@fortawesome/pro-solid-svg-icons";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 class Intro extends React.Component {
     render() {
@@ -20,7 +19,7 @@ class Intro extends React.Component {
 
                 <p className={`text-center w-full md:w-2/3`}>There are a total of 100 questions that will be randomized.
                     Each question is taken directly from the USCIS
-                    <a href={`https://www.uscis.gov/sites/default/files/document/questions-and-answers/100q.pdf`} target={`_blank`} rel={`noopener`}> website <FontAwesomeIcon icon={faExternalLink} /></a>.
+                    <a href={`https://www.uscis.gov/sites/default/files/document/questions-and-answers/100q.pdf`} target={`_blank`} rel={`noopener`}> website <ArrowTopRightOnSquareIcon className={`inline h-4 w-4 align-text-top`} /></a>.
                     The following questions are taken from the 2008 version of the test as only a select number of people
                     will be given the 2020 version.
                 </p>

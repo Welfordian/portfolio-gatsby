@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from "axios";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+ 
 import {Levels} from "react-activity";
 import Marquee from "react-fast-marquee";
 import DetectableOverflow from "react-detectable-overflow";
-import {faTimes} from "@fortawesome/pro-light-svg-icons";
+ 
 import {Popover} from "react-tiny-popover";
 import Track from "./Music/Track";
 
