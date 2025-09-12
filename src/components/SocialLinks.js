@@ -1,7 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTwitter, faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faShare} from "@fortawesome/free-solid-svg-icons";
+ 
 import Tagline from "./Tagline";
 
 class SocialLinks extends React.Component {

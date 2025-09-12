@@ -1,12 +1,12 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft, faArrowRight, faInfoCircle, faPlus, faSync, faTimes} from "@fortawesome/pro-light-svg-icons";
+import { ArrowLeftIcon, ArrowRightIcon, PlusIcon, XMarkIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import { ImSpinner8 } from "react-icons/im";
 import Twitter from "../components/Browser/Twitter";
 import Facebook from "../components/Browser/Facebook";
 import NewTab from "../components/Browser/NewTab";
 import NameNotResolved from "../components/Browser/NameNotResolved";
-import {faExternalLink} from "@fortawesome/pro-solid-svg-icons";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 class Browser extends React.Component {
     constructor(props) {
@@ -202,7 +202,7 @@ class Browser extends React.Component {
                 <div className={`flex justify-center mr-12 select-none`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-300 px-6 py-2 rounded-t-lg hover:bg-gray-400/60 transition-colors`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/browser.js`} target="_blank" rel="noopener">
-                            <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+                            <ArrowTopRightOnSquareIcon className={`mr-3 h-4 w-4 inline`}></ArrowTopRightOnSquareIcon>
 
                             Source
                         </a>
@@ -229,7 +229,7 @@ class Browser extends React.Component {
                                                         { (new tab.component).title }
                                                     </p>
 
-                                                    <FontAwesomeIcon className={`hover:bg-gray-400/50 px-2 py-1 rounded transition-colors duration-200 close-tab`} icon={faTimes} />
+                                                    <XMarkIcon className={`hover:bg-gray-400/50 px-2 py-1 rounded transition-colors duration-200 close-tab h-4 w-4`} />
                                                 </Tab>
                                             })
                                         }
@@ -238,21 +238,21 @@ class Browser extends React.Component {
 
                                 <div className={`h-12 flex items-center px-2`}>
                                     <div className={`hover:bg-gray-400/50 px-3 py-1 rounded transition-colors duration-200 cursor-pointer`} onClick={() => this.addTab()}>
-                                        <FontAwesomeIcon icon={faPlus} />
+                                        <PlusIcon className={`h-4 w-4`} />
                                     </div>
                                 </div>
                             </div>
                             
                             <div className={`w-full bg-gray-200 h-10 flex ui-element`}>
                                 <div className={`flex h-10 items-center px-2 gap-2`}>
-                                    <FontAwesomeIcon onClick={() => { this.historyBack() }} className={`${this.state.canGoBack ? 'hover:bg-gray-400/50' : 'text-gray-400'} ui-element px-2 py-1 rounded transition-colors duration-200`} icon={faArrowLeft} size={'lg'} />
-                                    <FontAwesomeIcon onClick={() => { this.historyForward() }} className={`${this.state.canGoForward ? 'hover:bg-gray-400/50' : 'text-gray-400'} ui-element px-2 py-1 rounded transition-colors duration-200`} icon={faArrowRight} size={'lg'} />
-                                    <FontAwesomeIcon className={`ui-element hover:bg-gray-400/50 px-2 py-1 transition-colors rounded`} icon={faSync} size={'lg'} />
+                                    <ArrowLeftIcon onClick={() => { this.historyBack() }} className={`${this.state.canGoBack ? 'hover:bg-gray-400/50' : 'text-gray-400'} ui-element px-2 py-1 rounded transition-colors duration-200 h-5 w-5`} />
+                                    <ArrowRightIcon onClick={() => { this.historyForward() }} className={`${this.state.canGoForward ? 'hover:bg-gray-400/50' : 'text-gray-400'} ui-element px-2 py-1 rounded transition-colors duration-200 h-5 w-5`} />
+                                    <ImSpinner8 className={`ui-element px-2 py-1`} />
                                 </div>
                                 
                                 <div className={`relative w-full h-10 pr-1`}>
                                     <div className={`h-6 top-[1px] absolute flex items-center mt-2 hover:bg-gray-400/50 text-gray-500 w-8 ml-1 px-2 transition-colors duration-200 rounded`}>
-                                        <FontAwesomeIcon icon={faInfoCircle} className={`absolute block`} />
+                                        <InformationCircleIcon className={`absolute block h-4 w-4`} />
                                     </div>
                                     
                                       <input readOnly={!this.state.urlActive} onClick={e => this.setState({urlActive: true})} onFocus={e => this.setState({urlActive: true})} onBlur={e => this.setState({ urlActive: false})} autoComplete={`off`} list="emptyList" onKeyUp={e => e.key === 'Enter' && this.goTo(e.target.value) && e.target.blur()} onChange={e => this.updateUrl(e)} value={this.state.tabs[this.state.activeTab].url} type={`text`} className={`w-full h-8 mt-1 mb-3 rounded outline-none pr-2 pl-10`} />

@@ -2,8 +2,7 @@ import * as React from "react"
 import Link from "../components/Links/Link";
 import {Helmet} from "react-helmet";
 import SocialLinks from "../components/SocialLinks";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faInstagram, faLastfm, faLinkedin, faSpotify, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import { SiGithub, SiInstagram, SiLastdotfm, SiLinkedin, SiSpotify, SiX } from "react-icons/si";
 
 const LinksPage = () => (
     <div className={`flex flex-col justify-center grow h-full pb-12`}>        
@@ -14,7 +13,7 @@ const LinksPage = () => (
             <div className="w-full xl:w-1/3 flex flex-col mt-16 px-8 md:mx-0 gap-4">
                 <Link
                     to="https://link.welford.me/github"
-                    icon={<FontAwesomeIcon icon={faGithub} />}
+                    icon={<SiGithub />}
                 >
                     GitHub
                 </Link>
@@ -22,7 +21,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/linkedin"
-                    icon={<FontAwesomeIcon icon={faLinkedin} />}
+                    icon={<SiLinkedin />}
                 >
                     LinkedIn
                 </Link>
@@ -30,7 +29,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/twitter"
-                    icon={<FontAwesomeIcon icon={faTwitter} />}
+                    icon={<SiX />}
                 >
                     Twitter
                 </Link>
@@ -38,7 +37,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/instagram"
-                    icon={<FontAwesomeIcon icon={faInstagram} />}
+                    icon={<SiInstagram />}
                 >
                     Instagram
                 </Link>
@@ -46,7 +45,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/spotify"
-                    icon={<FontAwesomeIcon icon={faSpotify} />}
+                    icon={<SiSpotify />}
                 >
                     Spotify
                 </Link>
@@ -54,7 +53,7 @@ const LinksPage = () => (
                 <Link
                     className="mt-4"
                     to="https://link.welford.me/lastfm"
-                    icon={<FontAwesomeIcon icon={faLastfm} />}
+                    icon={<SiLastdotfm />}
                 >
                     LastFM
                 </Link>

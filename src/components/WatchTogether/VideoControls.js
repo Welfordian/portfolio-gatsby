@@ -1,6 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faPause, faPlay } from "@fortawesome/pro-solid-svg-icons";
+import { PauseIcon, PlayIcon } from "@heroicons/react/24/solid";
 import Slider from "rc-slider";
 
 class VideoControls extends React.Component {
@@ -38,11 +37,11 @@ class VideoControls extends React.Component {
                                 this.props.playing
                                 ?
                                     <h1 onClick={() => { this.pauseVideo() }}>
-                                        <FontAwesomeIcon icon={faPause} />
+                                        <PauseIcon className={`h-5 w-5`} />
                                     </h1>
                                 :
                                     <h1 onClick={() => { this.playVideo() }}>
-                                        <FontAwesomeIcon icon={faPlay} />
+                                        <PlayIcon className={`h-5 w-5`} />
                                     </h1>    
                             }
                         </>

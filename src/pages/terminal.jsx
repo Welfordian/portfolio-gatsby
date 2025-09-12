@@ -15,8 +15,7 @@ import sudo from '../services/Terminal/sudo';
 import history from '../services/Terminal/history';
 import JurassicPark from '../services/Terminal/JurassicPark';
 import {connect} from "react-redux";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faExternalLink, faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";
+import { ArrowTopRightOnSquareIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import Modal from "../components/Modal";
 import DefaultView from "../components/Terminal/Views/DefaultView";
 import NanoView from "../components/Terminal/Views/NanoView";
@@ -183,7 +182,7 @@ class Terminal extends React.Component {
                 <div className={`flex justify-center mr-12`}>
                     <div className={`flex flex-col w-full md:w-4/5 items-end`}>
                         <a className={`bg-gray-600 text-white px-6 py-2 rounded-t-lg`} href={`https://github.com/Welfordian/portfolio-gatsby/blob/main/src/pages/terminal.js`} target="_blank" rel="noopener">
-                            <FontAwesomeIcon className={`mr-3`} icon={faExternalLink}></FontAwesomeIcon>
+                            <ArrowTopRightOnSquareIcon className={`mr-3 h-5 w-5 inline`} />
 
                             Source
                         </a>
@@ -217,11 +216,10 @@ class Terminal extends React.Component {
                             </div>
 
                             <div>
-                                <FontAwesomeIcon
+                                <QuestionMarkCircleIcon
                                     onClick={() => this.setState({ modalOpen: true })}
-                                    className={`text-white mr-2 cursor-pointer`}
-                                    icon={faQuestionCircle}
-                                ></FontAwesomeIcon>
+                                    className={`text-white mr-2 cursor-pointer h-5 w-5`}
+                                ></QuestionMarkCircleIcon>
                             </div>
                         </div>
                         <div ref={this.terminal} className={`relative grow flex flex-col bg-black text-white overflow-y-scroll rounded-b-lg px-2 py-1`}>

@@ -1,6 +1,5 @@
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClock, faUserMusic} from "@fortawesome/pro-solid-svg-icons";
+import { ClockIcon, UserIcon } from "@heroicons/react/24/outline";
 
 export default class TracksSkeleton extends React.Component {
     render () {
@@ -17,12 +16,12 @@ export default class TracksSkeleton extends React.Component {
 
                                     <div className="flex flex-col px-4 py-3 bg-black/[0.6]">
                                         <p className="font-semibold flex h-3">
-                                            <FontAwesomeIcon className="mr-3" icon={faUserMusic} />
+                                            <UserIcon className="mr-3 h-4 w-4" />
                                             <p className={`w-2/3 h-3 bg-gray-500 animate-pulse-fast`}>&nbsp;</p>
                                         </p>
                                         
                                         <p className="mt-3 font-semibold flex h-3 mt-6 mb-1">
-                                            <FontAwesomeIcon className="mr-4" icon={faClock} />
+                                            <ClockIcon className="mr-4 h-4 w-4" />
                                             <p className={`w-1/2 h-3 bg-gray-500 animate-pulse-fast`}>&nbsp;</p>
                                         </p>
                                     </div>

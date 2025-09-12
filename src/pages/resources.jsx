@@ -7,8 +7,7 @@ import ResourcesContainer from "../components/Resources/ResourcesContainer";
 import ResourcesSkeleton from "../components/Resources/ResourcesSkeleton";
 import SocialLinks from "../components/SocialLinks";
 import Modal from "../components/Modal";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 
 class Resources extends React.Component {
     constructor(props) {
@@ -38,7 +37,7 @@ class Resources extends React.Component {
                 <SocialLinks />
                 
                 <p className="text-4xl mt-24 flex items-center gap-2 dark:text-gray-300">
-                    <FontAwesomeIcon className={`cursor-pointer`} icon={faQuestionCircle} onClick={() => { this.setState({ modalOpen: true })}}></FontAwesomeIcon>
+                    <QuestionMarkCircleIcon className={`h-6 w-6 cursor-pointer`} onClick={() => { this.setState({ modalOpen: true })}}></QuestionMarkCircleIcon>
                     Resources
                 </p>
 

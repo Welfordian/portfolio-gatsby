@@ -5,8 +5,7 @@ import Cookies from 'js-cookie'
 import { SpotifyAuth, Scopes } from 'react-spotify-auth'
 import Layout from "../components/Layout";
 import App from "../components/Youtify/app";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSync} from "@fortawesome/pro-solid-svg-icons";
+import { ImSpinner8 } from "react-icons/im";
 import {Helmet} from "react-helmet";
 
 const isBrowser = typeof window !== "undefined"

@@ -1,6 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faRepeat} from "@fortawesome/pro-solid-svg-icons";
+import { RiRepeat2Line } from "react-icons/ri";
 import axios from "axios";
 
 class RepeatButton extends React.Component {
@@ -33,7 +32,7 @@ class RepeatButton extends React.Component {
     render() {
         return (
             <div onClick={() => {this.toggleRepeat()}} className={`${this.props.playerState.track_window.next_tracks.length ? "text-white" : "text-gray-300"} inline p-4 inline-flex items-center justify-center rounded-full`}>
-                <FontAwesomeIcon className={`${this.props.playerState.repeat_mode > 0 ? "text-green-400" : 'text-white'}`} icon={faRepeat} />
+                <RiRepeat2Line className={`${this.props.playerState.repeat_mode > 0 ? "text-green-400" : 'text-white'}`} />
             </div>
         );
     }

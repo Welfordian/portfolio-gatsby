@@ -1,6 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSync} from "@fortawesome/pro-solid-svg-icons";
+import { ImSpinner8 } from "react-icons/im";
 
 const isBrowser = typeof window !== "undefined"
 
@@ -48,7 +47,7 @@ class AppUpdateAvailable extends React.Component {
                         type="button" 
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-black font-medium text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center"
                     >
-                        <FontAwesomeIcon className={`mr-2`} icon={faSync}></FontAwesomeIcon>
+                        <ImSpinner8 className={`mr-2 animate-spin`} />
                         
                         Refresh Now
                     </button>

@@ -1,9 +1,8 @@
 import React from "react";
 import { isLoggedIn, logout } from "../services/auth";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedin, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
 import NavItem from "./NavItem";
-import {faBars, faTimes} from "@fortawesome/pro-solid-svg-icons";
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -98,13 +97,9 @@ export default class Header extends React.Component {
                             {
                                 this.state.navOpen
                                 ?
-                                    <FontAwesomeIcon
-                                        icon={faTimes}
-                                    ></FontAwesomeIcon>
+                                    <XMarkIcon className={`h-5 w-5`}></XMarkIcon>
                                 :
-                                    <FontAwesomeIcon
-                                        icon={faBars}
-                                    ></FontAwesomeIcon>    
+                                    <Bars3Icon className={`h-5 w-5`}></Bars3Icon>    
                             }
 
                             {
@@ -139,15 +134,15 @@ export default class Header extends React.Component {
                         ?
                             <div className={`flex mt-4`}>
                                 <NavItem to={'https://link.welford.me/twitter'} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
+                                    <SiTwitter className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                                 </NavItem>
 
                                 <NavItem to={`https://link.welford.me/github`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
+                                    <SiGithub className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                                 </NavItem>
 
                                 <NavItem to={`https://link.welford.me/linkedin`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
+                                    <SiLinkedin className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                                 </NavItem>
                             </div>
                         :
@@ -161,17 +156,17 @@ export default class Header extends React.Component {
                 >
                     <div className="flex justify-center font-bold">
                         <NavItem to={'https://link.welford.me/twitter'} external={true} aria-label="Link to Twitter">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
+                            <SiTwitter className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                             <span style={{position: 'absolute', top: '-999999em'}}>Link to Twitter</span>
                         </NavItem>
 
                         <NavItem to={`https://link.welford.me/github`} external={true} aria-label="Link to GitHub">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
+                            <SiGithub className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                             <span style={{position: 'absolute', top: '-999999em'}}>Link to GitHub</span>
                         </NavItem>
 
                         <NavItem to={`https://link.welford.me/linkedin`} external={true} aria-label="Link to LinkedIn">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
+                            <SiLinkedin className={`text-xl h-5`} onClick={() => this.toggleNav()} />
                             <span style={{position: 'absolute', top: '-999999em'}}>Link to LinkedIn</span>
                         </NavItem>
                     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
@@ -20,7 +19,7 @@ class Search extends React.Component {
         return (
             <div className="w-full border-b border-gray-600 relative">
                 <input value={this.state.searchText} type="text" className="bg-black dark:bg-gray-800 text-white p-2 outline-none w-full pr-9 rounded-none" placeholder="Search..." onChange={e => this.setState({searchText: (e.target.value)})} onKeyUp={(e) => this.performSearch(e)} />
-                <FontAwesomeIcon icon={faSearch} className="absolute right-0 text-white mt-3 mr-3" />
+                <MagnifyingGlassIcon className="absolute right-0 text-white mt-3 mr-3 h-4 w-4" />
                 
                 <div className={`absolute bg-gray-900 w-full px-2 py-3 text-white ${this.state.results.length ? '' : 'hidden'}`}>
                     {
