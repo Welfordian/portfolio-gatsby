@@ -1,8 +1,9 @@
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
-    "./src/services/Terminal/**/*.{js,jsx,ts,tsx}"  
+    "./src/pages/**/*.{js,jsx,ts,tsx,astro}",
+    "./src/components/**/*.{js,jsx,ts,tsx,astro}",
+    "./src/layouts/**/*.{js,jsx,ts,tsx,astro}",
+    "./src/services/Terminal/**/*.{js,jsx,ts,tsx}"
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {

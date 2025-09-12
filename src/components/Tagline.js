@@ -1,6 +1,5 @@
 import React from "react";
-import TextScrambler from 'react-scramble-text'
-import 'react-scramble-text/dist/index.css'
+import TextScrambler from './TextScrambler'
 
 export default class Tagline extends React.Component {
     constructor(props) {

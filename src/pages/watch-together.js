@@ -1,5 +1,4 @@
 import * as React from "react"
-import { navigate } from 'gatsby';
 import Layout from "../components/Layout";
 import Modal from "../components/Modal";
 import {isBrowser} from "../services/auth";

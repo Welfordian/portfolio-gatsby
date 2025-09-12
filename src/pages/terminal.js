@@ -14,7 +14,6 @@ import date from '../services/Terminal/date';
 import sudo from '../services/Terminal/sudo';
 import history from '../services/Terminal/history';
 import JurassicPark from '../services/Terminal/JurassicPark';
-import {graphql} from "gatsby";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faExternalLink, faQuestionCircle} from "@fortawesome/pro-solid-svg-icons";

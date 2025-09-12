@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import React from 'react'
+import AppShell from '../react/AppShell'
+import Music from './react-pages/MusicWrapper'
+---
+<BaseLayout>
+	<AppShell urlPathname={Astro.url.pathname}>
+		<Music client:load />
+	</AppShell>
+</BaseLayout>

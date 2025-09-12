@@ -8,24 +8,15 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
 function Seo({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+  const defaultSite = {
+    title: 'Joshua Welford',
+    description: 'Joshua Welford',
+    author: '@welfordian',
+  }
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || defaultSite.description
 
   return (
     <Helmet
@@ -57,7 +48,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: defaultSite.author,
         },
         {
           name: `twitter:title`,

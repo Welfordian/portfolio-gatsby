@@ -1,5 +1,4 @@
 import React from "react"
-import { navigate } from "gatsby"
 import {handleLogin, isBrowser, isLoggedIn} from "../services/auth"
 import Layout from "../components/Layout";
 import Notification from "../components/Notification";
