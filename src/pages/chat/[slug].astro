@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import React from 'react'
+import AppShell from '../../react/AppShell'
+import Chat from '../../components/Chat/chat'
+---
+<BaseLayout>
+	<AppShell urlPathname={Astro.url.pathname}>
+		<Chat client:load />
+	</AppShell>
+</BaseLayout>

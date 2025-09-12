@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "gatsby";
+// Replaced Gatsby Link with standard anchor for Astro routing
 
 class Navigation extends React.Component {
     render () {
@@ -8,7 +8,7 @@ class Navigation extends React.Component {
                 {this.props.children}
                 
                 <div className="flex flex-col h-full bg-black/80">
-                    <Link to={"posts"} className={`px-6 py-4 bg-gray-500 hover:bg-gray-400`}>Posts</Link>
+                    <a href={"/dashboard/posts"} className={`px-6 py-4 bg-gray-500 hover:bg-gray-400`}>Posts</a>
                 </div>
             </div>
         )

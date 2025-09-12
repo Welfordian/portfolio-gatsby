@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "gatsby";
 import NavItem from "./NavItem";
 
 export default class NotFound extends React.Component {

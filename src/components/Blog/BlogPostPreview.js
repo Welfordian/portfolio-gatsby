@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "gatsby";
+// Replaced Gatsby Link with standard anchor for Astro routing
 import BlogTags from "./BlogTags";
 
 export default class BlogPostPreview extends React.Component {
@@ -14,10 +14,10 @@ export default class BlogPostPreview extends React.Component {
                 
                 <BlogTags tags={this.props.tags} />
                 
-                <Link 
-                    to={`/blog/${this.props.slug}`}
+                <a 
+                    href={`/blog/${this.props.slug}`}
                     className="mt-8 font-semibold text-gray-500 text-right cursor-pointer hover:text-white dark:hover:text-gray-300"
-                >Read More</Link>
+                >Read More</a>
             </div>
         );
     }

@@ -1,0 +1,10 @@
+import BaseLayout from '../layouts/BaseLayout.astro'
+import React from 'react'
+import AppShell from '../react/AppShell'
+import IndexPage from './react-pages/IndexPageWrapper'
+---
+<BaseLayout>
+	<AppShell urlPathname={Astro.url.pathname}>
+		<IndexPage client:load />
+	</AppShell>
+</BaseLayout>

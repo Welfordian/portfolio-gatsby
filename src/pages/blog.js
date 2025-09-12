@@ -3,7 +3,6 @@ import BlogPosts from "../components/Blog/BlogPosts";
 import "react-activity/dist/Bounce.css";
 import Layout from "../components/Layout";
 import {connect} from "react-redux";
-import {graphql} from "gatsby";
 import BlogTags from "../components/Blog/BlogTags";
 import SocialLinks from "../components/SocialLinks";
 

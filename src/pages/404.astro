@@ -1,0 +1,10 @@
+import BaseLayout from '../layouts/BaseLayout.astro'
+import React from 'react'
+import AppShell from '../react/AppShell'
+import NotFoundPage from './react-pages/NotFoundWrapper'
+---
+<BaseLayout>
+	<AppShell urlPathname={Astro.url.pathname}>
+		<NotFoundPage client:load />
+	</AppShell>
+</BaseLayout>
