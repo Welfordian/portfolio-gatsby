@@ -12,7 +12,6 @@ module.exports = {
     author: `@welfordian`,
   },
   plugins: [
-    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,

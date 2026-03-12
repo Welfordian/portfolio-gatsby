@@ -3,6 +3,7 @@ import CaseStudies from "../components/Home/CaseStudies";
 import PersonalProjects from "../components/Home/PersonalProjects";
 import Experiments from "../components/Home/Experiments";
 import SocialLinks from "../components/SocialLinks";
+import StayTuned from "../components/StayTuned";
 
 class IndexPage extends React.Component {
     constructor(props) {
@@ -12,11 +13,7 @@ class IndexPage extends React.Component {
     render() {
         return (
             <>
-                <SocialLinks />
-
-                <PersonalProjects />
-
-                <Experiments />
+                <StayTuned />
             </>
         );
     }

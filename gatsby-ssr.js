@@ -5,7 +5,7 @@
  */
 
 // You can delete this file if you're not using it
-import React, { Component }  from 'react';
+import React from 'react';
 import "./src/css/index.css"
 
 import wrapWithProvider from "./wrap-with-provider"
@@ -24,10 +24,14 @@ export function onRenderBody(
     { setHeadComponents }
 ) {
     setHeadComponents([
-        <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>,
-        <link rel="preconnect" href="https://imagedelivery.net" />,
-        <link rel="dns-prefetch" href="https://imagedelivery.net" />,
-        <link rel="preconnect" href="https://api.welford.me" />,
-        <link rel="dns-prefetch" href="https://api.welford.me" />
+        <script
+            key="lazyload-script"
+            async
+            src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"
+        />,
+        <link key="preconnect-imagedelivery" rel="preconnect" href="https://imagedelivery.net" />,
+        <link key="dns-imagedelivery" rel="dns-prefetch" href="https://imagedelivery.net" />,
+        <link key="preconnect-api" rel="preconnect" href="https://api.welford.me" />,
+        <link key="dns-api" rel="dns-prefetch" href="https://api.welford.me" />
     ]);
 }

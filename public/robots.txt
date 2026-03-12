@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://welford.me/sitemap/sitemap-index.xml
+Sitemap: https://welford.me/sitemap-index.xml
 Host: https://welford.me

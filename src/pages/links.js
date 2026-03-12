@@ -29,14 +29,6 @@ const LinksPage = () => (
 
                 <Link
                     className="mt-4"
-                    to="https://link.welford.me/twitter"
-                    icon={<FontAwesomeIcon icon={faTwitter} />}
-                >
-                    Twitter
-                </Link>
-
-                <Link
-                    className="mt-4"
                     to="https://link.welford.me/instagram"
                     icon={<FontAwesomeIcon icon={faInstagram} />}
                 >

@@ -28,21 +28,21 @@ export default class Header extends React.Component {
     componentDidMount() {
         this.setPage(this.props.location.pathname);
         
-        this.setState({
-            isMobile: document.body.clientWidth <= 768,
-            navOpen: document.body.clientWidth >= 768,
-        })
+        // this.setState({
+        //     isMobile: document.body.clientWidth <= 768,
+        //     navOpen: document.body.clientWidth >= 768,
+        // })
         
-        window.addEventListener('resize', () => {
-            this.setState({
-                isMobile: document.body.clientWidth <= 768,
-                navOpen: document.body.clientWidth >= 768,
-            }, () => {
-                if (! this.state.isMobile) {
-                    document.querySelector('body').classList.remove('overflow-hidden');
-                }
-            })
-        })
+        // window.addEventListener('resize', () => {
+        //     this.setState({
+        //         isMobile: document.body.clientWidth <= 768,
+        //         navOpen: document.body.clientWidth >= 768,
+        //     }, () => {
+        //         if (! this.state.isMobile) {
+        //             document.querySelector('body').classList.remove('overflow-hidden');
+        //         }
+        //     })
+        // })
         
         window.addEventListener('scroll', e => {
             const scrollY = window.scrollY;
@@ -77,24 +77,31 @@ export default class Header extends React.Component {
     
     closeNav() {
         if (this.state.isMobile) {
+            document.querySelector('body').classList.remove('overflow-hidden');
             this.setState({ navOpen: false })
         }
     }
-    
-    mobileClass() {
-        if (! this.state.isMobile) return "w-auto";
-        if (! this.state.navOpen) return "w-0 overflow-hidden";
-        
-        return "!w-full h-screen";
-    }
 
     render () {
+        //const showMobileMenu = this.state.isMobile && this.state.navOpen;
+        //const showDesktopMenu = !this.state.isMobile;
+
+        const showMobileMenu = false;
+        const showDesktopMenu = false;
+
         return (
             <div className={`navigation overflow-hidden flex flex-col md:flex-row mt-0 ml-0 md:ml-4 justify-between fixed md:mt-8 container mx-4 md:p-4 z-50 pointer-events-none`}>
                 {
                     this.state.isMobile 
                     ? 
-                        <div className={`${this.state.navOpen ? 'dark:bg-black dark:text-white bg-white w-full' : 'w-8'} pt-10 transition-all md:hidden pointer-events-auto p-2 flex items-center justify-between dark:text-white`} onClick={() => this.toggleNav()}>
+                        <button
+                            type="button"
+                            aria-label="Toggle navigation"
+                            aria-expanded={this.state.navOpen}
+                            aria-controls="mobile-navigation"
+                            className={`${this.state.navOpen ? 'dark:bg-black dark:text-white bg-white w-full' : 'w-8'} pt-10 transition-all md:hidden pointer-events-auto p-2 flex items-center justify-between dark:text-white`}
+                            onClick={() => this.toggleNav()}
+                        >
                             {
                                 this.state.navOpen
                                 ?
@@ -113,69 +120,68 @@ export default class Header extends React.Component {
                                     <p className={`justify-self-center pretty-font`}>JW</p>
                                 : <></>    
                             }
-                        </div>
+                        </button>
                     : ""
                 }
                 
-                <div 
-                    ref={this.links}
-                    className={`${this.mobileClass()} w-0 pointer-events-auto flex flex-col md:flex-row flex-wrap items-center w-full md:w-auto items-center md:mt-0 gap-1 md:p-2 bg-white dark:bg-black transition-all z-40`}
-                >
-                    <NavItem to="/" page={this.state.page} onClick={() => this.toggleNav()}>Home</NavItem>
-                    <NavItem to="/music" page={this.state.page} onClick={() => this.toggleNav()}>Music</NavItem>
-                    <NavItem to="/resources" page={this.state.page} onClick={() => this.toggleNav()}>Resources</NavItem>
-                    <NavItem to="https://resources.josh.workers.dev/resume" external={true} page={this.state.page} onClick={() => this.toggleNav()}>Resume</NavItem>
-                    {
-                        isLoggedIn()
-                            ?
-                            <>
-                                <NavItem to="/dashboard/" page={this.state.page} onClick={() => this.toggleNav()}>Dashboard</NavItem>
-                                <NavItem to="/blog" page={this.state.page} onClick={() => { logout() }}>Logout</NavItem>
-                            </> : <></>
-                    }
+                {
+                    (showDesktopMenu || showMobileMenu)
+                    ?
+                        <div
+                            id="mobile-navigation"
+                            ref={this.links}
+                            className={`pointer-events-auto flex flex-col md:flex-row flex-wrap items-center ${this.state.isMobile ? 'w-full h-screen' : 'w-full md:w-auto'} md:mt-0 gap-1 md:p-2 bg-white dark:bg-black transition-all z-40`}
+                        >
+                            <NavItem to="/" page={this.state.page} onClick={() => this.closeNav()}>Home</NavItem>
+                            {
+                                isLoggedIn()
+                                    ?
+                                    <>
+                                        <NavItem to="/dashboard/" page={this.state.page} onClick={() => this.closeNav()}>Dashboard</NavItem>
+                                        <NavItem to="/blog" page={this.state.page} onClick={() => { this.closeNav(); logout(); }}>Logout</NavItem>
+                                    </> : <></>
+                            }
 
-                    {
-                        this.state.isMobile
-                        ?
-                            <div className={`flex mt-4`}>
-                                <NavItem to={'https://link.welford.me/twitter'} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
+                            {
+                                this.state.isMobile
+                                ?
+                                    <div className={`flex mt-4`}>
+                                        <NavItem to={`https://link.welford.me/github`} external={true} >
+                                            <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} onClick={() => this.closeNav()} />
+                                        </NavItem>
+
+                                        <NavItem to={`https://link.welford.me/linkedin`} external={true} >
+                                            <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} onClick={() => this.closeNav()} />
+                                        </NavItem>
+                                    </div>
+                                :
+                                    <></>    
+                            }
+                        </div>
+                    : ""
+                }
+
+                {
+                    showDesktopMenu
+                    ?
+                        <div
+                            ref={this.socials}
+                            className={`pointer-events-auto flex flex-col flex-wrap items-center md:w-auto items-center md:mt-0 gap-1 p-2 bg-white dark:bg-black md:mr-8 transition-all z-50`}
+                        >
+                            <div className="flex justify-center font-bold">
+                                <NavItem to={`https://link.welford.me/github`} external={true} aria-label="Link to GitHub">
+                                    <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.closeNav()} />
+                                    <span style={{position: 'absolute', top: '-999999em'}}>Link to GitHub</span>
                                 </NavItem>
 
-                                <NavItem to={`https://link.welford.me/github`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
-                                </NavItem>
-
-                                <NavItem to={`https://link.welford.me/linkedin`} external={true} >
-                                    <FontAwesomeIcon className={`text-xl`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
+                                <NavItem to={`https://link.welford.me/linkedin`} external={true} aria-label="Link to LinkedIn">
+                                    <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.closeNav()} />
+                                    <span style={{position: 'absolute', top: '-999999em'}}>Link to LinkedIn</span>
                                 </NavItem>
                             </div>
-                        :
-                            <></>    
-                    }
-                </div>
-
-                <div 
-                    ref={this.socials}
-                    className={`${this.mobileClass()} w-0 pointer-events-auto flex flex-col flex-wrap items-center md:w-auto items-center md:mt-0 gap-1 p-2 bg-white dark:bg-black md:mr-8 transition-all z-50`}
-                >
-                    <div className="flex justify-center font-bold">
-                        <NavItem to={'https://link.welford.me/twitter'} external={true} aria-label="Link to Twitter">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faTwitter} onClick={() => this.toggleNav()} />
-                            <span style={{position: 'absolute', top: '-999999em'}}>Link to Twitter</span>
-                        </NavItem>
-
-                        <NavItem to={`https://link.welford.me/github`} external={true} aria-label="Link to GitHub">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faGithub} onClick={() => this.toggleNav()} />
-                            <span style={{position: 'absolute', top: '-999999em'}}>Link to GitHub</span>
-                        </NavItem>
-
-                        <NavItem to={`https://link.welford.me/linkedin`} external={true} aria-label="Link to LinkedIn">
-                            <FontAwesomeIcon className={`text-xl h-5`} size={'sm'} icon={faLinkedin} onClick={() => this.toggleNav()} />
-                            <span style={{position: 'absolute', top: '-999999em'}}>Link to LinkedIn</span>
-                        </NavItem>
-                    </div>
-                </div>
+                        </div>
+                    : ""
+                }
             </div>
         );
     }

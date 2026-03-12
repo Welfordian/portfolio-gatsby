@@ -1,6 +1,1 @@
-{
-    "componentChunkName": "component---src-pages-youtify-js",
-    "path": "/youtify/:slug",
-    "result": {"pageContext":{"matchPath":"/youtify/:slug"}},
-    "staticQueryHashes": ["63159454"],
-    "matchPath": "/youtify/:slug"}
+{"componentChunkName":"component---src-pages-youtify-js","path":"/youtify/:slug/","result":{"pageContext":{}},"staticQueryHashes":["63159454"],"slicesMap":{},"matchPath":"/youtify/:slug"}

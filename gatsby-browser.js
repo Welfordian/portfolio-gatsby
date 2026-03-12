@@ -5,7 +5,7 @@
  */
 
 // You can delete this file if you're not using it
-import React, { Component }  from 'react';
+import React from 'react';
 import "./src/css/index.css"
 
 import wrapWithProvider from "./wrap-with-provider"

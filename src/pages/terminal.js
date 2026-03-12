@@ -61,21 +61,6 @@ class Terminal extends React.Component {
                     children: []
                 },
                 {
-                    name: 'music.webloc',
-                    contents: '',
-                    children: []
-                },
-                {
-                    name: 'resources.webloc',
-                    contents: '',
-                    children: []
-                },
-                {
-                    name: 'resume.webloc',
-                    contents: '',
-                    children: []
-                },
-                {
                     name: 'socials',
                     link: 'https://l.welford.me',
                     children: [
@@ -86,10 +71,6 @@ class Terminal extends React.Component {
                         {
                             name: 'linkedin.webloc',
                             link: 'https://link.welford.me/linkedin'
-                        },
-                        {
-                            name: 'twitter.webloc',
-                            link: 'https://link.welford.me/twitter'
                         },
                         {
                             name: 'instagram.webloc',
