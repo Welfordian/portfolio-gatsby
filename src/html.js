@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
     return (
-        <html {...props.htmlAttributes} className="dark:bg-black">
+        <html {...props.htmlAttributes} className="dark dark:bg-black">
         <head>
             <meta charSet="utf-8" />
             <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -13,15 +13,14 @@ export default function HTML(props) {
             />
             {props.headComponents}
         </head>
-        <body {...props.bodyAttributes}>
+        <body {...props.bodyAttributes} className="dark:bg-black">
         {props.preBodyComponents}
         <div
             key={`body`}
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        {props.postBodyComponents}
-	<a rel="me" href="https://social.welford.me/@josh"></a>
+            {props.postBodyComponents}
         </body>
         </html>
     )
