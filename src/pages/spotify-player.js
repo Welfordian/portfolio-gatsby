@@ -1,7 +1,7 @@
 import React from 'react'
 import { SpotifyApiContext } from 'react-spotify-api'
 import Cookies from 'js-cookie'
-import { SpotifyAuth, Scopes } from 'react-spotify-auth'
+import SpotifyAuthButton, { SpotifyScopes } from '../components/SpotifyAuthButton'
 import App from "../components/SpotifyPlayer/App";
 import {Helmet} from "react-helmet";
 
@@ -36,10 +36,10 @@ class SpotifyPlayer extends React.Component {
                 ) : (
                     // Display the login page
                     <div className="flex justify-center mt-12">
-                        <SpotifyAuth
+                        <SpotifyAuthButton
                             redirectUri='https://welford.me/spotify-player/'
                             clientID='6d08c3a931c74f95813b4f181ef0ad50'
-                            scopes={[Scopes.userReadPrivate, Scopes.userReadEmail, Scopes.streaming]}
+                            scopes={[SpotifyScopes.userReadPrivate, SpotifyScopes.userReadEmail, SpotifyScopes.streaming]}
                             title={"Connect to Spotify"}
                             logoClassName={"w-8 mr-8 fill-current text-white"}
                             btnClassName={"flex bg-black text-white items-center px-8 py-3 dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900"}

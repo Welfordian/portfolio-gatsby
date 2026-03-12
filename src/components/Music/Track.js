@@ -1,6 +1,5 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import DetectableOverflow from 'react-detectable-overflow';
 import moment from "moment";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock, faStop, faUserMusic, faPlay} from "@fortawesome/pro-solid-svg-icons";
@@ -22,8 +21,15 @@ export default class Track extends React.Component {
         }
 
         this.audioRef = React.createRef();
+        this.trackNameRef = React.createRef();
+
+        this.resizeObserver = null;
+        this.progressAnimationFrame = null;
 
         this.explicit = <div className={`bg-gray-700 shadow-md text-white px-2 py-1`}>Explicit</div>
+
+        this.previewProgress = this.previewProgress.bind(this);
+        this.updateOverflowState = this.updateOverflowState.bind(this);
     }
 
     componentDidMount() {
@@ -37,7 +43,8 @@ export default class Track extends React.Component {
             }
         }
 
-        requestAnimationFrame(this.previewProgress.bind(this))
+        this.observeOverflow();
+        this.progressAnimationFrame = requestAnimationFrame(this.previewProgress)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -45,6 +52,38 @@ export default class Track extends React.Component {
             this.setState({
                 isOverflowed: false,
             })
+
+            requestAnimationFrame(this.updateOverflowState);
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.resizeObserver) {
+            this.resizeObserver.disconnect();
+            this.resizeObserver = null;
+        }
+
+        if (this.progressAnimationFrame) {
+            cancelAnimationFrame(this.progressAnimationFrame);
+        }
+    }
+
+    observeOverflow() {
+        this.updateOverflowState();
+
+        if (typeof ResizeObserver !== 'undefined' && this.trackNameRef.current) {
+            this.resizeObserver = new ResizeObserver(this.updateOverflowState);
+            this.resizeObserver.observe(this.trackNameRef.current);
+        }
+    }
+
+    updateOverflowState() {
+        const trackNameNode = this.trackNameRef.current;
+        if (!trackNameNode) return;
+
+        const isOverflowed = trackNameNode.scrollWidth > trackNameNode.clientWidth;
+        if (isOverflowed !== this.state.isOverflowed) {
+            this.setState({ isOverflowed });
         }
     }
 
@@ -73,7 +112,7 @@ export default class Track extends React.Component {
             })
         }
 
-        requestAnimationFrame(this.previewProgress.bind(this));
+        this.progressAnimationFrame = requestAnimationFrame(this.previewProgress);
     }
 
     pausePreview() {
@@ -106,9 +145,12 @@ export default class Track extends React.Component {
                                 <span className={`hello ${this.state.isOverflowed ? '' : 'hidden'}`}>{this.props.track.name}</span>
                             </Marquee>
 
-                            <DetectableOverflow onChange={isOverflowed => { setTimeout(() => { this.setState({ isOverflowed }); }, 500) }}>
-                                <p className={`${this.state.isOverflowed ? 'w-0 h-0': ''}`}>{this.props.track.name}</p>
-                            </DetectableOverflow>
+                            <p
+                                ref={this.trackNameRef}
+                                className={`${this.state.isOverflowed ? 'w-0 h-0': ''}`}
+                            >
+                                {this.props.track.name}
+                            </p>
                         </div>
                     </div>
 

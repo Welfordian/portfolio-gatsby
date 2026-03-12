@@ -47,18 +47,15 @@
     "react": "^18.3.1",
     "react-activity": "^2.1.1",
     "react-contenteditable": "^3.3.6",
-    "react-detectable-overflow": "^0.6.2",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.3.2",
     "react-helmet": "^6.1.0",
     "react-redux": "^7.2.4",
-    "react-scramble-text": "^1.0.1",
     "react-spotify-api": "^3.0.0",
-    "react-spotify-auth": "^1.3.4",
-    "react-spotify-web-playback": "^0.8.2",
     "react-tabs": "^5.1.0",
     "react-tiny-popover": "^7.1.0",
     "react-youtube": "^9.0.3",
+    "redux": "^4.2.1",
     "repeating": "^4.0.0",
     "rsuite": "^4.10.2",
     "socket.io-client": "^4.5.1",
@@ -66,7 +63,9 @@
     "vanilla-lazyload": "^17.8.3"
   },
   "devDependencies": {
-    "prettier": "2.3.2"
+    "@babel/core": "^7.0.0",
+    "prettier": "2.3.2",
+    "webpack": "^5.0.0"
   },
   "keywords": [
     "gatsby"
@@ -87,5 +86,6 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "packageManager": "yarn@4.13.0"
 }

@@ -2,7 +2,6 @@ import React from "react";
 import Track from "./Track";
 import axios from "axios";
 import TracksSkeleton from "./TracksSkeleton";
-import Spinner from '../../images/Spinner.svg'
 import NowPlaying from "../NowPlaying";
 import Search from "./Search";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -104,7 +103,7 @@ export default class Tracks extends React.Component {
                                 {
                                     this.state.isLoadingMore
                                         ?
-                                        <Spinner className={`w-6 text-white`} />
+                                        <FontAwesomeIcon size={`lg`} icon={faSpinner} className={`text-white fa-spin`} />
                                         :
                                         <span>Load More</span>
                                 }

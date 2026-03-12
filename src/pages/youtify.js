@@ -2,7 +2,7 @@ import React from 'react'
 import { SpotifyApiContext } from 'react-spotify-api'
 import Cookies from 'js-cookie'
 
-import { SpotifyAuth, Scopes } from 'react-spotify-auth'
+import SpotifyAuthButton, { SpotifyScopes } from '../components/SpotifyAuthButton'
 import Layout from "../components/Layout";
 import App from "../components/Youtify/app";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -38,10 +38,10 @@ class Youtify extends React.Component {
                     </SpotifyApiContext.Provider>
                 ) : (
                     <div className="flex flex-col items-center justify-center mt-12">
-                        <SpotifyAuth
+                        <SpotifyAuthButton
                             redirectUri='https://welford.me/youtify/'
                             clientID='6d08c3a931c74f95813b4f181ef0ad50'
-                            scopes={[Scopes.userReadPrivate, 'user-read-email']}
+                            scopes={[SpotifyScopes.userReadPrivate, SpotifyScopes.userReadEmail]}
                             title={"Connect to Spotify"}
                             logoClassName={"w-8 mr-8 fill-current text-white"}
                             btnClassName={"flex bg-black text-white items-center px-8 py-3 w-full md:w-2/4 lg:w-1/4 text-center justify-center dark:bg-gradient-to-tr dark:from-gray-800 dark:via-gray-700 dark:to-gray-900"}
